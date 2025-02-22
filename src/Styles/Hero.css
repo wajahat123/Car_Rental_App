@@ -1,0 +1,18 @@
+.Hero {
+    
+ background-image: url("../../public/assets/images/cars1.png");
+ background-blend-mode: darken;
+ background-size: contain;
+ background-repeat: no-repeat;
+ background-position: right;
+ min-height: 600px;
+}
+.gradient {
+    background: linear-gradient(to right, #0000007a, #000000,transparent);
+    opacity: 0.9;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}

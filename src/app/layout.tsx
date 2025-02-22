@@ -27,16 +27,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased grid-rows-[auto, 1fr, auto]`}
       >
-        <header>
-          <Navbar/>
+        <header className="px-4 sm:px-8 md:px-16 lg:px-32 overflow-x-hidden  xl:px-64 max-w-7xl w-full mx-auto min-h-screen">
+          <Navbar />
         </header>
-<main>
+<main className="px-4 sm:px-8 md:px-16 lg:px-32 overflow-x-hidden  xl:px-64 max-w-7xl w-full mx-auto min-h-screen">
 {children}
 </main>
-<footer>
-
+<footer className=" bg-gray-700 px-4 sm:px-8 md:px-16 lg:px-32 overflow-x-hidden  xl:px-64 max-w-7xl w-full mx-auto min-h-screen">
+footer
 </footer>
       </body>
     </html>
