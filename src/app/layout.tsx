@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,17 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased grid-rows-[auto, 1fr, auto]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col text-sm md:text-base lg:text-lg`}
       >
-        <header className="px-4 sm:px-8 md:px-16 lg:px-32 overflow-x-hidden  xl:px-64 max-w-7xl w-full mx-auto min-h-screen">
+        <header className=" bg-background text-text-secondary text-lg shadow-lux-gold">
           <Navbar />
         </header>
-<main className="px-4 sm:px-8 md:px-16 lg:px-32 overflow-x-hidden  xl:px-64 max-w-7xl w-full mx-auto min-h-screen">
-{children}
-</main>
-<footer className=" bg-gray-700 px-4 sm:px-8 md:px-16 lg:px-32 overflow-x-hidden  xl:px-64 max-w-7xl w-full mx-auto min-h-screen">
-footer
-</footer>
+        <main className="flex-grow ">
+          {children}
+        </main>
+        <footer className="bg-gray-700 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 max-w-7xl w-full mx-auto py-6 text-white text-center">
+          Footer Content
+        </footer>
       </body>
     </html>
   );
