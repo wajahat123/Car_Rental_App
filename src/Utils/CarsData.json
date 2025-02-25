@@ -1,0 +1,158 @@
+[
+    {
+      "id": 1,
+      "name": "Koenigsegg",
+      "type": "Sport",
+      "fuel_capacity": "90L",
+      "transmission": "Manual",
+      "seating_capacity": "2 People",
+      "price_per_day": "$99.00/day",
+      "tags": ["popular"]
+    },
+    {
+      "id": 2,
+      "name": "Nissan GT-R",
+      "type": "Sport",
+      "fuel_capacity": "80L",
+      "transmission": "Manual",
+      "seating_capacity": "2 People",
+      "price_per_day": "$80.00/day",
+      "original_price": "$100.00",
+      "tags": ["popular"]
+    },
+    {
+      "id": 3,
+      "name": "Rolls-Royce",
+      "type": "Sedan",
+      "fuel_capacity": "70L",
+      "transmission": "Manual",
+      "seating_capacity": "4 People",
+      "price_per_day": "$96.00/day",
+      "tags": ["popular"]
+    },
+    {
+      "id": 5,
+      "name": "Tesla Model 3",
+      "type": "Electric",
+      "fuel_capacity": "100kWh",
+      "transmission": "Manual",
+      "seating_capacity": "5 seats",
+      "price_per_day": "$100.00/day",
+      "tags": ["recommended"]
+    },
+    {
+      "id": 6,
+      "name": "Ford Mustang",
+      "type": "Gasoline",
+      "fuel_capacity": "60L",
+      "transmission": "Manual",
+      "seating_capacity": "4 seats",
+      "price_per_day": "$80.00/day",
+      "tags": ["recommended"]
+    }
+  ,
+    {
+      "id": 1,
+      "name": "Koenigsegg",
+      "type": "Sport",
+      "fuel_capacity": "90L",
+      "transmission": "Manual",
+      "seating_capacity": "2 People",
+      "price_per_day": "$99.00/day",
+      "tags": ["popular"]
+    },
+    {
+      "id": 2,
+      "name": "Nissan GT-R",
+      "type": "Sport",
+      "fuel_capacity": "80L",
+      "transmission": "Manual",
+      "seating_capacity": "2 People",
+      "price_per_day": "$80.00/day",
+      "original_price": "$100.00",
+      "tags": ["popular"]
+    },
+    {
+      "id": 3,
+      "name": "Rolls-Royce",
+      "type": "Sedan",
+      "fuel_capacity": "70L",
+      "transmission": "Manual",
+      "seating_capacity": "4 People",
+      "price_per_day": "$96.00/day",
+      "tags": ["popular"]
+    },
+    {
+      "id": 5,
+      "name": "Tesla Model 3",
+      "type": "Electric",
+      "fuel_capacity": "100kWh",
+      "transmission": "Manual",
+      "seating_capacity": "5 seats",
+      "price_per_day": "$100.00/day",
+      "tags": ["recommended"]
+    },
+    {
+      "id": 6,
+      "name": "Ford Mustang",
+      "type": "Gasoline",
+      "fuel_capacity": "60L",
+      "transmission": "Manual",
+      "seating_capacity": "4 seats",
+      "price_per_day": "$80.00/day",
+      "tags": ["recommended"]
+    }
+  ,
+    {
+      "id": 1,
+      "name": "Koenigsegg",
+      "type": "Sport",
+      "fuel_capacity": "90L",
+      "transmission": "Manual",
+      "seating_capacity": "2 People",
+      "price_per_day": "$99.00/day",
+      "tags": ["popular"]
+    },
+    {
+      "id": 2,
+      "name": "Nissan GT-R",
+      "type": "Sport",
+      "fuel_capacity": "80L",
+      "transmission": "Manual",
+      "seating_capacity": "2 People",
+      "price_per_day": "$80.00/day",
+      "original_price": "$100.00",
+      "tags": ["popular"]
+    },
+    {
+      "id": 3,
+      "name": "Rolls-Royce",
+      "type": "Sedan",
+      "fuel_capacity": "70L",
+      "transmission": "Manual",
+      "seating_capacity": "4 People",
+      "price_per_day": "$96.00/day",
+      "tags": ["popular"]
+    },
+    {
+      "id": 5,
+      "name": "Tesla Model 3",
+      "type": "Electric",
+      "fuel_capacity": "100kWh",
+      "transmission": "Manual",
+      "seating_capacity": "5 seats",
+      "price_per_day": "$100.00/day",
+      "tags": ["recommended"]
+    },
+    {
+      "id": 6,
+      "name": "Ford Mustang",
+      "type": "Gasoline",
+      "fuel_capacity": "60L",
+      "transmission": "Manual",
+      "seating_capacity": "4 seats",
+      "price_per_day": "$80.00/day",
+      "tags": ["recommended"]
+    }
+  ]
+  
