@@ -1,0 +1,52 @@
+ [
+      {
+        "question": "What are the requirements to rent a car?",
+        "answer": "You must be at least 21 years old, have a valid driver's license, and provide a credit or debit card for payment."
+      },
+      {
+        "question": "Do I need insurance to rent a car?",
+        "answer": "Basic insurance is included, but you can purchase additional coverage for extra protection."
+      },
+      {
+        "question": "Can I rent a car with a debit card?",
+        "answer": "Yes, but a security deposit may be required, and additional verification may be needed."
+      },
+      {
+        "question": "Is there a mileage limit on rental cars?",
+        "answer": "Most rentals come with unlimited mileage, but some may have restrictions. Check the terms for details."
+      },
+      {
+        "question": "Can I return the car to a different location?",
+        "answer": "Yes, but a one-way rental fee may apply. Check availability before booking."
+      },
+      {
+        "question": "What happens if I return the car late?",
+        "answer": "Late returns may incur additional fees. Contact us if you need an extension."
+      },
+      {
+        "question": "Are there any hidden fees?",
+        "answer": "All charges are disclosed upfront. Additional fees may apply for extras like GPS, child seats, or additional drivers."
+      },
+      {
+        "question": "Can I rent a car for someone else?",
+        "answer": "Yes, but the primary driver must meet the rental requirements and be present at the time of pickup."
+      },
+      {
+        "question": "Do you offer long-term car rentals?",
+        "answer": "Yes, we offer discounts for weekly and monthly rentals."
+      },
+      {
+        "question": "Can I drive the rental car across country borders?",
+        "answer": "Interstate travel is generally allowed, but international travel may require special arrangements."
+      },
+      {
+        "question": "What should I do if the rental car breaks down?",
+        "answer": "Contact our 24/7 roadside assistance immediately for support and a replacement vehicle if needed."
+      },
+      {
+        "question": "How do I cancel or modify my reservation?",
+        "answer": "You can modify or cancel your reservation online or by contacting our customer service. Cancellation fees may apply."
+      }
+    ]
+  
+  

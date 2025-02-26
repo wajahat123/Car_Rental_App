@@ -1,13 +1,9 @@
 import {
-  Playfair_Display,
   Montserrat,
   Cormorant_Garamond,
 } from "next/font/google";
 
-const playfair = Playfair_Display({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
+
 const montserrat = Montserrat({
   weight: ["400", "600"],
   subsets: ["latin"],
@@ -25,9 +21,9 @@ interface props {
 export const H_One = ({ text, className }: props) => {
   return (
     <h1
-      className={`${className}  text-4xl md:text-5xl font-playfair 
+      className={`${className}  text-4xl md:text-5xl font-montserrat 
         
-         font-bold l ${playfair.className}`}
+         font-bold  ${montserrat.className}`}
     >
       {text}
     </h1>
@@ -37,9 +33,9 @@ export const H_One = ({ text, className }: props) => {
 export const H_Two = ({ text, className }: props) => {
   return (
     <h2
-      className={`${className}  text-3xl md:text-4xl  
+      className={`${className}  text-2xl md:text-4xl  
         
-         font-playfair font-medium ${playfair.className}`}
+         font-montserrat font-bold ${montserrat.className}`}
     >
       {text}
     </h2>

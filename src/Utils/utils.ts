@@ -1,6 +1,7 @@
 export interface Car {
     id: number;
     name: string;
+    image: string;
     type: string;
     fuel_capacity: string;
     transmission: string;
@@ -9,3 +10,8 @@ export interface Car {
     price_per_day: string;
     tags: string[];
   }
+export  interface ButtonI{
+    text?: string;
+      className?: string;
+      href:string
+    }

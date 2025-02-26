@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col text-sm md:text-base lg:text-lg`}
       >
-        <header className=" bg-background text-text-secondary text-lg shadow-lux-gold">
+        <header className=" bg-[#000000a0] text-text-secondary text-lg shadow-lux-gold">
           <Navbar />
         </header>
         <main className="flex-grow mb-10">

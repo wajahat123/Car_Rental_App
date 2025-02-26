@@ -15,7 +15,7 @@ export default {
         'primary': '#D4AF37', // Royal Gold
         'secondary': '#B0B0B0', // Luxury Gray (Platinum/Silver)
         'emerald-dark': '#046A38', // Deep Emerald Green
-        'royal-blue': '#0077B6', // Deep Sapphire
+        'royal-blue': '#000080', // Deep Sapphire
         'text-primary': '#FFFFFF', // Elegant White
         'text-secondary': '#A5A5A5', // Soft Silver
         'text-muted': '#888888', // Subtle Luxury Gray
@@ -38,6 +38,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 } satisfies Config;
 
