@@ -27,16 +27,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col text-sm md:text-base lg:text-lg`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased min-h-screen flex flex-col text-sm md:text-base lg:text-lg`}
       >
-        <header className=" bg-[#000000a0] text-text-secondary text-lg shadow-lux-gold">
+        <header className=" bg-[#0b0f23a3] text-text-secondary text-lg shadow-lux-gold">
           <Navbar />
         </header>
         <main className="flex-grow mb-10">
           {children}
         </main>
-        <footer className=" py-6 bg-surface">
+        <footer className=" pt-6 bg-surface">
           <Footer/>
+    
         </footer>
       </body>
     </html>

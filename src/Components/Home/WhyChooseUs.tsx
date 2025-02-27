@@ -29,20 +29,20 @@ const WhyChooseUs = () => {
     
   return (
    
-      <div className="bg-black bg-opacity-70  px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto py-8 md:py-16">
+      <div className="bg-background bg-opacity-70  px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto py-8 md:py-16">
         <H_Two className="text-center text-primary  mb-6 uppercase " text="Why Choose Us?"/>
           
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group bg-black bg-opacity-50 shadow-lux-gold  hover:bg-primary transition p-6 rounded-lg text-center flex flex-col items-center"
+              className="group bg-background bg-opacity-50 shadow-lux-gold  hover:bg-primary transition p-6 rounded-lg text-center flex flex-col items-center"
             >
               {feature.icon}
-              <h3 className="text-xl text-white font-semibold mt-4 group-hover:text-black transition">
+              <h3 className="text-xl text-white font-semibold mt-4 group-hover:text-background transition">
                 {feature.title}
               </h3>
-              <p className="text-gray-300 group-hover:text-black transition mt-2">
+              <p className="text-gray-300 group-hover:text-background transition mt-2">
                 {feature.description}
               </p>
             </div>

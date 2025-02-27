@@ -10,21 +10,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'background': '#121212', // Rich Black
-        'surface': '#1E1E1E', // Deep Charcoal Gray
-        'primary': '#D4AF37', // Royal Gold
-        'secondary': '#B0B0B0', // Luxury Gray (Platinum/Silver)
-        'emerald-dark': '#046A38', // Deep Emerald Green
-        'royal-blue': '#000080', // Deep Sapphire
-        'text-primary': '#FFFFFF', // Elegant White
-        'text-secondary': '#A5A5A5', // Soft Silver
-        'text-muted': '#888888', // Subtle Luxury Gray
-        'success': '#27AE60', // Emerald Green
-        'error': '#E63946', // Luxury Red
-        'warning': '#EFB810', // Golden Yellow
-        'accent-hover':"#2C2C2C"
-
-    
+        background: '#0b0f23',
+        surface: '#3A4A6B',
+        primary: '#D4AF37',
+        secondary: '#F5F5F5',
+        royalBlue: '#1A73E8',
+        textPrimary: '#FFFFFF',
+        textSecondary: '#CCCCCC',
+        textMuted: '#999999',
+        success: '#34A853',
+        error: '#EA4335',
+        warning: '#FBBC05',
+        accentHover: '#444444',   
   },
 
       fontFamily: {

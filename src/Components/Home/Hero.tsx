@@ -23,11 +23,11 @@ const Hero = () => {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-[#000000a8]"></div>
+      <div className="absolute inset-0 bg-[#0b0f23a3]"></div>
 
       {/* Hero Content */}
       <div className="relative text-white text-center z-10 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto overflow-visible">
-       <div className="bg-[#000000a0] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg border-[0.5px] border-surface shadow-lux-gold">
+       <div className="bg-[#0b0f23a3] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg border-[0.5px] border-surface shadow-lux-gold">
        <H_One className="text-5xl font-bold " text="Find Your Dream Car"/>
         <br />
 
@@ -38,7 +38,7 @@ const Hero = () => {
         </div>
 
         <ContactLinks/>
-        <button className="flex justify-center items-center gap-2 w-[70%] sm:w-1/2 font-extrabold md:w-1/3 mx-auto mt-2  transition-all duration-300  active:scale-95 ring-1 ring-primary hover:ring-royal-blue bg-primary rounded-md p-[2px] md:p-[4px] text-white hover:bg-white  hover:text-primary  active:bg-black active:text-primary active:ring-primary">
+        <button className="flex justify-center items-center gap-2 w-[70%] sm:w-1/2 font-extrabold md:w-1/3 mx-auto mt-2  transition-all duration-300  active:scale-95 ring-1 ring-primary hover:ring-royal-blue bg-primary rounded-md p-[2px] md:p-[4px] text-white hover:bg-white  hover:text-primary  active:bg-background active:text-primary active:ring-primary">
         Book Now
       </button>
        </div>

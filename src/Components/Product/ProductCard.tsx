@@ -6,7 +6,7 @@ import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
 
 const ProductCard = ({ data }: { data: Car }) => {
   return (
-    <div className="bg-[#5e5e5e7d] hover:scale-105 w-[300px] h-[440px] mx-auto p-2  ring-1 ring-primary hover:ring-royal-blue  transition-all duration-300 cursor-pointer rounded-md hover:shadow-lux-white">
+    <div className="bg-[rgba(11,15,35,0.46)] hover:scale-105 w-[300px] h-[440px] mx-auto p-2  ring-1 ring-primary hover:ring-royal-blue  transition-all duration-300 cursor-pointer rounded-md hover:shadow-lux-white">
       <Image
         src={data.image}
         alt="image"

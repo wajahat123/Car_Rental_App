@@ -20,7 +20,7 @@ const Testimonials = () => {
   
 
   return (
-    <div className="bg-[#000000f2] overflow-hidden">
+    <div className="bg-[#0b0f23a3] overflow-hidden">
       <div className="px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto  text-center py-8 md:py-16">
         {/* Section Heading */}
        <div className="flex items-start justify-between">
@@ -46,7 +46,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="snap-center shrink-0 bg-white px-4 py-12 flex flex-col items-center text-black text-center rounded-lg shadow-lg w-full lg:w-[95%] "
+              className="snap-center shrink-0 bg-white px-4 py-12 flex flex-col items-center text-background text-center rounded-lg shadow-lg w-full lg:w-[95%] "
             >
               {/* Quote Icon */}
               <TbQuote className="mt-10 text-2xl md:text-5xl text-primary" />

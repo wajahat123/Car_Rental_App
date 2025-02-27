@@ -36,13 +36,13 @@ const SearchBar = ({ products }: SearchBarProps) => {
         placeholder="Search."
         value={query}
         onChange={handleSearch}
-        className="w-full p-3 rounded-full bg-black text-text-primary placeholder-text-muted 
+        className="w-full p-3 rounded-full bg-background text-text-primary placeholder-text-muted 
                    focus:outline-none ring-1 ring-primary focus:ring-royal-blue transition-all duration-200 shadow-lg"
       />
 
       {/* Search Results Dropdown */}
       {query && (
-        <ul className="absolute left-0 right-0 top-full mt-2 bg-[#000000e8]  border border-primary rounded-lg shadow-xl max-h-60 overflow-auto z-50 ">
+        <ul className="absolute left-0 right-0 top-full mt-2 bg-[#0b0f23a3]  border border-primary rounded-lg shadow-xl max-h-60 overflow-auto z-50 ">
           {filteredResults.length > 0 ? (
             filteredResults.map((product) => (
               <li

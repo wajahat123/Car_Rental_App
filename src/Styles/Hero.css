@@ -14,7 +14,7 @@
     z-index: -1; 
   }
  .gradient {
-    background: linear-gradient(rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0.481) ,rgba(0, 0, 0, 0.398) );
+    background: linear-gradient(#0b0f23 10%, rgba(11, 15, 35, 0.489) ,rgba(11, 15, 35, 0.398) );
     z-index: -1;
  }
   

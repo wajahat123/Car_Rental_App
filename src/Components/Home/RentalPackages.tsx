@@ -8,7 +8,7 @@ export default function RentalPackages() {
       style={{ backgroundImage: "url('/assets/images/car6.webp')" }} 
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+      <div className="absolute inset-0 bg-background bg-opacity-70"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto">
@@ -22,7 +22,7 @@ export default function RentalPackages() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group cursor-pointer flex flex-col items-center p-6 rounded-lg bg-black bg-opacity-50 transition-all duration-300 hover:bg-opacity-50 hover:scale-105"
+              className="group cursor-pointer flex flex-col items-center p-6 rounded-lg bg-background bg-opacity-50 transition-all duration-300 hover:bg-opacity-50 hover:scale-105"
             >
               {/* Icon */}
               <feature.icon className="text-warning text-5xl mb-3 transition-all duration-300 group-hover:text-primary group-hover:scale-110" />
