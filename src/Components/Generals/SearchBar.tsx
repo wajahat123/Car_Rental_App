@@ -36,18 +36,18 @@ const SearchBar = ({ products }: SearchBarProps) => {
         placeholder="Search."
         value={query}
         onChange={handleSearch}
-        className="w-full p-3 rounded-full bg-background text-text-primary placeholder-text-muted 
-                   focus:outline-none ring-1 ring-primary focus:ring-royal-blue transition-all duration-200 shadow-lg"
+        className="w-full p-3 rounded-full bg-background text-text-primary placeholder-textMuted 
+                   focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
       />
 
       {/* Search Results Dropdown */}
       {query && (
-        <ul className="absolute left-0 right-0 top-full mt-2 bg-[#0b0f23a3]  border border-primary rounded-lg shadow-xl max-h-60 overflow-auto z-50 ">
+        <ul className="absolute left-0 right-0 top-full mt-2 bg-background  border border-primary rounded-lg shadow-xl max-h-60 overflow-auto z-50 ">
           {filteredResults.length > 0 ? (
             filteredResults.map((product) => (
               <li
                 key={product.id}
-                className="p-4 flex items-center gap-4 border-b-[1px] border-b-accent-hover hover:bg-accent-hover cursor-pointer transition-all duration-300 rounded-md"
+                className="p-4 flex items-center gap-4 border-b-[1px] border-b-accentHover hover:bg-accent-hover cursor-pointer transition-all duration-300 rounded-md"
               >
                 {/* Product Details */}
                 <div className="text-left ">
@@ -57,7 +57,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
               </li>
             ))
           ) : (
-            <li className="p-4 text-center text-text-muted">No results found</li>
+            <li className="p-4 text-center text-textMuted">No results found</li>
           )}
         </ul>
       )}

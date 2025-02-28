@@ -6,22 +6,22 @@ import { FaShieldAlt, FaThumbsUp, FaClock, FaHeadset } from "react-icons/fa";
 const WhyChooseUs = () => {
     const features = [
         {
-          icon: <FaShieldAlt className="text-4xl text-white group-hover:text-royal-blue transition" />,
+          icon: <FaShieldAlt className="text-4xl text-white group-hover:text-accent transition" />,
           title: "Reliable & Secure",
           description: "We prioritize safety and security for all our rentals.",
         },
         {
-          icon: <FaThumbsUp className="text-4xl text-white group-hover:text-royal-blue transition" />,
+          icon: <FaThumbsUp className="text-4xl text-white group-hover:text-accent transition" />,
           title: "Top-Notch Quality",
           description: "All our cars are well-maintained and in excellent condition.",
         },
         {
-          icon: <FaClock className="text-4xl text-white group-hover:text-royal-blue transition" />,
+          icon: <FaClock className="text-4xl text-white group-hover:text-accent transition" />,
           title: "24/7 Availability",
           description: "We provide 24/7 customer support for a hassle-free experience.",
         },
         {
-          icon: <FaHeadset className="text-4xl text-white group-hover:text-royal-blue transition" />,
+          icon: <FaHeadset className="text-4xl text-white group-hover:text-accent transition" />,
           title: "Excellent Support",
           description: "Our team is always ready to assist you with any queries.",
         },

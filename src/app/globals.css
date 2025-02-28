@@ -1,28 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 
+body {
+  -ms-overflow-style: none;
+  background-color: 
+  #0d1228;
+  color: #999999; /* Hide default scrollbar */
+  scrollbar-width: thin; /* Make scrollbar thinner */
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 200, 0, 0.63);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 200, 0, 0.63) transparent;
+}
+
+/* Microsoft Edge & Internet Explorer */
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 200, 0, 0.63);
+  border-radius: 10px;
+}
 
 .react-international-phone-country-selector-button:hover {
-    background-color: #334155; }
+  background-color: #334155;
+}
 
 .react-international-phone-country-selector-button--hide-dropdown:hover {
-    background-color: #FACC15; }
+  background-color: #facc15;
+}
 
 .react-international-phone-country-selector-button__dropdown-arrow {
-    border-top: 4px solid #F8FAFC; }
+  border-top: 4px solid #f8fafc;
+}
 
 .react-international-phone-country-selector-dropdown {
-    background-color: #0F172A;     color: #F8FAFC;     border: 1px solid #FACC15; }
+  background-color: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #facc15;
+}
 
 .react-international-phone-country-selector-dropdown__list-item:hover {
-    background-color: #1E293B; }
+  background-color: #1e293b;
+}
 
 .react-international-phone-country-selector-dropdown__list-item--focused {
-    background-color: #2563EB; }
+  background-color: #2563eb;
+}
 
 .react-international-phone-dial-code-preview {
-    color: #F8FAFC; }
+  color: #f8fafc;
+}
 
 .react-international-phone-dial-code-preview--disabled {
-    background-color: #1E293B;     color: #94A3B8; }
+  background-color: #1e293b;
+  color: #94a3b8;
+}
 
 .react-international-phone-input-container {
-    background-color: #1E293B; }
+  background-color: #1e293b;
+}

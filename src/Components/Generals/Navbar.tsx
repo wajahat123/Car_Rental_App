@@ -17,7 +17,7 @@ const Navbar = () => {
           className="text-primary text-center  font-bold"
         />
 
-        <nav className="hidden gap-6 text-text-muted text-lg md:flex ">
+        <nav className="hidden gap-6 text-textSecondary text-lg ml:flex ">
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
             Home
           </li>
@@ -43,7 +43,7 @@ const Navbar = () => {
 
         <motion.button
           onClick={handleOpen}
-          className="text-3xl focus:outline-none md:hidden"
+          className="text-3xl focus:outline-none ml:hidden"
           animate={{ rotate: isOpen ? 180 : 0 }} // Rotation animation
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >

@@ -57,6 +57,8 @@ const BrandsSlider = () => {
           <IoIosArrowForward className="text-base" />
         </Link>
     </div>
+{/* <div className="h-[0.5px] w-full bg-primary opacity-50"></div> */}
+
           </div>
   );
 };

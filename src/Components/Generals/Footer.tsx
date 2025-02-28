@@ -11,7 +11,7 @@ import { ContactLinks } from "./ContactLinks";
 const Footer = () => {
   return (
     <>
-    <div className="px-4 sm:px-8 md:px-16 lg:px-32  xl:px-64 max-w-7xl w-full mx-auto text-text-muted  text-xs md:text-sm ">
+    <div className="px-4 sm:px-8 md:px-16 lg:px-32  xl:px-64 max-w-7xl w-full mx-auto text-textMuted  text-xs md:text-sm ">
       <div className="flex justify-between flex-col sm:flex-row gap-4">
       <div className="w-full sm:w-1/4  ">
           <H_Five className="text-white font-bold" text="About Us" />

@@ -6,25 +6,25 @@ export const ContactLinks = () => {
   return (
     <div className="flex items-center justify-center gap-2 md:gap-4 py-2 md:py-4">
         <Link href="#">
-        <RiTwitterFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiTwitterFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link>
         <Link href="#">
-        <RiWhatsappLine className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiWhatsappLine className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link>
         <Link href="#">
-        <RiPhoneFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiPhoneFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link>
         <Link href="#">
-        <RiFacebookFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiFacebookFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link>  
         <Link href="#">
-        <PiPinterestLogoBold className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <PiPinterestLogoBold className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link> <Link href="#">
-        <RiTiktokFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiTiktokFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link> <Link href="#">
-        <RiYoutubeFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiYoutubeFill className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link> <Link href="#">
-        <RiInstagramLine className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-royal-blue active:ring-primary hover:bg-white active:bg-primary hover:text-royal-blue active:text-white transition-all duration-300 active:scale-95"/>
+        <RiInstagramLine className="w-6 md:w-8 h-6 md:h-8 p-[2px] md:p-[4px] rounded-full ring-primary ring-1 hover:ring-accent active:ring-accent hover:bg-white active:bg-white hover:text-accent active:text-accent transition-all duration-300 active:scale-95"/>
         </Link>
     </div>
   )

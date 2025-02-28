@@ -25,7 +25,7 @@ export default function RentalPackages() {
               className="group cursor-pointer flex flex-col items-center p-6 rounded-lg bg-background bg-opacity-50 transition-all duration-300 hover:bg-opacity-50 hover:scale-105"
             >
               {/* Icon */}
-              <feature.icon className="text-warning text-5xl mb-3 transition-all duration-300 group-hover:text-primary group-hover:scale-110" />
+              <feature.icon className="text-primary text-5xl mb-3 transition-all duration-300 group-hover:text-warning group-hover:scale-110" />
 
               {/* Text */}
               <p className="font-semibold text-lg transition-all duration-300 group-hover:text-primary">

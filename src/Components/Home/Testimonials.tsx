@@ -20,7 +20,7 @@ const Testimonials = () => {
   
 
   return (
-    <div className="bg-[#0b0f23a3] overflow-hidden">
+    <div className="bg-background overflow-hidden">
       <div className="px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto  text-center py-8 md:py-16">
         {/* Section Heading */}
        <div className="flex items-start justify-between">
@@ -70,7 +70,7 @@ const Testimonials = () => {
 
               {/* Client Name and Position */}
               <h2 className="font-bold md:text-xl text-lg mt-3">{testimonial.name}</h2>
-              <p className="text-gray-400 text-sm md:text-base">{testimonial.role}</p>
+              <p className="text-textSecondary text-sm md:text-base">{testimonial.role}</p>
             </div>
           ))}
         </div>
