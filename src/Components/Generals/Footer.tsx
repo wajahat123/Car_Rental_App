@@ -1,12 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { CiTimer } from "react-icons/ci";
 import { IoLocationSharp } from "react-icons/io5";
 import { H_Five } from "@/Utils/Typography";
-import { BiPhoneIncoming } from "react-icons/bi";
 import { MdOutlineAttachEmail } from "react-icons/md";
-import { TbPhoneCalling, TbPhoneRinging } from "react-icons/tb";
-import { FcCellPhone } from "react-icons/fc";
+import { TbPhoneRinging } from "react-icons/tb";
 import { ContactLinks } from "./ContactLinks";
 const Footer = () => {
   return (
@@ -15,7 +12,7 @@ const Footer = () => {
       <div className="flex justify-between flex-col sm:flex-row gap-4">
       <div className="w-full sm:w-1/4  ">
           <H_Five className="text-white font-bold" text="About Us" />
-      <p> All our cars are in perfect condition, giving you the ultimate luxury experience. We carefully maintain and check our cars to make sure they look great and work perfectly. We care a lot about your happiness and safety. Choosing MK Rent A Car means you're getting the best in car quality.</p>
+      <p> All our cars are in perfect condition, giving you&apos;the ultimate luxury experience. We carefully maintain and check our cars to make sure they look great and work perfectly. We care a lot about your happiness and safety. Choosing MK Rent A Car means you&apos;re getting the best in car quality.</p>
       </div>
        <div className="flex flex-1 justify-between flex-wrap">
        <div className="w-1/2 sm:w-1/3 md:w-1/4">

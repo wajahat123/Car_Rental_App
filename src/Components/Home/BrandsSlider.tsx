@@ -1,5 +1,4 @@
 import { H_Six, H_Two } from "@/Utils/Typography";
-import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 

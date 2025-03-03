@@ -1,6 +1,5 @@
 "use client";
-import React, { FormEvent, ReactNode, useState } from "react";
-import Image from "next/image";
+import {  useState } from "react";
 import { FaStar } from "react-icons/fa";
 import testimonials from "@/Utils/TestimonialsData.json";
 import { H_Three, H_Two } from "@/Utils/Typography";

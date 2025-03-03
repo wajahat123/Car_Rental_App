@@ -1,7 +1,6 @@
 import { H_Five } from "@/Utils/Typography";
 import Image from "next/image";
 import { Car } from "@/Utils/utils";
-import Link from "next/link";
 import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
 
 const ProductCard = ({ data }: { data: Car }) => {

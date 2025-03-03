@@ -1,7 +1,6 @@
 "use client";
 import "@/Styles/Slider.css";
 import { useState } from "react";
-import { H_Four } from "@/Utils/Typography";
 
 const PriceSlider = () => {
   // Set price range

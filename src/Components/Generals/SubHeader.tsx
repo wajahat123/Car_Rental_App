@@ -1,4 +1,4 @@
-import { H_One, H_Six, HeadingLink } from '@/Utils/Typography'
+import { HeadingLink } from '@/Utils/Typography'
 import React from 'react'
 import SearchBar from './SearchBar'
 import rawProducts from "@/Utils/CarsData.json";
@@ -7,7 +7,6 @@ import { Car } from "@/Utils/utils";
 const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
 
 const SubHeader = ({title, route}:{title:string,route:string}) => {
-    const path = "Home " +route
   return (
     <div
     className="relative bg-cover bg-center  py-8 md:py-16  "
