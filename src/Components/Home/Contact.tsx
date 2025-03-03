@@ -1,11 +1,11 @@
 'use client'
 import { H_Two } from '@/Utils/Typography'
 import { useState } from 'react'
-import { PhoneInput } from 'react-international-phone'
-import 'react-international-phone/style.css'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 const Contact = () => {
-    const [phone, setPhone] = useState("")
+    const [phone, setPhone] = useState<string | undefined>("")
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -14,6 +14,7 @@ const Contact = () => {
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        e.preventDefault()
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
@@ -66,12 +67,11 @@ const Contact = () => {
                                 aria-label="Email Address"
                             />
 
-                            {/* ✅ Improved Phone Input Styling */}
                             <div className="w-full flex justify-center items-center p-3 rounded-md bg-background ring-1 ring-primary focus-within:ring-accent transition-all duration-200 shadow-lg">
                                 <PhoneInput
-                                    defaultCountry="ua"
+                                    defaultCountry="US"
                                     value={phone}
-                                    onChange={(phone) => setPhone(phone)}
+                                    onChange={setPhone}  
                                     className="w-full text-white bg-background placeholder-gray-400 focus:outline-none"
                                     aria-label="Phone Number"
                                 />

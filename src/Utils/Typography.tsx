@@ -2,6 +2,7 @@ import {
   Montserrat,
   Cormorant_Garamond,
 } from "next/font/google";
+import { FaChevronRight  } from "react-icons/fa";
 
 
 const montserrat = Montserrat({
@@ -87,3 +88,9 @@ export const H_Six = ({ text, className }: props) => {
 };
 
 //https://sanity-nextjs-application.vercel.app/api/hackathon/template7
+export const HeadingLink = ({title, route}: {title:string,route:string}) => {
+  return (
+    <div className="text-center"><H_One className="font-bold" text={title}/>
+    <p className="font-bold flex items-center justify-center "> Home <FaChevronRight className="mx-1" /> <span className="text-warning"> {route} </span> </p></div>
+  )
+}

@@ -49,41 +49,65 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-.react-international-phone-country-selector-button:hover {
-  background-color: #334155;
+
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none; 
+  width: 18px; 
+  height: 18px;
+  background-color: #fff; 
+  border: 2px solid #752e38; 
+  border-radius: 4px; 
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
 }
 
-.react-international-phone-country-selector-button--hide-dropdown:hover {
-  background-color: #facc15;
+input[type="checkbox"]:checked {
+  background-color: #B76E79; 
+  border-color: #752e38;
 }
 
-.react-international-phone-country-selector-button__dropdown-arrow {
-  border-top: 4px solid #f8fafc;
+input[type="checkbox"]::after {
+  content: "✔"; 
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 
-.react-international-phone-country-selector-dropdown {
-  background-color: #0f172a;
-  color: #f8fafc;
-  border: 1px solid #facc15;
+input[type="checkbox"]:checked::after {
+  display: block;
 }
 
-.react-international-phone-country-selector-dropdown__list-item:hover {
-  background-color: #1e293b;
+input[type="radio"] {
+  border-radius: 50%; 
 }
 
-.react-international-phone-country-selector-dropdown__list-item--focused {
-  background-color: #2563eb;
+input[type="radio"]:checked {
+  background-color: #B76E79;
+  border-color: #752e38;
 }
 
-.react-international-phone-dial-code-preview {
-  color: #f8fafc;
+input[type="radio"]::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #B76E79;
+  border-radius: 50%;
+  position: absolute;
+  border:3px solid #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 
-.react-international-phone-dial-code-preview--disabled {
-  background-color: #1e293b;
-  color: #94a3b8;
+input[type="radio"]:checked::after {
+  display: block;
 }
 
-.react-international-phone-input-container {
-  background-color: #1e293b;
-}
+

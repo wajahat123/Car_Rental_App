@@ -3,12 +3,13 @@ import { H_Three } from "../../Utils/Typography"; // Assuming Typography.tsx fil
 import { useState } from "react";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleOpen =()=> {
+  const handleOpen = () => {
     setIsOpen(!isOpen);
-  }
+  };
   return (
     <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden  max-w-7xl w-full mx-auto">
       <div className="flex justify-between  py-4 items-center  h-[70px]">
@@ -19,26 +20,25 @@ const Navbar = () => {
 
         <nav className="hidden gap-6 text-textSecondary text-lg ml:flex ">
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            Home
+            <Link href="/">Home</Link>
           </li>
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            About
+            <Link href="/about">About</Link>
           </li>{" "}
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            Blog
+         Services
+            <Link href="/services"></Link>
           </li>{" "}
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            Contact
+            <Link href="/contact-us">Contact</Link>
           </li>{" "}
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            FAQs
+            <Link href="/privacy">Privacy</Link>
           </li>{" "}
           <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            Car Types
+            <Link href="/luxurious-cars">Rent Car By</Link>
           </li>{" "}
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
-            Car Brands
-          </li>
+          
         </nav>
 
         <motion.button
@@ -57,14 +57,17 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth transition
         className="overflow-hidden absolute top-[70px] left-0 w-full h-full bg-background shadow-lux-gold  z-50 md:hidden"
       >
-        <nav className="flex flex-col gap-4 text-lg mt-4 text-center space-y-2 py-4 md:hidden" onClick={handleOpen}>
+        <nav
+          className="flex flex-col gap-4 text-lg mt-4 text-center space-y-2 py-4 md:hidden"
+          onClick={handleOpen}
+        >
           <motion.li
             className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            Home
+            <Link href="/">Home</Link>
           </motion.li>
           <motion.li
             className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
@@ -72,14 +75,15 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            About
-          </motion.li> <motion.li
+            <Link href="/about">About</Link>
+          </motion.li>{" "}
+          <motion.li
             className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            Blog
+            <Link href="/services">Services</Link>
           </motion.li>
           <motion.li
             className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
@@ -87,7 +91,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            Contact
+            <Link href="/contact-us">Contact</Link>
           </motion.li>
           <motion.li
             className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
@@ -95,7 +99,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            FAQs
+            <Link href="/privacy">Privacy</Link>
           </motion.li>
           <motion.li
             className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
@@ -103,16 +107,9 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            Car Types
+            <Link href="/luxurious-cars">Rent Car By</Link>
           </motion.li>
-          <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.3 }}
-          >
-            Car Brands
-          </motion.li>
+         
         </nav>
       </motion.div>
     </div>

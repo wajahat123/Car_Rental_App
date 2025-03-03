@@ -14,7 +14,7 @@ image:"/assets/images/car4.webp"        },
         {
           type: "Luxury Cars",
           example: "Mercedes-Benz S-Class",
-image:"/assets/images/car5.webp"        },
+image:"/assets/images/car4.webp"        },
         {
           type: "Exotic Cars",
           example: "Lamborghini Aventador",

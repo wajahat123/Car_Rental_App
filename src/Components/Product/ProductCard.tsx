@@ -6,7 +6,7 @@ import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
 
 const ProductCard = ({ data }: { data: Car }) => {
   return (
-    <div className="bg-[rgba(11,15,35,0.46)] hover:scale-105 w-[300px] h-[440px] mx-auto p-2  ring-1 ring-primary hover:ring-accent text-textSecondary  transition-all duration-300 cursor-pointer rounded-md hover:shadow-lux-white">
+    <div className="bg-[rgba(11,15,35,0.46)] hover:scale-105 w-[300px] h-[440px] mx-auto p-2  ring-1 ring-primary hover:ring-accent text-textSecondary  transition-all duration-300 cursor-pointer rounded-md hover:shadow-lux-white mb-2 ml:mb-4">
       <Image
         src={data.image}
         alt="image"
@@ -36,14 +36,14 @@ const ProductCard = ({ data }: { data: Car }) => {
         </div>
       </div>
       <div className="flex w-full justify-between items-center gap-2 text-xs md:text-sm mt-2">
-        <button className="flex justify-center gap-2 items-center w-[50%] p-[2px] md:p-[4px] rounded-md ring-primary ring-1 hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-white transition-all duration-300 active:scale-95">
+        <button className="flex justify-center gap-2 items-center w-[50%] p-[2px] md:p-[4px] rounded-sm ring-primary ring-1 hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-white transition-all duration-300 active:scale-95">
           <RiWhatsappFill /> Whatsapp
         </button>
-        <button className="flex justify-center gap-2 items-center w-[50%] p-[2px] md:p-[4px] rounded-md ring-primary ring-1 hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-white transition-all duration-300 active:scale-95">
+        <button className="flex justify-center gap-2 items-center w-[50%] p-[2px] md:p-[4px] rounded-sm ring-primary ring-1 hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-white transition-all duration-300 active:scale-95">
           <RiPhoneFill /> Phone
         </button>
       </div>
-      <button className="flex justify-center items-center gap-2 w-full mt-2  transition-all duration-300   text-xs md:text-sm active:scale-95 ring-1  ring-primary hover:ring-primary bg-primary rounded-md p-[2px] md:p-[4px] text-white hover:bg-background  hover:text-secondary  active:bg-background active:opacity-90 active:text-secondary active:ring-primary">
+      <button className="flex justify-center items-center gap-2 w-full mt-2  transition-all duration-300   text-xs md:text-sm active:scale-95 ring-1  ring-primary hover:ring-primary bg-primary rounded-sm p-[2px] md:p-[4px] text-white hover:bg-background  hover:text-secondary  active:bg-background active:opacity-90 active:text-secondary active:ring-primary">
         Book Now
       </button>
     </div>

@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import { H_Six } from "../../Utils/Typography";
 import { Car } from "@/Utils/utils";
@@ -29,14 +30,14 @@ const SearchBar = ({ products }: SearchBarProps) => {
   };
 
   return (
-    <div className="relative w-full max-w-lg mx-auto overflow-visible">
+    <div className="relative w-full  mx-auto overflow-visible">
       {/* Search Input */}
       <input
         type="text"
-        placeholder="Search."
+        placeholder="Search"
         value={query}
         onChange={handleSearch}
-        className="w-full p-3 rounded-full bg-background text-text-primary placeholder-textMuted 
+        className="w-full py-2 px-6 md:px-8 rounded-full bg-background text-text-primary placeholder-textMuted 
                    focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
       />
 
