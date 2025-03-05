@@ -6,22 +6,22 @@ import { FaShieldAlt, FaThumbsUp, FaClock, FaHeadset } from "react-icons/fa";
 const WhyChooseUs = () => {
     const features = [
         {
-          icon: <FaShieldAlt className="text-4xl text-white group-hover:text-accent transition" />,
+          icon: <FaShieldAlt className="text-4xl text-accent group-hover:text-blue-700 transition" />,
           title: "Reliable & Secure",
           description: "We prioritize safety and security for all our rentals.",
         },
         {
-          icon: <FaThumbsUp className="text-4xl text-white group-hover:text-accent transition" />,
+          icon: <FaThumbsUp className="text-4xl text-accent group-hover:text-blue-700 transition" />,
           title: "Top-Notch Quality",
           description: "All our cars are well-maintained and in excellent condition.",
         },
         {
-          icon: <FaClock className="text-4xl text-white group-hover:text-accent transition" />,
+          icon: <FaClock className="text-4xl text-accent group-hover:text-blue-700 transition" />,
           title: "24/7 Availability",
           description: "We provide 24/7 customer support for a hassle-free experience.",
         },
         {
-          icon: <FaHeadset className="text-4xl text-white group-hover:text-accent transition" />,
+          icon: <FaHeadset className="text-4xl text-accent group-hover:text-blue-700 transition" />,
           title: "Excellent Support",
           description: "Our team is always ready to assist you with any queries.",
         },
@@ -36,13 +36,13 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group bg-accent bg-opacity-50 shadow-lux-gold  hover:bg-primary transition p-6 rounded-lg text-center flex flex-col items-center"
+              className="group bg-background bg-opacity-50 shadow-lux-gold  hover:bg-primary transition p-6 rounded-lg text-center flex flex-col items-center"
             >
               {feature.icon}
-              <h3 className="text-xl text-white font-semibold mt-4 group-hover:text-background transition">
+              <h3 className="text-xl text-primary font-semibold mt-4 group-hover:text-background transition">
                 {feature.title}
               </h3>
-              <p className="text-gray-300 group-hover:text-background transition mt-2">
+              <p className=" group-hover:text-background transition mt-2">
                 {feature.description}
               </p>
             </div>

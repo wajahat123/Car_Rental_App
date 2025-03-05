@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 
 const brands = [
+  // will replace them with high quality png images
   { name: "Ferrari", logo: "https://img.icons8.com/color/48/ferrari-badge.png" },
   { name: "BMW", logo: "https://img.icons8.com/color/48/bmw--v1.png" },
   { name: "Porsche", logo: "https://img.icons8.com/color/48/porsche.png" },
@@ -15,14 +16,15 @@ const BrandsSlider = () => {
   return (
     <div className=" px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto py-8 md:py-16">
       {/* Header Section */}
-      <div className="flex justify-between items-center py-4 md:py-6 text-center md:text-left">
-        <H_Two text="Our Brands" className="text-primary font-bold mb-6 " />
-        <Link
+      <div className="flex justify-between items-start py-4 md:py-6 text-left">
+     <div className="mb-6">   <H_Two text="Our Brands" className="text-primary font-bold  " />
+     <div className="bg-gradient-to-r from-blue-700 rounded-full to-transparent h-2 w-56 mt-2"></div>
+     </div>  <Link
           href="#"
-          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-surface rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
+          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-blue-800 rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
         >
           All Brands
-          <IoIosArrowForward className="text-base" />
+          <IoIosArrowForward className="text-base " />
         </Link>
       </div>
 
@@ -50,7 +52,7 @@ const BrandsSlider = () => {
 
       <Link
           href="#"
-          className="absolute right-2  md:hidden  flex w-fit items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-surface rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
+          className="absolute right-2  md:hidden  flex w-fit items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-blue-800 rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
           >
           All Brands
           <IoIosArrowForward className="text-base" />

@@ -4,15 +4,15 @@ import { FaHandsHelping, FaBan, FaTags, FaClock, FaTools, FaUsers } from "react-
 export default function RentalPackages() {
   return (
     <div
-      className="relative bg-cover bg-center text-white py-8 md:py-16  "
+      className="relative bg-cover bg-center text-primary  py-8 md:py-16  "
       style={{ backgroundImage: "url('/assets/images/car6.webp')" }} 
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-background bg-opacity-70"></div>
+      <div className="absolute inset-0 bg-background bg-opacity-50"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto">
-         <H_Two className="text-center text-primary  mb-6 uppercase   " text="Our Rental Packages Include"/>
+           <H_Two className="text-center text-primary  uppercase   mb-6" text="Our Rental Packages Include"/>
               
 
 
@@ -22,10 +22,10 @@ export default function RentalPackages() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group cursor-pointer flex flex-col items-center p-6 rounded-lg bg-background bg-opacity-50 transition-all duration-300 hover:bg-opacity-50 hover:scale-105"
+              className="group cursor-pointer flex flex-col items-center p-6 rounded-lg bg-background bg-opacity-50 transition-all duration-300 hover:bg-opacity-50  hover:bg-surface  hover:scale-105"
             >
               {/* Icon */}
-              <feature.icon className="text-primary text-5xl mb-3 transition-all duration-300 group-hover:text-warning group-hover:scale-110" />
+              <feature.icon className="text-accent  text-5xl mb-3 transition-all duration-300 group-hover:text-secondary group-hover:scale-110" />
 
               {/* Text */}
               <p className="font-semibold text-lg transition-all duration-300 group-hover:text-primary">

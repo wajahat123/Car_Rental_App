@@ -9,9 +9,8 @@ import Products from "@/Components/Home/RentalCar";
 import Contact from "@/Components/Home/Contact";
 export default async function Home() {
   return (
- <div className="">
+ <div >
 <Hero/>
-<div className="">
   
 <BrandsSlider/>
 <CarTypes_Section_3/>
@@ -21,7 +20,6 @@ export default async function Home() {
 <Testimonials/>
 <FAQSection/>
 <Contact/>
-</div>
  </div>
   );
 }

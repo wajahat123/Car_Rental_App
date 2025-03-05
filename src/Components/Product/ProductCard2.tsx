@@ -19,7 +19,7 @@ const ProductCardTwo = ({ data }: { data: Car }) => {
 
       {/* Product Info (Right) */}
       <div className="w-[60%] flex flex-col">
-        <H_Five text={data.name} className="text-white font-bold text-lg" />
+        <H_Five text={data.name} className="text-background font-bold text-lg" />
         <p className="text-secondary text-sm md:text-base">{data.type}</p>
 
         {/* Pricing */}
@@ -38,16 +38,16 @@ const ProductCardTwo = ({ data }: { data: Car }) => {
 
         {/* Buttons Section */}
         <div className="flex w-full justify-between items-center gap-2 mt-3">
-          <button className="flex justify-center items-center gap-2 w-[50%] py-1 rounded-sm ring-1 ring-primary hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-white transition-all duration-300 active:scale-95">
+          <button className="flex justify-center items-center gap-2 w-[50%] py-1 rounded-sm ring-1 ring-primary hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-background transition-all duration-300 active:scale-95">
             <RiWhatsappFill /> WhatsApp
           </button>
-          <button className="flex justify-center items-center gap-2 w-[50%] py-1 rounded-sm ring-1 ring-primary hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-white transition-all duration-300 active:scale-95">
+          <button className="flex justify-center items-center gap-2 w-[50%] py-1 rounded-sm ring-1 ring-primary hover:ring-accent active:ring-primary hover:bg-white active:bg-primary hover:text-accent active:text-background transition-all duration-300 active:scale-95">
             <RiPhoneFill /> Phone
           </button>
         </div>
 
         {/* Book Now Button */}
-        <button className="w-full mt-3 p-2 text-xs md:text-sm font-semibold transition-all duration-300 active:scale-95 ring-1 ring-primary hover:ring-primary bg-primary rounded-sm text-white hover:bg-surface hover:text-secondary active:bg-surface active:opacity-90 active:text-secondary active:ring-primary">
+        <button className="w-full mt-3 p-2 text-xs md:text-sm font-semibold transition-all duration-300 active:scale-95 ring-1 ring-primary hover:ring-primary bg-primary rounded-sm text-background hover:bg-surface hover:text-secondary active:bg-surface active:opacity-90 active:text-secondary active:ring-primary">
           Book Now
         </button>
       </div>

@@ -12,10 +12,8 @@
 
 body {
   -ms-overflow-style: none;
-  background-color: 
-  #0d1228;
-  color: #999999; /* Hide default scrollbar */
   scrollbar-width: thin; /* Make scrollbar thinner */
+@apply bg-background text-text
 }
 
 ::-webkit-scrollbar {
@@ -28,8 +26,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 200, 0, 0.63);
   border-radius: 10px;
+@apply bg-primary
 }
 
 ::-webkit-scrollbar-button {
@@ -39,13 +37,13 @@ body {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 200, 0, 0.63) transparent;
+  scrollbar-color: #10137c transparent;
 }
 
 /* Microsoft Edge & Internet Explorer */
 
 body::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 200, 0, 0.63);
+  background-color: #10137c;
   border-radius: 10px;
 }
 

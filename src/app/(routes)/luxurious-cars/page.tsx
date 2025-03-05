@@ -1,7 +1,7 @@
 import ProductCardTwo from '@/Components/Product/ProductCard2';
 import { H_Two } from '@/Utils/Typography';
-import { Car } from '@/Utils/utils';
 import data from '@/Utils/CarsData.json';
+import { Car } from "@/Utils/utils";
 import SubHeader from '@/Components/Generals/SubHeader';
 import SideBar from '@/Components/Product/SideBar';
 

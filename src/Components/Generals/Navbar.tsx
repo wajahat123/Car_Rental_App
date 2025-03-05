@@ -11,31 +11,31 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden  max-w-7xl w-full mx-auto">
-      <div className="flex justify-between  py-4 items-center  h-[70px]">
+    <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden  max-w-7xl w-full mx-auto ">
+      <div className="flex justify-between  ml:py-4 pt-4 items-center  h-[70px]">
         <H_Three
           text="CarRental"
-          className="text-primary text-center  font-bold"
+          className="text-secondary text-center font-extrabold"
         />
 
         <nav className="hidden gap-6 text-textSecondary text-lg ml:flex ">
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
+          <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/">Home</Link>
           </li>
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
+          <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/about">About</Link>
           </li>{" "}
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
+          <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
          Services
             <Link href="/services"></Link>
           </li>{" "}
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
+          <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/contact-us">Contact</Link>
           </li>{" "}
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
+          <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/privacy">Privacy</Link>
           </li>{" "}
-          <li className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all">
+          <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/luxurious-cars">Rent Car By</Link>
           </li>{" "}
           
@@ -62,7 +62,7 @@ const Navbar = () => {
           onClick={handleOpen}
         >
           <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
+            className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -70,7 +70,7 @@ const Navbar = () => {
             <Link href="/">Home</Link>
           </motion.li>
           <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
+            className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -78,7 +78,7 @@ const Navbar = () => {
             <Link href="/about">About</Link>
           </motion.li>{" "}
           <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
+            className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -86,7 +86,7 @@ const Navbar = () => {
             <Link href="/services">Services</Link>
           </motion.li>
           <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
+            className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -94,7 +94,7 @@ const Navbar = () => {
             <Link href="/contact-us">Contact</Link>
           </motion.li>
           <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
+            className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -102,7 +102,7 @@ const Navbar = () => {
             <Link href="/privacy">Privacy</Link>
           </motion.li>
           <motion.li
-            className="list-none border-primary hover:border-b-2 hover:text-primary cursor-pointer transition-all"
+            className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}

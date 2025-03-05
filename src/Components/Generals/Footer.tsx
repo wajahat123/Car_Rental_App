@@ -11,12 +11,12 @@ const Footer = () => {
     <div className="px-4 sm:px-8 md:px-16 lg:px-32  xl:px-64 max-w-7xl w-full mx-auto text-textMuted  text-xs md:text-sm ">
       <div className="flex justify-between flex-col sm:flex-row gap-4">
       <div className="w-full sm:w-1/4  ">
-          <H_Five className="text-white font-bold" text="About Us" />
+          <H_Five className="text-secondary font-bold" text="About Us" />
       <p> All our cars are in perfect condition, giving you&apos;the ultimate luxury experience. We carefully maintain and check our cars to make sure they look great and work perfectly. We care a lot about your happiness and safety. Choosing MK Rent A Car means you&apos;re getting the best in car quality.</p>
       </div>
        <div className="flex flex-1 justify-between flex-wrap">
        <div className="w-1/2 sm:w-1/3 md:w-1/4">
-          <H_Five className="text-white font-bold" text="Useful Links" />
+          <H_Five className="text-secondary font-bold" text="Useful Links" />
           <ul className="space-y-2">
             <li>Our Cars</li>
             <li>Blog</li>
@@ -29,7 +29,7 @@ const Footer = () => {
           </ul>
         </div>{" "}
         <div  className="sm:w-1/3  w-full hidden sm:block">
-          <H_Five className="text-white font-bold" text="Car Brands" />
+          <H_Five className="text-secondary font-bold" text="Car Brands" />
           <ul className="space-y-2">
             <li> Bentley</li>
             <li> Rolls Royce</li>
@@ -43,7 +43,7 @@ const Footer = () => {
           </ul>
         </div>
         <div  className="w-1/2 sm:w-1/3">
-          <H_Five className="text-white font-bold" text="Contact Us" />
+          <H_Five className="text-secondary font-bold" text="Contact Us" />
           <ul className="space-y-2">
             <li>
               <TbPhoneRinging className="inline-block mr-2 text-primary" />

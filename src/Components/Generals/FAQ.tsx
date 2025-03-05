@@ -9,9 +9,9 @@ const FAQuestions = ({ question, answer }: { question: string; answer: string })
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full h-fit bg-surface rounded-md md:text-sm text-[12px] p-4 border-b border-b-background  text-text-secondary">
+    <div className="w-full h-fit bg-surface  rounded-md md:text-sm text-[12px] p-4 border-b border-b-background  text-text-secondary">
       <div className="flex justify-between items-center cursor-pointer" onClick={() => setOpen(!open)}>
-        <H_Five className="font-semibold text-white" text={question}/>
+        <H_Five className="font-semibold text-secondary" text={question}/>
         <motion.button
           className="text-2xl focus:outline-none "
           animate={{ rotate: open ? 180 : 0 }}

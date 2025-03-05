@@ -37,7 +37,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
         placeholder="Search"
         value={query}
         onChange={handleSearch}
-        className="w-full py-2 px-6 md:px-8 rounded-full bg-background text-text-primary placeholder-textMuted 
+        className="w-full py-2 px-6 md:px-8 rounded-full bg-background bg-opacity-65  text-text  placeholder-textMuted 
                    focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
       />
 
@@ -48,17 +48,17 @@ const SearchBar = ({ products }: SearchBarProps) => {
             filteredResults.map((product) => (
               <li
                 key={product.id}
-                className="p-4 flex items-center gap-4 border-b-[1px] border-b-accentHover hover:bg-accent-hover cursor-pointer transition-all duration-300 rounded-md"
+                className="p-4 flex items-center gap-4 border-b-[1px] border-b-[#9a9a9a2c] hover:bg-muted hover:bg-opacity-20 cursor-pointer transition-all duration-300 rounded-md"
               >
                 {/* Product Details */}
                 <div className="text-left ">
                   <H_Six text={product.name} className="text-primary font-semibold text-lg" />
-                  <p className="text-text-secondary text-sm">{product.type}</p>
+                  <p className="text-secondary text-sm">{product.type}</p>
                 </div>
               </li>
             ))
           ) : (
-            <li className="p-4 text-center text-textMuted">No results found</li>
+            <li className="p-4 text-center text-muted">No results found</li>
           )}
         </ul>
       )}
