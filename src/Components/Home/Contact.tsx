@@ -2,7 +2,7 @@
 import { H_Two } from "@/Utils/Typography";
 import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
+import "@/Styles/CustomPhoneStyles.css";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 const Contact = () => {
