@@ -20,7 +20,7 @@ const ReachUs = () => {
 
         {/* Contact Information */}
         
-         <div className="grid ml:grid-cols-4 gap-4 grid-cols-1 md:grid-cols-2 pb-2 pt-8 text-gray-700 hover:text-text ">
+         <div className="grid ml:grid-cols-4 gap-4 grid-cols-1 md:grid-cols-2 pb-2 pt-8 w-full text-gray-700 hover:text-text ">
          
          <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg ">
            <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
