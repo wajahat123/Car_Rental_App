@@ -64,7 +64,7 @@ const Contact = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex w-full flex-col md:flex-row gap-4">
             {/* Left Side (Inputs) */}
-            <div className="space-y-4 w-full">
+            <div className="space-y-5 w-full">
               <input
                 required
                 type="text"
@@ -76,7 +76,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
                 aria-label="Name"
               />
 
@@ -89,7 +89,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
                 aria-label="Email Address"
               />
 
@@ -114,7 +114,7 @@ const Contact = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
                 aria-label="Subject"
               />
             </div>
@@ -129,7 +129,7 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full p-3 h-[265px] rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-primary focus:ring-accent transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-[#ffbf004e] focus-within:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
                 aria-label="Message"
               ></textarea>
             </div>

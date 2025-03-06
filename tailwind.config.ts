@@ -10,9 +10,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#0b0f23", //deep blue
+        background: "#050354", //deep blue
         text: "#fcf6de", //creme
-        surface: "#182949", //blue
+        surface: "#0b0d7d", //blue
         primary: "#ffbe00", //rich orange
         secondary: "#fbd365", //light orange
         muted: "#888888", //gray
@@ -22,7 +22,7 @@ export default {
         // surface: '#3A4A6B',
         // primary: '#D4AF37',
         // secondary: '#F5F5F5',
-        // royalBlue: '#1A73E8',
+        // surface: '#1A73E8',
         // textPrimary: '#FFFFFF',
         // textSecondary: '#CCCCCC',
         // textMuted: '#999999',

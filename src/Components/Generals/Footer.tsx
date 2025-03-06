@@ -82,7 +82,7 @@ const Footer = () => {
     </div>
 </div>
     </div>
-    <div className="flex justify-center py-3 items-center px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 max-w-7xl w-full mx-auto h-full bg-background text-secondary mt-6  text-xs md:text-sm ">
+    <div className="flex justify-center py-3 items-center w-full mx-auto h-full bg-background text-secondary mt-6  text-xs md:text-sm ">
     All Rights Reserved.2025</div>
     </>
   );

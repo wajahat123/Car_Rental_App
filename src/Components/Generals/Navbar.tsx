@@ -12,13 +12,13 @@ const Navbar = () => {
   };
   return (
     <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden  max-w-7xl w-full mx-auto ">
-      <div className="flex justify-between  ml:py-4 pt-4 items-center  h-[70px]">
+      <div className="flex justify-between  ml:py-4 pt-4 items-center text-primary  h-[70px]">
         <H_Three
           text="CarRental"
           className="text-secondary text-center font-extrabold"
         />
 
-        <nav className="hidden gap-6 text-textSecondary text-lg ml:flex ">
+        <nav className="hidden gap-6 text-textSecondary text-lg ml:flex h-[30px] ">
           <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/">Home</Link>
           </li>
@@ -26,11 +26,11 @@ const Navbar = () => {
             <Link href="/about">About</Link>
           </li>{" "}
           <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
-         Services
-            <Link href="/services"></Link>
+         FAQs
+            <Link href="/FAQs"></Link>
           </li>{" "}
           <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
-            <Link href="/contact-us">Contact</Link>
+            <Link href="/contact-us">Contact Us</Link>
           </li>{" "}
           <li className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all">
             <Link href="/privacy">Privacy</Link>
@@ -83,7 +83,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            <Link href="/services">Services</Link>
+            <Link href="/FAQs">FAQs</Link>
           </motion.li>
           <motion.li
             className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"
@@ -91,7 +91,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            <Link href="/contact-us">Contact</Link>
+            <Link href="/contact-us">Contact Us</Link>
           </motion.li>
           <motion.li
             className="list-none border-secondary hover:border-b-2 hover:text-secondary cursor-pointer transition-all"

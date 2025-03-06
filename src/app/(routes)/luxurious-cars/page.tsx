@@ -8,7 +8,7 @@ import SideBar from '@/Components/Product/SideBar';
 const LuxuriousCars = () => {
   return (
     <>
-      <SubHeader title="Luxurious Cars" route="Luxurious Cars" />
+      <SubHeader />
       <div className="px-4 sm:px-8 md:px-16 lg:px-28 max-w-7xl w-full mx-auto pb-8 md:pb-16 min-h-screen ">
         
         <H_Two className="text-center text-primary mb-6 uppercase my-16" text="Browse Our Luxurious Cars" />

@@ -37,7 +37,7 @@ export default function RootLayout({
         </main>
         <footer className="  bg-surface pt-6">
           <Footer/>
-    
+        
         </footer>
       </body>
     </html>

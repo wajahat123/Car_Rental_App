@@ -26,8 +26,8 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="relative  text-center z-10 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto overflow-visible ">
-       <div className=" bg-[#0b0f239d] border-[0.5px] border-[#63636389] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg  shadow-lux-gold space-y-2 md:space-y-4">
-       <H_One className="font-bold " text="Find Your Dream Car"/>
+       <div className=" bg-[#0812419d] border border-[#ffbf004b] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg  shadow-lux-gold space-y-2 md:space-y-4">
+       <H_One className="font-bold text-secondary " text="Find Your Dream Car"/>
 
 
         {/* Ensure SearchBar is visible */}
@@ -36,7 +36,7 @@ const Hero = () => {
         </div>
 
         <ContactLinks/>
-        <button className="flex justify-center items-center gap-2 w-[70%] sm:w-1/2 font-extrabold md:w-1/3 mx-auto mt-2   transition-all duration-300  active:scale-95 ring-1 ring-primary hover:ring-primary bg-primary rounded-md md:p-[4px] text-blue-800 hover:bg-background  hover:text-primary  active:bg-background active:opacity-90 active:text-primary active:ring-primary">
+        <button className="flex justify-center items-center gap-2 w-[70%] sm:w-1/2 font-extrabold md:w-1/3 mx-auto mt-2   transition-all duration-300  active:scale-95 ring-1 ring-primary hover:ring-primary bg-primary rounded-md md:p-[4px] text-background hover:bg-background  hover:text-primary  active:bg-background active:opacity-90 active:text-primary active:ring-primary">
         Book Now
       </button>
        </div>

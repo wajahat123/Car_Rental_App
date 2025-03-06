@@ -35,7 +35,7 @@ image:"/assets/images/car7.webp"        },
 
 {
     carTypes.map((car, index) => (
-      <div key={index} className='w-full p-4 text-secondary  space-y-1 md:space-y-2 mx-auto hover:text-accent transition-all active:scale-95 duration-500 cursor-pointer group'>
+      <div key={index} className='w-full p-4 text-secondary  space-y-1 md:space-y-2 mx-auto hover:text-primary transition-all active:scale-95 duration-500 cursor-pointer group'>
         <img src={car.image} alt={car.type} className='w-full  h-56 md:h-48 lg:h-44 rounded-lg ring-1 ring-secondary object-cover group-hover:ring-primary group-hover:opacity-80 ' />
 <H_Five text={car.type} className='font-bold text-center'/>     </div>
     ))
