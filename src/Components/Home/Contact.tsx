@@ -95,7 +95,7 @@ const Contact = () => {
 
               {/* Phone Input with Proper Styling */}
               <div className="w-full flex flex-col">
-                <div className="flex items-center p-3 rounded-md bg-background ring-1 ring-primary focus-within:ring-accent transition-all duration-200 shadow-lg">
+                <div className="flex items-center p-3 rounded-md bg-background ring-1 ring-[#ffbf004e] focus-within:ring-[#ffbf00ae]  transition-all duration-200 shadow-lg">
                   <PhoneInput
                     defaultCountry="us"
                     value={phone}
