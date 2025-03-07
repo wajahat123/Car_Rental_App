@@ -5,7 +5,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { H_Three } from "../../Utils/Typography"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
