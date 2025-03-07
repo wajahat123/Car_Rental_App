@@ -10,26 +10,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#050354", //deep blue
-        text: "#fcf6de", //creme
-        surface: "#0b0d7d", //blue
-        primary: "#ffbe00", //rich orange
-        secondary: "#fbd365", //light orange
-        muted: "#888888", //gray
-        accent: "#ffffff",
+        //Logo Colors
+        // background: "#12213e", //deep blue
+        // surface: "#062c78", //blue
+        // primary: "#ff6604", //rich orange
+        // // secondary: "#fe7f10", //light orange
+        // text: "#fcf6de", //creme
+        // muted: "#888888", //gray
+        // accent: "#ffffff",//white
 
-        // background: '#0b0f23',
-        // surface: '#3A4A6B',
-        // primary: '#D4AF37',
-        // secondary: '#F5F5F5',
-        // surface: '#1A73E8',
-        // textPrimary: '#FFFFFF',
-        // textSecondary: '#CCCCCC',
-        // textMuted: '#999999',
-        // success: '#34A853',
-        // error: '#EA4335',
-        // warning: '#FBBC05',
-        // accentHover: '#444444',
+        //Royal blue
+        background: "#000080",
+        primary: "#FF8C00",
+        surface: "#0000FF",
+        secondary: "#FFA500",
+        text: "#fcf6de", //creme
+        muted: "#888888", //gray
+        accent: "#ffffff",//white
+       
+      //  //Custom Changes
+      //  background: "#050354", //deep blue
+      //  text: "#fcf6de", //creme
+      //  surface: "#0b0d7d", //blue
+      //  primary: "#ffbe00", //rich orange
+      //  secondary: "#fbd365", //light orange
+      //  muted: "#888888", //gray
+      //  accent: "#ffffff",
       },
       screens: {
         xs: "480px", // Extra small devices (Custom)

@@ -5,13 +5,13 @@ export default function RentalPackages() {
   return (
     <div
       className="relative bg-cover bg-center text-primary  py-8 md:py-16  "
-      style={{ backgroundImage: "url('/assets/images/car6.webp')" }} 
+      style={{ backgroundImage: "url('/assets/images/dashboard2.webp')" }} 
     >
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-background bg-opacity-50"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto">
+      <div className="relative text-center px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto">
            <H_Two className="text-center text-primary  uppercase   mb-6" text="Our Rental Packages Include"/>
               
 

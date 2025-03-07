@@ -13,7 +13,7 @@
 body {
   -ms-overflow-style: none;
   scrollbar-width: thin; /* Make scrollbar thinner */
-@apply bg-background text-text
+@apply bg-background text-text;
 }
 
 ::-webkit-scrollbar {

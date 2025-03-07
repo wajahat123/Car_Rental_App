@@ -29,7 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} overflow-x-clip antialiased min-h-screen flex flex-col text-sm md:text-base `}
       >
-        <header className="bg-background text-text text-lg shadow-lux-gold">
+        <header className=" z-50 text-lg fixed top-0 right-0 left-0 bg-transparent ">
+        {/* <header className=" z-50 text-lg fixed top-0 right-0 left-0 bg-white/30 backdrop-blur-lg shadow-xl border-b border-b-primary/10 "> */}
           <Navbar />
         </header>
         <main className="flex-grow ">

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import "../../Styles/Hero.css";
 import SearchBar from "@/Components/Generals/SearchBar";
 import { ContactLinks } from "../Generals/ContactLinks";
 import { H_One } from "@/Utils/Typography";
@@ -11,27 +10,27 @@ const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
 
 const Hero = () => {
   return (
-    <div className="relative Hero min-w-screen min-h-[400px] md:min-h-[600px] overflow-visible text-primary">
+    <div className="relative flex items-center justify-center overflow-hidden min-w-screen min-h-[400px] md:min-h-[600px]  text-primary">
       {/* Optimized Next.js Image */}
       <Image
         // src="/assets/images/bg-home.webp"
-        src="/assets/images/car7.webp"
+        src="/assets/images/car3.webp"
         alt="Car Rental Hero"
         width={1200}
         height={600}
         priority
-        className="h-[400px] md:h-[600px] w-[100vw] opacity-50"
+        className="h-[400px] md:h-[600px] w-[100vw] opacity-50 absolute top-0 left-0 -z-[1]"
       />
 
 
       {/* Hero Content */}
-      <div className="relative  text-center z-10 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto overflow-visible ">
-       <div className=" bg-[#0812419d] border border-[#ffbf004b] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg  shadow-lux-gold space-y-2 md:space-y-4">
+      <div className="relative  text-center  px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto overflow-visible mt-8 md:mt-0">
+       <div className=" bg-[#0000809d] border border-[#ffbf004b] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg  shadow-lux-gold space-y-2 md:space-y-4">
        <H_One className="font-bold text-secondary " text="Find Your Dream Car"/>
 
 
         {/* Ensure SearchBar is visible */}
-        <div className="relative z-20 w-[80%] mx-auto">
+        <div className="relative z-10 w-[80%] mx-auto">
           <SearchBar products={products} />
         </div>
 

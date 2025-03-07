@@ -24,7 +24,7 @@ import { ImCheckmark } from 'react-icons/im'
 const SubHeader = () => {
   return (
     <div
-      className="relative bg-cover bg-center h-auto md:h-80 pt-12 pb-14"
+      className="relative bg-cover bg-center min-h-[400px] md:h-80 pt-32 pb-14"
       style={{ backgroundImage: "url('/assets/images/dashboard2.webp')" }}
     >
       <div className="absolute inset-0 bg-background bg-opacity-60"></div>

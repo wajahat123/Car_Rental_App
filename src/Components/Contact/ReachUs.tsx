@@ -4,7 +4,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 
 const ReachUs = () => {
   return (
-      <section className="w-full  bg-surface shadow-xl rounded-xl my-10 ring-1 ring-[#ffbf004e]">  
+      <section className="w-full mt-20 bg-surface shadow-xl rounded-xl my-10 ring-1 ring-[#ffbf004e]">  
         
       <div className="w-full flex flex-col items-center  p-4">
         {/* Google Map */}
@@ -20,9 +20,9 @@ const ReachUs = () => {
 
         {/* Contact Information */}
         
-         <div className="grid ml:grid-cols-4 gap-4 grid-cols-1 md:grid-cols-2 pb-2 pt-8 w-full text-gray-700 hover:text-text ">
+         <div className="grid ml:grid-cols-4 gap-4 grid-cols-1 md:grid-cols-2 pb-2 pt-8 w-full text-gray-700 ">
          
-         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg ">
+         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
            <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
              Call Us Now
            </p>
@@ -31,7 +31,7 @@ const ReachUs = () => {
              <li className="hover:text-blue-500 cursor-pointer">1234567890</li>
              <li className="hover:text-blue-500 cursor-pointer">1234567890</li>
            </ul></div>
-         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg ">
+         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
                   <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
              Social Media
            </p>
@@ -64,7 +64,7 @@ const ReachUs = () => {
                </Link>
              </li>
            </ul></div>
-         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg ">
+         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
           
                   <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
              Mail Us
@@ -84,7 +84,7 @@ const ReachUs = () => {
              </li>
            </ul>
          </div>{" "}
-         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg ">
+         <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
           
           <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
              Address

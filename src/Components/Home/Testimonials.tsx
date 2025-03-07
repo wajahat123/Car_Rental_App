@@ -99,10 +99,10 @@ const Testimonials = () => {
         <H_Four className="text-left font-bold text-accent mt-2" text="What Our Customers Say About Us" />
 
         <div className="relative">
-          <button onClick={handlePrev} className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2  text-secondary rounded-full z-10">
+          <button onClick={handlePrev} className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2  text-secondary rounded-full ">
             ❮
           </button>
-          <button onClick={handleNext} className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2  text-secondary rounded-full z-10">
+          <button onClick={handleNext} className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2  text-secondary rounded-full ">
             ❯
           </button>
 
