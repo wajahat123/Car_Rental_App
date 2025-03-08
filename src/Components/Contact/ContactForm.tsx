@@ -53,7 +53,7 @@ const ContactForm = () => {
   return (
     <div className="relative my-10  md:my-24">
 <div className="w-full h-full absolute bg-primary rounded-xl -rotate-2 shadow-xl " ></div>
-        <div className="relative bg-surface p-4 md:p-8 rounded-xl shadow-xl ring-1 ring-[#ffbf004e]">
+        <div className="relative bg-surface p-4 md:p-8 rounded-xl shadow-xl ring-1 ring-primary/30">
              <H_Two className="text-center text-primary mb-6 uppercase" text="Get in Touch" />
      
              <form onSubmit={handleSubmit} className="space-y-6">
@@ -71,7 +71,7 @@ const ContactForm = () => {
                      value={formData.name}
                      onChange={handleChange}
                      className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                               focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                               focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                      aria-label="Name"
                    />
      
@@ -84,12 +84,12 @@ const ContactForm = () => {
                      value={formData.email}
                      onChange={handleChange}
                      className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                               focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                               focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                      aria-label="Email Address"
                    />
      
                    <div className="w-full flex flex-col">
-                     <div className="flex items-center p-3 rounded-md bg-background ring-1 ring-[#ffbf004e] focus-within:ring-[#ffbf00ae] transition-all duration-200 shadow-lg">
+                     <div className="flex items-center p-3 rounded-md bg-background ring-1ring-primary/30 focus-within:ring-primary/70 transition-all duration-200 shadow-lg">
                        <PhoneInput
                          defaultCountry="us"
                          value={phone}
@@ -108,7 +108,7 @@ const ContactForm = () => {
                      value={formData.subject}
                      onChange={handleChange}
                      className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                               focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                               focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                      aria-label="Subject"
                    />
                  </div>
@@ -123,7 +123,7 @@ const ContactForm = () => {
                      value={formData.message}
                      onChange={handleChange}
                      className="w-full p-3 h-[265px] rounded-md bg-background  placeholder-gray-400 
-                               focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                               focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                      aria-label="Message"
                    ></textarea>
                  </div>

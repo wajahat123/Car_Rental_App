@@ -14,7 +14,7 @@ const Contact = () => {
     email: "",
     subject: "",
     message: "",
-    phone: phone
+    phone: phone,
   });
 
   const handleChange = (
@@ -25,7 +25,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate phone number before submission
     const phoneNumber = parsePhoneNumberFromString(phone);
     const isValid = phoneNumber?.isValid() || false;
@@ -44,7 +44,7 @@ const Contact = () => {
       email: "",
       subject: "",
       message: "",
-      phone: phone
+      phone: phone,
     });
     setPhone("");
   };
@@ -59,7 +59,10 @@ const Contact = () => {
 
       {/* Content */}
       <div className="relative text-center px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto">
-        <H_Two className="text-center text-primary mb-6 uppercase" text="Get in Touch" />
+        <H_Two
+          className="text-center text-primary mb-6 uppercase"
+          text="Get in Touch"
+        />
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex w-full flex-col md:flex-row gap-4">
@@ -76,7 +79,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                 aria-label="Name"
               />
 
@@ -89,13 +92,13 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                 aria-label="Email Address"
               />
 
               {/* Phone Input with Proper Styling */}
               <div className="w-full flex flex-col">
-                <div className="flex items-center p-3 rounded-md bg-background ring-1 ring-[#ffbf004e] focus-within:ring-[#ffbf00ae]  transition-all duration-200 shadow-lg">
+                <div className="flex items-center p-3 rounded-md bg-background ring-1 ring-primary/30 focus-within:ring-primary/70  transition-all duration-200 shadow-lg">
                   <PhoneInput
                     defaultCountry="us"
                     value={phone}
@@ -114,7 +117,7 @@ const Contact = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 className="w-full p-3 rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                          focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
                 aria-label="Subject"
               />
             </div>
@@ -128,8 +131,8 @@ const Contact = () => {
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-3 h-[265px] rounded-md bg-background  placeholder-gray-400 
-                          focus:outline-none ring-1 ring-[#ffbf004e] focus-within:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                className="w-full p-3 md:h-[265px] h-[1] rounded-md bg-background  placeholder-gray-400 
+                          focus:outline-none ring-1 ring-primary/30 focus-within:ring-primary/70 transition-all duration-200 shadow-lg"
                 aria-label="Message"
               ></textarea>
             </div>

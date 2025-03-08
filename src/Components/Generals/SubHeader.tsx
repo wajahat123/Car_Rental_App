@@ -47,15 +47,15 @@ const SubHeader = () => {
 
           <ul className="space-y-2">
             <li className="flex items-start gap-2">
-              <ImCheckmark className="text-[#1261ff] font-extrabold text-lg self-start" />
+              <ImCheckmark className="text-primary font-extrabold text-lg self-start" />
               <span><span className="font-bold">24/7 Assistance</span> – Dedicated support for seamless bookings.</span>
             </li>
             <li className="flex items-start gap-2">
-              <ImCheckmark className="text-[#1261ff] font-extrabold text-lg self-start" />
+              <ImCheckmark className="text-primary font-extrabold text-lg self-start" />
               <span><span className="font-bold">Tailored Travel Experience</span> – Luxury rides customized for your comfort.</span>
             </li>
             <li className="flex items-start gap-2">
-              <ImCheckmark className="text-[#1261ff] font-extrabold text-lg self-start" />
+              <ImCheckmark className="text-primary font-extrabold text-lg self-start" />
               <span><span className="font-bold">Hassle-Free Booking</span> – Quick, secure, and efficient reservations.</span>
             </li>
           </ul>

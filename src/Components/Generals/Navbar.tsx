@@ -15,8 +15,17 @@ const Navbar = () => {
   return (
     <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden max-w-7xl w-full mx-auto">
       <div className="flex justify-between ml:py-4 pt-4 items-center text-primary h-[80px] overflow-clip">
-<Image src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png" className="-ml-8 md:-ml-0 w-56 ml:w-64 h-[130px] pt-2" alt="ASMR" height={150} width={300}/>
-        {/* Desktop Navigation */}
+      <div className="relative w-40 md:w-48 lg:w-56 xl:w-64 h-auto mt-1">
+  <Image 
+    src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
+    alt="ASMR"
+    layout="intrinsic" // Ensures responsiveness
+    width={300}
+    height={150}
+    className="w-full h-auto object-contain"
+  />
+</div>
+     {/* Desktop Navigation */}
         <nav className="hidden gap-6 text-textSecondary text-lg ml:flex h-[30px]">
           {[
             { name: "Home", path: "/" },
@@ -53,8 +62,9 @@ const Navbar = () => {
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         exit={{ height: 0, opacity: 0 }}
+        onClick={handleOpen}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute top-[70px] left-0 right-0 w-full bg-[#040354ec]  border-b border-primary/30 z-50 md:hidden "
+        className="absolute top-[70px] left-0 right-0 w-full bg-transparent backdrop-blur-lg shadow-xl border-b border-b-primary/10 z-50 md:hidden "
       >
         <nav className="flex flex-col gap-4 text-lg mt-4 text-center space-y-2 py-4 text-accent md:hidden">
           {[
@@ -66,6 +76,8 @@ const Navbar = () => {
             { name: "Rent Car By", path: "/luxurious-cars" },
           ].map((link) => (
             <motion.li
+        onClick={handleOpen}
+
               key={link.path}
               className={`list-none border-transparent hover:border-b-primary hover:text-secondary cursor-pointer transition-all ${
                 pathname === link.path ? "border-b-2 border-secondary text-secondary font-bold" : ""

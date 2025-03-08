@@ -21,7 +21,7 @@ const BrandsSlider = () => {
      <div className="bg-gradient-to-r from-blue-700 rounded-full to-transparent h-2 w-56 mt-2"></div>
      </div>  <Link
           href="#"
-          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-blue-800 rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
+          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-surface rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
         >
           All Brands
           <IoIosArrowForward className="text-base " />
@@ -52,7 +52,7 @@ const BrandsSlider = () => {
 
       <Link
           href="#"
-          className="absolute right-2  md:hidden  flex w-fit items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-blue-800 rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
+          className="absolute right-2  md:hidden  flex w-fit items-center gap-2 px-4 py-2 text-sm font-bold bg-primary text-surface rounded-full ring-1 ring-primary transition-all duration-300 hover:bg-white hover:text-primary active:scale-95"
           >
           All Brands
           <IoIosArrowForward className="text-base" />

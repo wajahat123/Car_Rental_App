@@ -25,7 +25,7 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="relative  text-center  px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto overflow-visible mt-8 md:mt-0">
-       <div className=" bg-[#0000809d] border border-[#ffbf004b] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg  shadow-lux-gold space-y-2 md:space-y-4">
+       <div className=" bg-background/50 border border-[#ffbf004b] py-5 md:py-10 w-full md:w-[70%] mx-auto rounded-lg  shadow-lux-gold space-y-2 md:space-y-4">
        <H_One className="font-bold text-secondary " text="Find Your Dream Car"/>
 
 

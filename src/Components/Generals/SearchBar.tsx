@@ -38,7 +38,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
         value={query}
         onChange={handleSearch}
         className="w-full py-2 px-6 md:px-8 rounded-full bg-background bg-opacity-65  text-text  placeholder-textMuted 
-                   focus:outline-none ring-1 ring-[#ffbf004e] focus:ring-[#ffbf00ae] transition-all duration-200 shadow-lg"
+                   focus:outline-none ring-1 ring-primary/30 focus:ring-primary/70 transition-all duration-200 shadow-lg"
       />
 
       {/* Search Results Dropdown */}
@@ -48,7 +48,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
             filteredResults.map((product,index) => (
               <li
                 key={index}
-                className="p-4 flex items-center gap-4 border-b-[1px] border-b-[#9a9a9a2c] hover:bg-muted hover:bg-opacity-20 cursor-pointer transition-all duration-300 rounded-md"
+                className="p-4 flex items-center gap-4 border-b-[1px] border-b-gray-600/40 hover:bg-muted hover:bg-opacity-20 cursor-pointer transition-all duration-300 rounded-md"
               >
                 {/* Product Details */}
                 <div className="text-left ">
