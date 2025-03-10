@@ -10,70 +10,70 @@ export default {
   theme: {
     extend: {
       colors: {
-        //1 Skyflare 
-        background: "#0d47a1", // Bright deep blue
-        surface: "#1976d2", // Sky blue
-        primary: "#ff6f00", // Fiery orange
-        secondary: "#ff9800", // Warm orange
-        text: "#fcf6de", // Creme
-        muted: "#888888", // Gray
-        accent: "#ffffff", // White
+        //1 Skyflare
+        // background: "#0d47a1", // Bright deep blue
+        // surface: "#1976d2", // Sky blue
+        // primary: "#ff6f00", // Fiery orange
+        // secondary: "#ff9800", // Warm orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
         //2 Cobalt Glow
-        // background: "#003c8f" // Cobalt blue
-        //, surface: "#005cbf" // Lighter cobalt blue
-        //, primary: "#ff9100" // Bright orange
-        //, secondary: "#ffb74d" // Warm golden-orange
-        //, text: "#fcf6de" // Creme
-        //, muted: "#888888" // Gray
-        //, accent: "#ffffff" // White
+        // background: "#003c8f", // Cobalt blue
+        // surface: "#005cbf", // Lighter cobalt blue
+        // primary: "#ff9100", // Bright orange
+        // secondary: "#ffb74d", // Warm golden-orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
         //3 Ultramarine Blaze
-        // background: "#0047ab" // Ultramarine blue
-        // ,surface: "#005bbb" // Vivid deep blue
-        // ,primary: "#ff7800" // Rich orange
-        // ,secondary: "#ffae42" // Golden orange
-        // ,text: "#fcf6de" // Creme
-        // ,muted: "#888888" // Gray
-        // ,accent: "#ffffff" // White
+        // background: "#0047ab", // Ultramarine blue
+        // surface: "#005bbb", // Vivid deep blue
+        // primary: "#ff7800", // Rich orange
+        // secondary: "#ffae42", // Golden orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
-       //4 Cerulean Fire
-        // background: "#0074d9" // Cerulean blue
-        // ,surface: "#0088ff" // Bright sky blue
-        // ,primary: "#ff8200" // Deep orange
-        // ,secondary: "#ffb54a" // Soft golden orange
-        // ,text: "#fcf6de" // Creme
-        // ,muted: "#888888" // Gray
-        // ,accent: "#ffffff" // White
+        //4 Cerulean Fire
+        // background: "#0074d9", // Cerulean blue
+        // surface: "#0088ff", // Bright sky blue
+        // primary: "#ff8200", // Deep orange
+        // secondary: "#ffb54a", // Soft golden orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
-       //5 Sapphire Spark
-        // background: "#0057b8" // Sapphire blue
-        // ,surface: "#007bff" // Electric blue
-        // ,primary: "#ff8800" // Vivid orange
-        // ,secondary: "#ffc04a" // Soft golden orange
-        // ,text: "#fcf6de" // Creme
-        // ,muted: "#888888" // Gray
-        // ,accent: "#ffffff" // White
+        //5 Sapphire Spark
+        // background: "#0057b8", // Sapphire blue
+        // surface: "#007bff", // Electric blue
+        // primary: "#ff8800", // Vivid orange
+        // secondary: "#ffc04a", // Soft golden orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
-       //6 Horizon Flame
-        // background: "#1565c0" // Deep sky blue
-        //, surface: "#1e88e5" // Bright blue
-        //, primary: "#ff6600" // Intense orange
-        //, secondary: "#ff9800" // Soft orange
-        //, text: "#fcf6de" // Creme
-        //, muted: "#888888" // Gray
-        //, accent: "#ffffff" // White
+        //6 Horizon Flame
+        // background: "#1565c0", // Deep sky blue
+        // surface: "#1e88e5", // Bright blue
+        // primary: "#ff6600", // Intense orange
+        // secondary: "#ff9800", // Soft orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
-       //7 Azure Inferno
-        // background: "#007acc" // Vibrant azure
-        // ,surface: "#0091ea" // Brighter blue
-        // ,primary: "#ff7700" // Fiery orange
-        // ,secondary: "#ffab40" // Light orange
-        // ,text: "#fcf6de" // Creme
-        // ,muted: "#888888" // Gray
-        // ,accent: "#ffffff" // White
+        //7 Azure Inferno
+        // background: "#007acc", // Vibrant azure
+        // surface: "#0091ea", // Brighter blue
+        // primary: "#ff7700", // Fiery orange
+        // secondary: "#ffab40", // Light orange
+        // text: "#fcf6de", // Creme
+        // muted: "#888888", // Gray
+        // accent: "#ffffff", // White
 
-       //8 Neon Wave
+        //8 Neon Wave
         // background: "#0066cc" // Deep neon blue
         // ,surface: "#0088ff" // Bright neon blue
         // ,primary: "#ff7800" // Neon orange
@@ -82,25 +82,11 @@ export default {
         // ,muted: "#888888" // Gray
         // ,accent: "#ffffff" // White
 
-       //9 Aqua Ember
-        // background: "#0096c7" // Aqua blue
-        // ,surface: "#00b4d8" // Brighter aqua
-        // ,primary: "#ff7300" // Bold orange
-        // ,secondary: "#ffb000" // Golden orange
-        // ,text: "#fcf6de" // Creme
-        // ,muted: "#888888" // Gray
-        // ,accent: "#ffffff" // White
+        
 
-       //10 Ocean Sunset
-        // background: "#0066b2" // Ocean blue
-        //, surface: "#0081cf" // Bright sky blue
-        //, primary: "#ff6a00" // Deep orange
-        //, secondary: "#ffae42" // Golden amber
-        //, text: "#fcf6de" // Creme
-        //, muted: "#888888" // Gray
-        //, accent: "#ffffff" // White
+       
 
-       //11 Skyfire Azure
+        //11 Skyfire Azure
         // background: "#003366" // Rich deep blue
         // ,surface: "#0055A4" // Bright azure
         // ,primary: "#FF6600" // Bold orange
@@ -109,7 +95,7 @@ export default {
         // ,muted: "#999999" // Medium gray
         // ,accent: "#ffffff" // White
 
-       //12 Blue Inferno
+        //12 Blue Inferno
         // background: "#002B5B" // Deep navy blue
         // ,surface: "#005F99" // Vibrant blue
         // ,primary: "#FF7700" // Fiery orange
@@ -118,7 +104,7 @@ export default {
         // ,muted: "#8C8C8C" // Neutral gray
         // ,accent: "#ffffff" // White
 
-       //13 Aurora Flame
+        //13 Aurora Flame
         // background: "#003B73" // Vivid deep blue
         // ,surface: "#0074B7" // Brighter blue
         // ,primary: "#FF6F00" // Bright orange
@@ -127,16 +113,16 @@ export default {
         // ,muted: "#A0A0A0" // Gray tone
         // ,accent: "#ffffff" // White
 
-       //14 Celestial Glow
+        //14 Celestial Glow
         // background: "#001F5B" // Strong deep blue
-        //, surface: "#003F87" // Oceanic blue
-        //, primary: "#FF8500" // Warm orange
-        //, secondary: "#FFB266" // Light amber-orange
-        //, text: "#F7F4E3" // Off-white
-        //, muted: "#7E7E7E" // Mid-gray
-        //, accent: "#ffffff" // White
+        // , surface: "#003F87" // Oceanic blue
+        // , primary: "#FF8500" // Warm orange
+        // , secondary: "#FFB266" // Light amber-orange
+        // , text: "#F7F4E3" // Off-white
+        // , muted: "#7E7E7E" // Mid-gray
+        // , accent: "#ffffff" // White
 
-       //15 Electric Dusk
+        //15 Electric Dusk
         // background: "#0B3D91" // Bold electric blue
         // ,surface: "#1565C0" // Vibrant ocean blue
         // ,primary: "#FF7300" // Neon orange
@@ -145,7 +131,7 @@ export default {
         // ,muted: "#909090" // Muted gray
         // ,accent: "#ffffff" // White
 
-       //16 Azure Inferno 
+        //16 Azure Inferno
         // background: "#001233", // Deep space blue
         // surface: "#004494", // Oceanic blue
         // primary: "#ff9500", // Intense orange
@@ -154,7 +140,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-        //17 Golden Nightfall 
+        //17 Golden Nightfall
         // background: "#03071e", // Night sky blue
         // surface: "#370617", // Deep blue-red
         // primary: "#ff8800", // Warm golden-orange
@@ -163,7 +149,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-        //18 Ember Eclipse 
+        // //18 Ember Eclipse
         // background: "#0f172a", // Charcoal blue
         // surface: "#1e293b", // Deep navy
         // primary: "#ff7300", // Vivid orange
@@ -172,7 +158,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-       //19 Neon Sunset  
+        //19 Neon Sunset
         // background: "#080d3a", // Ultra-dark blue
         // surface: "#1a237e", // Royal blue
         // primary: "#ff9800", // Neon orange
@@ -181,7 +167,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-       //20 Deep Horizon  
+        // 20 Deep Horizon
         // background: "#03045e", // Dark navy
         // surface: "#023e8a", // Deep ocean blue
         // primary: "#ff9000", // Warm orange
@@ -190,7 +176,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-       //21 Saphire Blaze 
+        //21 Saphire Blaze
         // background: "#0d1b2a", // Sapphire dark blue
         // surface: "#1b263b", // Midnight blue
         // primary: "#f77f00", // Fiery orange
@@ -199,7 +185,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-       //22 Amber Twilight  
+        //22 Amber Twilight
         // background: "#101d42", // Dark twilight blue
         // surface: "#062c78", // Bold blue
         // primary: "#ffae42", // Deep amber
@@ -208,16 +194,16 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-       //23 Cosmic Glow 
-        // background: "#07012f", // Deep cosmic blue
-        // surface: "#0b0d7d", // Bright blue
-        // primary: "#ffcc33", // Golden orange
-        // secondary: "#fbd365", // Light gold
-        // text: "#fcf6de", // Creme
-        // muted: "#888888", // Gray
-        // accent: "#ffffff", // White
+        //23 Cosmic Glow
+        background: "#07012f", // Deep cosmic blue
+        surface: "#0b0d7d", // Bright blue
+        primary: "#ffcc33", // Golden orange
+        secondary: "#fbd365", // Light gold
+        text: "#fcf6de", // Creme
+        muted: "#888888", // Gray
+        accent: "#ffffff", // White
 
-       //24 Midnight Amber 
+        //24 Midnight Amber
         // background: "#0a1128", // Deep midnight blue
         // surface: "#001f54", // Dark blue
         // primary: "#ff8c00", // Vivid orange
@@ -226,7 +212,7 @@ export default {
         // muted: "#888888", // Gray
         // accent: "#ffffff", // White
 
-       //25 Ocean Blaze  
+        // 25 Ocean Blaze
         // background: "#06213e", // Deep ocean blue
         // surface: "#03396c", // Rich navy blue
         // primary: "#ff7f11", // Bright orange

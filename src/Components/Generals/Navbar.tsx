@@ -14,14 +14,14 @@ const Navbar = () => {
 
   return (
     <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden max-w-7xl w-full mx-auto">
-      <div className="flex justify-between ml:py-4 pt-4 items-center text-primary h-[80px] overflow-clip">
-      <div className="relative w-40 md:w-48 lg:w-56 xl:w-64 h-auto mt-1">
+      <div className="flex justify-between py-8 items-center text-primary h-[80px] overflow-clip">
+      <div className="relative w-40 md:w-48 lg:w-56 xl:w-64 h-auto mt-2">
   <Image 
     src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
     alt="ASMR"
-    layout="intrinsic" // Ensures responsiveness
+    // layout="fill" // Ensures responsiveness
     width={300}
-    height={150}
+    height={211}
     className="w-full h-auto object-contain"
   />
 </div>
@@ -64,7 +64,7 @@ const Navbar = () => {
         exit={{ height: 0, opacity: 0 }}
         onClick={handleOpen}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute top-[70px] left-0 right-0 w-full bg-transparent backdrop-blur-lg shadow-xl border-b border-b-primary/10 z-50 md:hidden "
+        className="absolute top-[70px] left-0 right-0 mx-auto w-full bg-transparent backdrop-blur-lg shadow-xl border-b border-b-primary/10 z-50 md:hidden "
       >
         <nav className="flex flex-col gap-4 text-lg mt-4 text-center space-y-2 py-4 text-accent md:hidden">
           {[

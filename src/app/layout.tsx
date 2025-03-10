@@ -33,10 +33,10 @@ export default function RootLayout({
    md:fixed md:bg-transparent md:backdrop-blur-md md:shadow-xl md:border-b md:border-b-primary/10"> */}
 
   <header className="z-50 text-lg top-0 right-0 left-0 transition-all duration-300
-  bg-transparent ">
+  bg-transparent md:py-3  py-2">
   <Navbar />
 </header>
-<div className="absolute top-0 left-0 right-0">
+<div className="absolute top-0 left-0 right-0 overflow-x-clip">
 
 <main className="flex-grow">
   {children}

@@ -5,6 +5,7 @@ import { ContactLinks } from "../Generals/ContactLinks";
 import { H_One } from "@/Utils/Typography";
 import rawProducts from "@/Utils/CarsData.json";
 import { Car } from "@/Utils/utils";
+import Link from "next/link";
 
 const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
 
@@ -35,9 +36,9 @@ const Hero = () => {
         </div>
 
         <ContactLinks/>
-        <button className="flex justify-center items-center gap-2 w-[70%] sm:w-1/2 font-extrabold md:w-1/3 mx-auto mt-2   transition-all duration-300  active:scale-95 ring-1 ring-primary hover:ring-primary bg-primary rounded-md md:p-[4px] text-background hover:bg-background  hover:text-primary  active:bg-background active:opacity-90 active:text-primary active:ring-primary">
-        Book Now
-      </button>
+        <Link className="flex justify-center items-center gap-2 w-[70%] sm:w-1/2 font-extrabold md:w-1/3 mx-auto mt-2   transition-all duration-300  active:scale-95 ring-1 ring-primary hover:ring-primary bg-primary rounded-md md:p-[4px] text-background hover:bg-background  hover:text-primary  active:bg-background active:opacity-90 active:text-primary active:ring-primary" href="/contact-us"
+    >    Book Now
+</Link> 
        </div>
       </div>
     </div>

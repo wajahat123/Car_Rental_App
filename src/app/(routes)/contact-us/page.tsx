@@ -1,5 +1,5 @@
 "use client";
-import SubHeader from "@/Components/Generals/SubHeader";
+import SubHeader from "@/Components/Generals/Subheader_Contact";
 import "react-international-phone/style.css";
 import ReachUs from "@/Components/Contact/ReachUs";
 import ContactForm from "@/Components/Contact/ContactForm";
