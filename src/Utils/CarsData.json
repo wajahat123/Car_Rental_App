@@ -5,7 +5,7 @@
     "type": "Sport",
     "fuel_capacity": "90L",
     "transmission": "Manual",
-    "image":"/assets/images/car3.webp",
+    "image": "/assets/images/car3.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$99.00/day",
     "tags": ["popular"]
@@ -16,7 +16,7 @@
     "type": "Sport",
     "fuel_capacity": "80L",
     "transmission": "Manual",
-          "image":"/assets/images/car7.webp",
+    "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
     "original_price": "$100.00",
@@ -28,19 +28,18 @@
     "type": "Sedan",
     "fuel_capacity": "70L",
     "transmission": "Manual",
-          "image":"/assets/images/car4.webp",
+    "image": "/assets/images/car4.webp",
     "seating_capacity": "4 People",
     "price_per_day": "$96.00/day",
     "tags": ["popular"]
-  }
-,
+  },
   {
     "id": 1,
     "name": "Koenigsegg",
     "type": "Sport",
     "fuel_capacity": "90L",
     "transmission": "Manual",
-    "image":"/assets/images/car3.webp",
+    "image": "/assets/images/car3.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$99.00/day",
     "tags": ["popular"]
@@ -51,7 +50,7 @@
     "type": "Sport",
     "fuel_capacity": "80L",
     "transmission": "Manual",
-          "image":"/assets/images/car7.webp",
+    "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
     "original_price": "$100.00",
@@ -63,19 +62,18 @@
     "type": "Sedan",
     "fuel_capacity": "70L",
     "transmission": "Manual",
-          "image":"/assets/images/car4.webp",
+    "image": "/assets/images/car4.webp",
     "seating_capacity": "4 People",
     "price_per_day": "$96.00/day",
     "tags": ["popular"]
-  }
-,
+  },
   {
     "id": 1,
     "name": "Koenigsegg",
     "type": "Sport",
     "fuel_capacity": "90L",
     "transmission": "Manual",
-    "image":"/assets/images/car3.webp",
+    "image": "/assets/images/car3.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$99.00/day",
     "tags": ["popular"]
@@ -86,7 +84,7 @@
     "type": "Sport",
     "fuel_capacity": "80L",
     "transmission": "Manual",
-          "image":"/assets/images/car7.webp",
+    "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
     "original_price": "$100.00",
@@ -98,19 +96,18 @@
     "type": "Sedan",
     "fuel_capacity": "70L",
     "transmission": "Manual",
-          "image":"/assets/images/car4.webp",
+    "image": "/assets/images/car4.webp",
     "seating_capacity": "4 People",
     "price_per_day": "$96.00/day",
     "tags": ["popular"]
-  }
-,
+  },
   {
     "id": 1,
     "name": "Koenigsegg",
     "type": "Sport",
     "fuel_capacity": "90L",
     "transmission": "Manual",
-    "image":"/assets/images/car3.webp",
+    "image": "/assets/images/car3.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$99.00/day",
     "tags": ["popular"]
@@ -121,7 +118,7 @@
     "type": "Sport",
     "fuel_capacity": "80L",
     "transmission": "Manual",
-          "image":"/assets/images/car7.webp",
+    "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
     "original_price": "$100.00",
@@ -133,19 +130,18 @@
     "type": "Sedan",
     "fuel_capacity": "70L",
     "transmission": "Manual",
-          "image":"/assets/images/car4.webp",
+    "image": "/assets/images/car4.webp",
     "seating_capacity": "4 People",
     "price_per_day": "$96.00/day",
     "tags": ["popular"]
-  }
-,
+  },
   {
     "id": 1,
     "name": "Koenigsegg",
     "type": "Sport",
     "fuel_capacity": "90L",
     "transmission": "Manual",
-    "image":"/assets/images/car3.webp",
+    "image": "/assets/images/car3.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$99.00/day",
     "tags": ["popular"]
@@ -156,7 +152,7 @@
     "type": "Sport",
     "fuel_capacity": "80L",
     "transmission": "Manual",
-          "image":"/assets/images/car7.webp",
+    "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
     "original_price": "$100.00",
@@ -168,10 +164,9 @@
     "type": "Sedan",
     "fuel_capacity": "70L",
     "transmission": "Manual",
-          "image":"/assets/images/car4.webp",
+    "image": "/assets/images/car4.webp",
     "seating_capacity": "4 People",
     "price_per_day": "$96.00/day",
     "tags": ["popular"]
   }
-
 ]

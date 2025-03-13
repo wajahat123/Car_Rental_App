@@ -2,29 +2,24 @@
   {
     "name": "James Carter",
     "role": "Business Traveler",
-    "image": "/assets/Ellipse 6.png",
+    "image": "/assets/images/testimonial/2.jpg",
     "quote": "The best car rental experience I've had! The process was smooth, and the car was in excellent condition. Will definitely rent again!",
     "rating": 5
   },
   {
     "name": "Sophia Martinez",
     "role": "Tourist",
-    "image": "/assets/Ellipse 6.png",
+    "image": "/assets/images/testimonial/1.jpg",
     "quote": "Amazing service! The car was clean and well-maintained. The rental process was hassle-free, and the staff was very friendly. Highly recommended!",
     "rating": 5
   },
   {
     "name": "David Johnson",
     "role": "Frequent Renter",
-    "image": "/assets/Ellipse 6.png",
-    "quote": "Great pricing and excellent customer service. I rented a car for a week, and everything went perfectly. The pickup and drop-off process was seamless!",
+    "image": "/assets/images/testimonial/3.jpg",
+    "quote": "Great pricing and excellent customer service! I rented a car for a week, and everything went perfectly. The pickup and drop-off process was seamless!",
     "rating": 4
-  },
-  {
-    "name": "Emma Wilson",
-    "role": "Road Trip Enthusiast",
-    "image": "/assets/Ellipse 6.png",
-    "quote": "The car was perfect for my long road trip! It was comfortable, fuel-efficient, and had all the features I needed. Very happy with the service!",
-    "rating": 5
   }
+
+  
 ]

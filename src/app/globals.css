@@ -1,6 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Set default text color */
+  html {
+    @apply text-text-primary;
+  }
+
+  /* Set heading colors */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-light font-bold;
+  }
+}
+
+/* Base Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,102 +24,161 @@
   -moz-appearance: none;
 }
 
+/* Body Styles */
 body {
   -ms-overflow-style: none;
-  scrollbar-width: thin; /* Make scrollbar thinner */
-@apply bg-background text-text;
+  scrollbar-width: thin;
+  @apply bg-background text-text-primary;
 }
 
+/* Scrollbar Styles - Webkit */
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  @apply bg-transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-@apply bg-primary
+  @apply bg-primary rounded-full;
 }
 
 ::-webkit-scrollbar-button {
   display: none;
 }
 
-/* Firefox */
+/* Scrollbar Styles - Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #10137c transparent;
+  @apply scrollbar-color-primary;
 }
 
-/* Microsoft Edge & Internet Explorer */
-
+/* Scrollbar Styles - Edge & IE */
 body::-webkit-scrollbar-thumb {
-  background-color: #10137c;
-  border-radius: 10px;
+  @apply bg-surface rounded-full;
 }
 
-
-input[type="checkbox"],
-input[type="radio"] {
-  appearance: none; 
-  width: 18px; 
-  height: 18px;
-  background-color: #fff; 
-  border: 2px solid #752e38; 
-  border-radius: 4px; 
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
+/* Form Elements */
+/* Checkbox Styles */
+input[type="checkbox"] {
+  @apply appearance-none w-[18px] h-[18px] bg-text-light border-2 border-primary 
+         rounded cursor-pointer inline-block relative transition-all duration-200;
 }
 
 input[type="checkbox"]:checked {
-  background-color: #B76E79; 
-  border-color: #752e38;
+  @apply bg-primary border-surface;
 }
 
 input[type="checkbox"]::after {
-  content: "✔"; 
-  font-size: 14px;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
+  content: "✔";
+  @apply text-sm text-text-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden;
 }
 
 input[type="checkbox"]:checked::after {
-  display: block;
+  @apply block;
 }
 
+/* Radio Button Styles */
 input[type="radio"] {
-  border-radius: 50%; 
+  @apply appearance-none w-[18px] h-[18px] bg-text-light border-2 border-primary 
+         rounded-full cursor-pointer inline-block relative transition-all duration-200;
 }
 
 input[type="radio"]:checked {
-  background-color: #B76E79;
-  border-color: #752e38;
+  @apply bg-primary border-surface;
 }
 
 input[type="radio"]::after {
   content: "";
-  width: 10px;
-  height: 10px;
-  background-color: #B76E79;
-  border-radius: 50%;
-  position: absolute;
-  border:3px solid #ffffff;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
+  @apply w-[10px] h-[10px] bg-primary rounded-full absolute border-2 border-text-light 
+         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden;
 }
 
 input[type="radio"]:checked::after {
-  display: block;
+  @apply block;
+}
+
+/* Luxury Theme Utilities */
+@layer utilities {
+  /* Text Gradients */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500;
+  }
+
+  /* Background Gradients */
+  .bg-gradient-luxury {
+    @apply bg-gradient-to-r from-surface via-surface2 to-surface;
+  }
+
+  .bg-gradient-gold {
+    @apply bg-gradient-to-r from-primary via-primary2 to-primary;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-gold-lg;
+  }
+
+  /* Glass Effect */
+  .glass-effect {
+    @apply bg-background/30 backdrop-blur-sm border border-primary/20;
+  }
+
+  /* Text Styles */
+  .text-luxury-heading {
+    @apply text-text-secondary font-bold tracking-wide;
+  }
+
+  .text-luxury-body {
+    @apply text-text-primary/90 leading-relaxed;
+  }
+
+  .text-luxury-muted {
+    @apply text-text-muted text-sm;
+  }
+
+  .text-luxury {
+    @apply text-text-primary;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes glow {
+  0%, 100% {
+    @apply shadow-gold-sm;
+  }
+  50% {
+    @apply shadow-gold-lg;
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar Colors */
+.scrollbar-color-primary {
+  scrollbar-color: theme('colors.primary') transparent;
+}
+
+/* Focus States */
+.focus-luxury {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Selection Color */
+::selection {
+  @apply bg-primary/20 text-text-primary;
 }
 
 

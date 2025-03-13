@@ -1,97 +1,201 @@
 "use client"; 
-import { usePathname } from "next/navigation"; // Import usePathname instead of useRouter
+import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
+
+  // Handle scroll and hover behavior
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show navbar when scrolling up or hovering near top
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        setIsVisible(true);
+      } else {
+        // Hide navbar when scrolling down (only on desktop)
+        if (window.innerWidth >= 908) { // ml breakpoint
+          setIsVisible(false);
+        }
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth >= 908) { // ml breakpoint
+        if (e.clientY < 100) { // Show when mouse is near top
+          setIsVisible(true);
+          // Clear any existing timeout
+          if (timeoutId) clearTimeout(timeoutId);
+        } else {
+          // Set timeout to hide navbar
+          timeoutId = setTimeout(() => {
+            if (window.scrollY > 50) {
+              setIsVisible(false);
+            }
+          }, 1000);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [lastScrollY]);
+
   const handleOpen = () => setIsOpen(!isOpen);
 
-  const pathname = usePathname(); // Get current route path
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "FAQs", path: "/FAQs" },
+    { name: "Contact Us", path: "/contact-us" },
+    { name: "Privacy", path: "/privacy" },
+    { name: "Rent Car By", path: "/luxurious-cars" },
+  ];
 
   return (
-    <div className="px-4 sm:px-8 md:px-16 xl:px-32 overflow-x-hidden max-w-7xl w-full mx-auto">
-      <div className="flex justify-between py-8 items-center text-primary h-[80px] overflow-clip">
-      <div className="relative w-40 md:w-48 lg:w-56 xl:w-64 h-auto mt-2">
-  <Image 
-    src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
-    alt="ASMR"
-    // layout="fill" // Ensures responsiveness
-    width={300}
-    height={211}
-    className="w-full h-auto object-contain"
-  />
-</div>
-     {/* Desktop Navigation */}
-        <nav className="hidden gap-6 text-textSecondary text-lg ml:flex h-[30px]">
-          {[
-            { name: "Home", path: "/" },
-            { name: "About", path: "/about" },
-            { name: "FAQs", path: "/FAQs" },
-            { name: "Contact Us", path: "/contact-us" },
-            { name: "Privacy", path: "/privacy" },
-            { name: "Rent Car By", path: "/luxurious-cars" },
-          ].map((link) => (
-            <li
-              key={link.path}
-              className={`list-none border-secondary hover:border-b hover:text-secondary cursor-pointer transition-all ${
-                pathname === link.path ? "border-b-2 border-secondary text-secondary font-bold" : ""
-              }`}
-            >
-              <Link href={link.path}>{link.name}</Link>
-            </li>
-          ))}
-        </nav>
+    <motion.div 
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+      initial={{ opacity: 0 }}
+      animate={{ 
+        opacity: 1,
+        y: isVisible ? 0 : -100 
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="px-4 sm:px-8 md:px-16 xl:px-32 max-w-7xl w-full mx-auto">
+        <div className="flex justify-between items-center h-20 md:h-24">
+          {/* Logo */}
+          <motion.div 
+            className="relative w-36 md:w-48 lg:w-56 h-auto"
+            whileHover={{ scale: 1.02 }}
+          >
+            <Image 
+              src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
+              alt="ASMR"
+              width={300}
+              height={211}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </motion.div>
 
-        {/* Mobile Menu Button */}
-        <motion.button
-          onClick={handleOpen}
-          className="text-3xl focus:outline-none ml:hidden"
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        >
-          {isOpen ? <IoCloseOutline /> : <IoMenuOutline />}
-        </motion.button>
+          {/* Desktop Navigation */}
+          <nav className="hidden ml:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <motion.div
+                key={link.path}
+                className="relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Link 
+                  href={link.path}
+                  className={`text-sm font-medium tracking-wide transition-all duration-300
+                    ${pathname === link.path 
+                      ? 'text-text-secondary' 
+                      : 'text-text-primary hover:text-text-secondary'
+                    }`}
+                >
+                  {link.name}
+                </Link>
+                {pathname === link.path && (
+                  <motion.div
+                    className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary"
+                    layoutId="underline"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.div>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            onClick={handleOpen}
+            className="ml:hidden text-text-primary hover:text-text-secondary p-2 rounded-full
+              border border-primary/20 hover:border-primary/50 transition-all duration-300"
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              {isOpen ? (
+                <IoCloseOutline size={24} />
+              ) : (
+                <IoMenuOutline size={24} />
+              )}
+            </motion.div>
+          </motion.button>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="ml:hidden"
+            >
+              <motion.nav 
+                className="bg-background/95 backdrop-blur-lg border-t border-primary/10
+                  px-4 py-6 space-y-4 shadow-lg rounded-b-xl"
+              >
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="block"
+                  >
+                    <Link
+                      href={link.path}
+                      onClick={handleOpen}
+                      className={`block py-2 text-center text-base transition-all duration-300
+                        ${pathname === link.path 
+                          ? 'text-text-secondary font-semibold' 
+                          : 'text-text-primary hover:text-text-secondary'
+                        }`}
+                    >
+                      {link.name}
+                    </Link>
+                    {pathname === link.path && (
+                      <motion.div
+                        className="h-0.5 bg-primary/50 mx-auto w-12"
+                        layoutId="mobileUnderline"
+                      />
+                    )}
+                  </motion.div>
+                ))}
+              </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-
-      {/* Mobile Menu */}
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-        exit={{ height: 0, opacity: 0 }}
-        onClick={handleOpen}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute top-[70px] left-0 right-0 mx-auto w-full bg-transparent backdrop-blur-lg shadow-xl border-b border-b-primary/10 z-50 md:hidden "
-      >
-        <nav className="flex flex-col gap-4 text-lg mt-4 text-center space-y-2 py-4 text-accent md:hidden">
-          {[
-            { name: "Home", path: "/" },
-            { name: "About", path: "/about" },
-            { name: "FAQs", path: "/FAQs" },
-            { name: "Contact Us", path: "/contact-us" },
-            { name: "Privacy", path: "/privacy" },
-            { name: "Rent Car By", path: "/luxurious-cars" },
-          ].map((link) => (
-            <motion.li
-        onClick={handleOpen}
-
-              key={link.path}
-              className={`list-none border-transparent hover:border-b-primary hover:text-secondary cursor-pointer transition-all ${
-                pathname === link.path ? "border-b-2 border-secondary text-secondary font-bold" : ""
-              }`}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.3 }}
-            >
-              <Link href={link.path}>{link.name}</Link>
-            </motion.li>
-          ))}
-        </nav>
-      </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

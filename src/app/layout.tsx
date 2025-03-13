@@ -27,26 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} relative overflow-x-clip antialiased min-h-screen flex flex-col text-sm md:text-base `}
+        className={`${geistSans.variable} ${geistMono.variable} relative overflow-x-clip antialiased min-h-screen flex flex-col text-sm md:text-base`}
       >
-  {/* //       <header className="z-50 text-lg top-0 right-0 left-0 transition-all duration-300
-   md:fixed md:bg-transparent md:backdrop-blur-md md:shadow-xl md:border-b md:border-b-primary/10"> */}
-
-  <header className="z-50 text-lg top-0 right-0 left-0 transition-all duration-300
-  bg-transparent md:py-3  py-2">
-  <Navbar />
-</header>
-<div className="absolute top-0 left-0 right-0 overflow-x-clip">
-
-<main className="flex-grow">
-  {children}
-</main>
-
-        <footer className="  bg-surface pt-6">
+        <Navbar />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <footer className="bg-transparent pt-6">
           <Footer/>
-        
         </footer>
-</div>
       </body>
     </html>
   );
