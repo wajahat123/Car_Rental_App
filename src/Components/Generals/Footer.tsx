@@ -4,87 +4,130 @@ import { IoLocationSharp } from "react-icons/io5";
 import { H_Five } from "@/Utils/Typography";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { TbPhoneRinging } from "react-icons/tb";
-import { ContactLinks } from "./ContactLinks";
-const Footer = () => {
-  return (
-    <>
-    <div className="px-4 sm:px-8 md:px-16 lg:px-32  xl:px-64 max-w-7xl w-full mx-auto text-textMuted  text-xs md:text-sm ">
-      <div className="flex justify-between flex-col sm:flex-row gap-4">
-      <div className="w-full sm:w-1/4  ">
-          <H_Five className="text-secondary font-bold" text="About Us" />
-      <p> All our cars are in perfect condition, giving you&apos;the ultimate luxury experience. We carefully maintain and check our cars to make sure they look great and work perfectly. We care a lot about your happiness and safety. Choosing MK Rent A Car means you&apos;re getting the best in car quality.</p>
-      </div>
-       <div className="flex flex-1 justify-between flex-wrap">
-       <div className="w-1/2 sm:w-1/3 md:w-1/4">
-          <H_Five className="text-secondary font-bold" text="Useful Links" />
-          <ul className="space-y-2">
-            <li>Our Cars</li>
-            <li>Blog</li>
-            <li>Contact Us</li>
-            <li>About Us</li>
-            <li>FAQs</li>
-            <li>Privacy Policy</li>
-            <li>Rental Policy</li>
-            <li>Testimonial</li>
-          </ul>
-        </div>{" "}
-        <div  className="sm:w-1/3  w-full hidden sm:block">
-          <H_Five className="text-secondary font-bold" text="Car Brands" />
-          <ul className="space-y-2">
-            <li> Bentley</li>
-            <li> Rolls Royce</li>
-            <li> Porsche</li>
-            <li> Mercedes</li>
-            <li> Land Rover</li>
-            <li> Audi</li>
-            <li> Bmw</li>
-            <li> Cadillac</li>
-            <li> Chevrolet</li>
-          </ul>
-        </div>
-        <div  className="w-1/2 sm:w-1/3">
-          <H_Five className="text-secondary font-bold" text="Contact Us" />
-          <ul className="space-y-2">
-            <li>
-              <TbPhoneRinging className="inline-block mr-2 text-primary" />
-              +123 456 789
-            </li>
-            <li>
-              <TbPhoneRinging className="inline-block mr-2 text-primary" />
-              +123 456 789
-            </li>
-            <li>
-              <TbPhoneRinging className="inline-block mr-2 text-primary" />
-              +123 456 789
-            </li>
-            <li>
-              <MdOutlineAttachEmail className="inline-block mr-2 text-primary" />
-              abc@example.com
-            </li>
-            <li>
-              <IoLocationSharp className="inline-block mr-2 text-primary" />
-              1234 Elm Street Springfield, IL 62704 United States
-            </li>
-          </ul>
-        </div>
-        </div>
-     
-      </div>
-      <div className="w-full h-[0.5px] bg-primary mt-5"></div>
-<div className="flex flex-col md:flex-row justify-between items-center ">
-    <ContactLinks/>
+import Link from "next/link";
+import  {ContactLinks}  from "./ContactLinks";
 
-    <div className="flex gap-2">
-<Image className="w-10 h-10" src="/assets/images/bitcoin.png" width={100} height={100} alt="abc"/>
-<Image className="w-10 h-10" src="/assets/images/mastercard.svg" width={100} height={100} alt="abc"/>
-<Image className="w-10 h-10" src="/assets/images/visa_icno.png" width={100} height={100} alt="abc"/>
-<Image className="w-10 h-10" src="/assets/images/206675_paypal_method_payment_icon.png" width={100} height={100} alt="abc"/>
-    </div>
-</div>
-    </div>
-    <div className="flex justify-center py-3 items-center w-full mx-auto h-full bg-background text-secondary mt-6  text-xs md:text-sm ">
-    All Rights Reserved.2025</div>
-    </>
+const Footer = () => {
+  const usefulLinks = [
+    "Our Cars", "Blog", "Contact Us", "About Us", "FAQs", 
+    "Privacy Policy", "Rental Policy", "Testimonial"
+  ];
+
+  const carBrands = [
+    "Bentley", "Rolls Royce", "Porsche", "Mercedes", 
+    "Land Rover", "Audi", "BMW", "Cadillac", "Chevrolet"
+  ];
+
+  const paymentMethods = [
+    { src: "/assets/images/bitcoin.png", alt: "Bitcoin" },
+    { src: "/assets/images/mastercard.svg", alt: "Mastercard" },
+    { src: "/assets/images/visa_icno.png", alt: "Visa" },
+    { src: "/assets/images/206675_paypal_method_payment_icon.png", alt: "PayPal" }
+  ];
+
+  return (
+    <footer className="w-full bg-black">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* About Section */}
+          <div className="space-y-4">
+            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="About Us" />
+            <p className="text-gray-400 text-sm leading-relaxed">
+              All our cars are in perfect condition, giving you the ultimate luxury experience. 
+              We carefully maintain and check our cars to make sure they look great and work perfectly. 
+              We care a lot about your happiness and safety. Choosing MK Rent A Car means you're getting 
+              the best in car quality.
+            </p>
+          </div>
+
+          {/* Useful Links */}
+          <div className="space-y-4">
+            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="Useful Links" />
+            <ul className="grid grid-cols-2 gap-2">
+              {usefulLinks.map((link, index) => (
+                <li key={index}>
+                  <Link href="#" className="text-gray-400 hover:text-[#00f] transition-colors text-sm">
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Car Brands */}
+          <div className="space-y-4">
+            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="Car Brands" />
+            <ul className="grid grid-cols-2 gap-2">
+              {carBrands.map((brand, index) => (
+                <li key={index}>
+                  <Link href="#" className="text-gray-400 hover:text-[#00f] transition-colors text-sm">
+                    {brand}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="Contact Us" />
+            <ul className="space-y-3">
+              <li className="flex items-start gap-2 text-gray-400 text-sm">
+                <TbPhoneRinging className="text-[#ffd700] mt-1" />
+                <span>+123 456 789</span>
+              </li>
+              <li className="flex items-start gap-2 text-gray-400 text-sm">
+                <TbPhoneRinging className="text-[#FFD700] mt-1" />
+                <span>+123 456 789</span>
+              </li>
+              <li className="flex items-start gap-2 text-gray-400 text-sm">
+                <TbPhoneRinging className="text-[#FFD700] mt-1" />
+                <span>+123 456 789</span>
+              </li>
+              <li className="flex items-start gap-2 text-gray-400 text-sm">
+                <MdOutlineAttachEmail className="text-[#FFD700] mt-1" />
+                <span>abc@example.com</span>
+              </li>
+              <li className="flex items-start gap-2 text-gray-400 text-sm">
+                <IoLocationSharp className="text-[#FFD700] mt-1" />
+                <span>1234 Elm Street Springfield, IL 62704 United States</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="w-full h-[0.5px] bg-gradient-to-r from-transparent via-[#FFD700]/30 to-transparent my-8"></div>
+
+        {/* Payment Methods */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* <ContactLinks/> */}
+          <div className="flex flex-wrap justify-center gap-4 mx-auto">
+            {paymentMethods.map((method, index) => (
+              <div key={index} className="w-10 h-10 relative">
+                <Image
+                  src={method.src}
+                  alt={method.alt}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="w-full bg-black border-t border-[#FFD700]/10">
+        <div className="container mx-auto px-4 py-4">
+          <p className="text-center text-gray-400 text-sm">
+            All Rights Reserved. 2025
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
+
 export default Footer;

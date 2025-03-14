@@ -55,7 +55,7 @@ const About = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
 
       {/* Main Content Container */}
-      <div className="relative z-10">
+      <div className="relative z-10 px-4 sm:px-8">
         {/* Decorative Accent Line Top */}
         <motion.div 
           initial={{ width: 0 }}
@@ -194,14 +194,14 @@ const About = () => {
         
         {/* Stats Container - with nowrap to ensure stats stay in one line */}
         <motion.div 
-          className="flex flex-nowrap justify-between px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto my-24 py-6 overflow-x-auto"
+          className=" grid grid-cols-1 sm:grid-cols-2 ml:grid-cols-4 gap-4 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto my-24 py-6 overflow-x-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 1, delay: 2.0 }}
         >
           {/* Stat Box 1 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.2 }}
@@ -231,7 +231,7 @@ const About = () => {
           
           {/* Stat Box 2 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.3 }}
@@ -261,7 +261,7 @@ const About = () => {
           
           {/* Stat Box 3 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.4 }}
@@ -291,7 +291,7 @@ const About = () => {
           
           {/* Stat Box 4 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.5 }}

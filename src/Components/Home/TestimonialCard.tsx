@@ -8,7 +8,7 @@ const TestimonialCard = ({data, className}:{data:any, className:string}) => {
     // const data = tetimonial[2]
   return (
     <motion.div 
-      className={`w-[350px] h-[480px] relative rounded-lg overflow-hidden bg-cover bg-center ${className}`} 
+      className={`md:min-w-[350px] w-[300px] h-[400px] mx-auto md:min-h-[480px] relative rounded-lg overflow-hidden bg-cover bg-center ${className}`} 
       style={{ backgroundImage: `url(${data.image})` }}
       whileHover={{ 
         scale: 1.02,

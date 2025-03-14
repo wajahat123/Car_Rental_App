@@ -19,7 +19,6 @@
     "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
-    "original_price": "$100.00",
     "tags": ["popular"]
   },
   {
@@ -53,7 +52,6 @@
     "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
-    "original_price": "$100.00",
     "tags": ["popular"]
   },
   {
@@ -87,7 +85,6 @@
     "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
-    "original_price": "$100.00",
     "tags": ["popular"]
   },
   {
@@ -121,7 +118,6 @@
     "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
-    "original_price": "$100.00",
     "tags": ["popular"]
   },
   {
@@ -155,7 +151,6 @@
     "image": "/assets/images/car7.webp",
     "seating_capacity": "2 People",
     "price_per_day": "$80.00/day",
-    "original_price": "$100.00",
     "tags": ["popular"]
   },
   {

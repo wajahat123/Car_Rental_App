@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <motion.div 
-      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent pt-4"
       initial={{ opacity: 0 }}
       animate={{ 
         opacity: 1,

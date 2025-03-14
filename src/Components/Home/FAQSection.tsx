@@ -44,7 +44,8 @@ const FAQSection = () => {
       >
         <div className="flex items-center gap-4">
           <PiDiamondsFour className="text-blue-400 text-2xl" />
-          <H_Two className='text-center text-white mb-0 uppercase tracking-wider text-4xl md:text-5xl' text='Frequently Asked Questions'/>
+          <h2 className='text-center text-white mb-0 uppercase tracking-wider '>
+          Frequently Asked Questions   </h2>  
           <PiDiamondsFour className="text-blue-400 text-2xl" />
         </div>
       </motion.div>

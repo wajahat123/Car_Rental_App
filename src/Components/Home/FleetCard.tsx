@@ -14,7 +14,7 @@ const FleetCard = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative border-b-4 border-b-blue-400 w-[300px] h-[390px] text-sm md:text-base p-2 border-2 border-gray-500/20 rounded-md hover:shadow-xl hover:shadow-blue-400/20  mx-auto transition-all duration-300 text-text-light"
+      className="relative border-b-4 border-b-blue-400 w-[350px] h-[390px] text-sm md:text-base p-2  rounded-md hover:shadow-xl hover:shadow-blue-400/20  mx-auto transition-all duration-300 text-text-light"
     >
       <motion.div
         className="w-full h-[60%] rounded-md overflow-hidden"
@@ -25,7 +25,7 @@ const FleetCard = () => {
           <Image
             src={cars.image}
             alt="car"
-            width={300}
+            width={350}
             height={300}
             className="rounded-md"
           />
@@ -122,40 +122,76 @@ const FleetCard = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <motion.p
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)",
+            <motion.button
+          whileHover={{
+            scale: 1.02,
+            boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)",
+            borderColor: "rgba(59, 130, 246, 1)",
+          }}
+          whileTap={{ scale: 0.98 }}
+          className="relative bg-black border w-full bg-gradient-to-br from-white/10 via-black to-white/20 border-blue-500/80 text-white px-2 py-1 text-xs md:text-sm rounded-md transition-all duration-300 overflow-hidden group"
+        >
+          <motion.span
+            className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent w-[25%]"
+            animate={{
+              x: ["-100%", "400%"],
             }}
-            className="bg-gradient-to-br w-[48%] from-blue-400 hover:from-blue-500 cursor-pointer to-blue-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full px-2 py-[2px] flex justify-center items-center gap-2 relative overflow-hidden"
-          >
-            <motion.span
-              className="absolute inset-0 bg-white/10"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <FaWhatsapp className="relative z-10" />
-            <span className="relative z-10">Whatsapp</span>
-          </motion.p>
-          <motion.p
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)",
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
             }}
-            className="bg-gradient-to-br w-[48%] from-blue-400 hover:from-blue-500 cursor-pointer to-blue-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full px-2 py-[2px] flex justify-center items-center gap-2 relative overflow-hidden"
+          />
+          <motion.span
+            className="relative z-10"
+            animate={{
+              color: ["#ffffff", "#3b82f6", "#ffffff"],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
           >
-            <motion.span
-              className="absolute inset-0 bg-white/10"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <MdOutlineLocalPhone className="relative z-10" />
-            <span className="relative z-10">Call Us</span>
-          </motion.p>
+                    Book Now
+          </motion.span>
+        </motion.button>   <motion.button
+          whileHover={{
+            scale: 1.02,
+            boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)",
+            borderColor: "rgba(59, 130, 246, 1)",
+          }}
+          whileTap={{ scale: 0.98 }}
+          className="relative bg-black border w-full bg-gradient-to-br from-white/10 via-black to-white/20 border-blue-500/80 text-white px-2 py-1 text-xs md:text-sm rounded-md transition-all duration-300 overflow-hidden group"
+        >
+          <motion.span
+            className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent w-[25%]"
+            animate={{
+              x: ["-100%", "400%"],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+          <motion.span
+            className="relative z-10"
+            animate={{
+              color: ["#ffffff", "#3b82f6", "#ffffff"],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          >
+                    Whats App
+          </motion.span>
+        </motion.button>
+         
         </motion.div>
-
+{/* 
         <motion.button
           whileHover={{
             scale: 1.02,
@@ -189,7 +225,7 @@ const FleetCard = () => {
           >
                     Book Now
           </motion.span>
-        </motion.button>
+        </motion.button> */}
       </motion.div>
     </motion.div>
   );

@@ -47,7 +47,7 @@ export const OurFleet = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-8 md:px-16 lg:px-32 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
+    <section className="md:py-20 py-10 px-4 sm:px-8 md:px-16 lg:px-32 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <motion.div 
         className="absolute top-0 left-0 w-full h-full opacity-5"
@@ -210,12 +210,12 @@ export const OurFleet = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 justify-items-center"
         >
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <FleetCard />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FleetCard />
-          </motion.div>
+          </motion.div> */}
           <motion.div variants={itemVariants}>
             <FleetCard />
           </motion.div>

@@ -14,6 +14,7 @@ import FeaturedProducts from "@/Components/Home/FeaturedProducts";
 import { motion, useScroll } from "framer-motion";
 import { useResponsive } from "@/Utils/hooks";
 import { useEffect, useState } from "react";
+import CallUs from "@/Components/Home/CallUs";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -79,14 +80,15 @@ export default function Home() {
       >
         <Hero />
         <OurFleet />
-        <About />
         <Testimonials/>
+        <About />
         <FAQSection/>
-        <Contact/>
         <QualityForClient/>
         <WhyChooseUs/>
+        <Contact/>
         <FeaturedProducts/>
         <RentalPackages/>
+        <CallUs/>
         {/* <CarTypes_Section_3 /> */}
       </motion.main>
 
