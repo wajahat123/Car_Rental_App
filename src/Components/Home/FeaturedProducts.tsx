@@ -2,11 +2,9 @@
 import React, { useEffect, useState } from "react";
 import FleetCard from "./FleetCard";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const FeaturedProducts = () => {
-  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [direction, setDirection] = useState(1);

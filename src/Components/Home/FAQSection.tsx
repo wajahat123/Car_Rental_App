@@ -1,4 +1,3 @@
-import { H_Two } from '@/Utils/Typography'
 import React, { useRef } from 'react'
 import FAQs from "@/Utils/FAQs.json"
 import FAQuestions from '../Generals/FAQ'

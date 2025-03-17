@@ -2,7 +2,6 @@
 
 import Hero from "@/Components/Home/Hero";
 import Testimonials from "@/Components/Home/Testimonials";
-import CarTypes_Section_3 from "@/Components/Home/CarTypes";
 import RentalPackages from "@/Components/Home/RentalPackages";
 import WhyChooseUs from "@/Components/Home/WhyChooseUs";
 import FAQSection from "@/Components/Home/FAQSection";
@@ -12,13 +11,13 @@ import About from "@/Components/Home/About";
 import QualityForClient from "@/Components/Home/QualityForClient";
 import FeaturedProducts from "@/Components/Home/FeaturedProducts";
 import { motion, useScroll } from "framer-motion";
-import { useResponsive } from "@/Utils/hooks";
+import { UseResponsive } from "@/Utils/hooks";
 import { useEffect, useState } from "react";
 import CallUs from "@/Components/Home/CallUs";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
-  const { isMobile } = useResponsive();
+  const { isMobile } = UseResponsive();
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Page load animation

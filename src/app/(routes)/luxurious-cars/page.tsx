@@ -2,7 +2,7 @@ import ProductCardTwo from '@/Components/Product/ProductCard2';
 import { H_Two } from '@/Utils/Typography';
 import data from '@/Utils/CarsData.json';
 import { Car } from "@/Utils/utils";
-import SubHeader from '@/Components/Generals/SubHeader';
+import SubHeader from '@/Components/Generals/Subheader_About';
 import SideBar from '@/Components/Product/SideBar';
 
 const LuxuriousCars = () => {

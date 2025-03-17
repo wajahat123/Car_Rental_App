@@ -208,15 +208,17 @@ export const OurFleet = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 justify-items-center"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-14 justify-items-center"
         >
-          {/* <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants}>
             <FleetCard />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FleetCard />
-          </motion.div> */}
+          </motion.div>
           <motion.div variants={itemVariants}>
+            <FleetCard />
+          </motion.div>  <motion.div variants={itemVariants}>
             <FleetCard />
           </motion.div>
         </motion.div>

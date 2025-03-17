@@ -16,7 +16,7 @@ At the heart of our company is a commitment to delivering an unparalleled experi
 
  
 
-Navigating through our user-friendly platform, you'll find a wide array of options to suit your needs. Explore our collection of luxury vehicles, each equipped with state-of-the-art features to enhance your driving pleasure. Our commitment to transparency means no hidden fees – what you see is what you get. We believe in making luxury accessible, and our competitive pricing ensures that you can indulge in the finer things in life without compromising your budget.
+Navigating through our user-friendly platform, you&apos;ll find a wide array of options to suit your needs. Explore our collection of luxury vehicles, each equipped with state-of-the-art features to enhance your driving pleasure. Our commitment to transparency means no hidden fees – what you see is what you get. We believe in making luxury accessible, and our competitive pricing ensures that you can indulge in the finer things in life without compromising your budget.
 
  
 
@@ -47,12 +47,12 @@ Why Masterkey?
  
 
 1. Attractive Fleet:
-Our fleet showcases the world's most prestigious cars. Picture yourself behind the wheel of a sleek Ferrari, cruising down Sheikh Zayed Road, or experiencing the effortless luxury of a Rolls Royce as you explore Dubai's iconic landmarks.
+Our fleet showcases the world&apos;s most prestigious cars. Picture yourself behind the wheel of a sleek Ferrari, cruising down Sheikh Zayed Road, or experiencing the effortless luxury of a Rolls Royce as you explore Dubai&apos;s iconic landmarks.
 
  
 
 2. Personalized Experiences:
-Whether you're a business traveller in need of sophistication or an adventurer seeking a thrill, Masterkey has the perfect ride for you. Our diverse fleet is tailored to suit all tastes, ensuring every journey is as unique as you are.
+Whether you&apos;re a business traveller in need of sophistication or an adventurer seeking a thrill, Masterkey has the perfect ride for you. Our diverse fleet is tailored to suit all tastes, ensuring every journey is as unique as you are.
 
 3. Seamless Reservations:
 Booking with us is a breeze. Utilize our user-friendly online platform or reach out to our 24/7 customer support team, dedicated to making your reservation process smooth and stress-free.

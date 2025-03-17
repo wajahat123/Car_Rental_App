@@ -14,7 +14,7 @@ const FAQuestions = ({ question, answer }: { question: string; answer: string })
       className="w-full h-fit bg-black/40 backdrop-blur-sm rounded-lg md:text-sm text-[12px] p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden group"
       whileHover={{ 
         scale: 1.01,
-        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)"
+        boxShadow: "0 4px 30px rgba(235, 168, 0, 0.25), 0 0 20px rgba(235, 168, 0, 0.25)"
       }}
     >
       {/* Decorative Background Elements */}
@@ -66,7 +66,7 @@ const FAQuestions = ({ question, answer }: { question: string; answer: string })
                   transition={{ duration: 0.15 }}
                   className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20"
                 >
-                  <GoPlus className="text-2xl"/>
+                  <GoPlus className="text-2xl text-primary"/>
                 </motion.div>
               )}
             </div>

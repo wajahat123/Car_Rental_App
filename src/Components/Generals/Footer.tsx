@@ -5,7 +5,6 @@ import { H_Five } from "@/Utils/Typography";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { TbPhoneRinging } from "react-icons/tb";
 import Link from "next/link";
-import  {ContactLinks}  from "./ContactLinks";
 
 const Footer = () => {
   const usefulLinks = [
@@ -32,18 +31,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="space-y-4">
-            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="About Us" />
+            <H_Five className="text-white font-bold" text="About Us" />
             <p className="text-gray-400 text-sm leading-relaxed">
               All our cars are in perfect condition, giving you the ultimate luxury experience. 
               We carefully maintain and check our cars to make sure they look great and work perfectly. 
-              We care a lot about your happiness and safety. Choosing MK Rent A Car means you're getting 
+              We care a lot about your happiness and safety. Choosing MK Rent A Car means you&apos;re getting 
               the best in car quality.
             </p>
           </div>
 
           {/* Useful Links */}
           <div className="space-y-4">
-            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="Useful Links" />
+            <H_Five className="text-white font-bold" text="Useful Links" />
             <ul className="grid grid-cols-2 gap-2">
               {usefulLinks.map((link, index) => (
                 <li key={index}>
@@ -57,7 +56,7 @@ const Footer = () => {
 
           {/* Car Brands */}
           <div className="space-y-4">
-            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="Car Brands" />
+            <H_Five className="text-white font-bold" text="Car Brands" />
             <ul className="grid grid-cols-2 gap-2">
               {carBrands.map((brand, index) => (
                 <li key={index}>
@@ -71,7 +70,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <H_Five className="bg-gradient-to-r from-[#00f] via-[#4d4dff] to-[#fff] bg-clip-text text-transparent font-bold" text="Contact Us" />
+            <H_Five className="text-white font-bold" text="Contact Us" />
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <TbPhoneRinging className="text-[#ffd700] mt-1" />

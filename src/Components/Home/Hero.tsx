@@ -3,39 +3,36 @@ import React from "react";
 import Image from "next/image";
 import SearchBar from "@/Components/Generals/SearchBar";
 import  {ContactLinks}  from "../Generals/ContactLinks";
-import { H_One } from "@/Utils/Typography";
 import rawProducts from "@/Utils/CarsData.json";
 import { Car } from "@/Utils/utils";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaChevronDown, FaChevronRight, FaCrown, FaStar } from "react-icons/fa";
-import { GiSteeringWheel, GiCarSeat, GiCarDoor } from "react-icons/gi";
+import { FaChevronDown, FaChevronRight, FaCrown } from "react-icons/fa";
+import { GiSteeringWheel } from "react-icons/gi";
 import { IoSpeedometer } from "react-icons/io5";
-import { TbEngine } from "react-icons/tb";
 
 const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
 
 const Hero = () => {
   // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8 }
-    }
-  };
+  // const fadeInUp = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: { 
+  //     opacity: 1, 
+  //     y: 0,
+  //     transition: { duration: 0.8 }
+  //   }
+  // };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
+  // const staggerContainer = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.2,
+  //       delayChildren: 0.3
+  //     }
+  //   }
+  // };
 
   return (
     <div className="relative flex items-center justify-center overflow-hidden min-w-screen min-h-screen md:min-h-[600px] text-text-primary bg-background pt-[80px] md:pt-[90px]">

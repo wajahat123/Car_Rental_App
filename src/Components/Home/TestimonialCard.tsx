@@ -1,12 +1,10 @@
 import React from 'react'
-import tetimonial from "@/Utils/TestimonialsData.json"
-import Image from 'next/image'
 import { FaQuoteRight, FaStar } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
-const TestimonialCard = ({data, className}:{data:any, className:string}) => {
-    // const data = tetimonial[2]
-  return (
+const TestimonialCard = ({data, className}:{data:{image:string, name:string, role:string, quote:string, rating:number}, className:string}) => {
+// console.log(typeof data, "Testimonial type of data") 
+ return (
     <motion.div 
       className={`md:min-w-[350px] w-[300px] h-[400px] mx-auto md:min-h-[480px] relative rounded-lg overflow-hidden bg-cover bg-center ${className}`} 
       style={{ backgroundImage: `url(${data.image})` }}

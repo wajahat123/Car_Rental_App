@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FaShieldAlt, FaThumbsUp, FaClock, FaHeadset, FaChevronRight } from "react-icons/fa";
+import { FaShieldAlt, FaThumbsUp, FaClock, FaHeadset } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {

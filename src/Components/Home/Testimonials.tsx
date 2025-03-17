@@ -1,11 +1,7 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { FaStar } from "react-icons/fa";
+import {  useRef } from "react";
 import testimonials from "@/Utils/TestimonialsData.json";
-import { H_Four, H_Two } from "@/Utils/Typography";
-import { TbQuote } from "react-icons/tb";
-import Link from "next/link";
-import { IoIosArrowForward } from "react-icons/io";
+
 import TestimonialCard from "./TestimonialCard";
 import { motion, useInView } from "framer-motion";
 

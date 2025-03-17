@@ -1,11 +1,8 @@
 import { motion } from 'framer-motion'
-import { div } from 'framer-motion/client'
-import Link from 'next/link'
-import React from 'react'
 
 const CallUs = () => {
   return (
-    <div className='bg-blue-300  md:h-[400px] flex justify-center items-center'>
+    <div className='bg-gradient-to-b from-black to-gray-900  md:h-[400px] flex justify-center items-center my-2' >
 
     <div className='px-4 sm:px-6 md:px-8 lg:px-20 max-w-7xl w-full flex items-center justify-center flex-col mx-auto text-center gap-10'
     > <h2 className='text-2xl md:text-4xl font-bold text-white'>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { FaHandsHelping, FaBan, FaTags, FaClock, FaTools, FaUsers, FaChevronRight } from "react-icons/fa";
+import { FaHandsHelping, FaBan, FaTags, FaClock, FaTools, FaUsers } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 
 const RentalPackages = () => {
