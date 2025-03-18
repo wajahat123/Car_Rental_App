@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { IoLocationSharp } from "react-icons/io5";
-import { H_Five } from "@/Utils/Typography";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { TbPhoneRinging } from "react-icons/tb";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const usefulLinks = [
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="space-y-4">
-            <H_Five className="text-white font-bold" text="About Us" />
+            <h5 className="text-white font-bold"  >About Us</h5>
             <p className="text-gray-400 text-sm leading-relaxed">
               All our cars are in perfect condition, giving you the ultimate luxury experience. 
               We carefully maintain and check our cars to make sure they look great and work perfectly. 
@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div className="space-y-4">
-            <H_Five className="text-white font-bold" text="Useful Links" />
+            <h5 className="text-white font-bold" >Useful Links</h5>
             <ul className="grid grid-cols-2 gap-2">
               {usefulLinks.map((link, index) => (
                 <li key={index}>
@@ -56,7 +56,7 @@ const Footer = () => {
 
           {/* Car Brands */}
           <div className="space-y-4">
-            <H_Five className="text-white font-bold" text="Car Brands" />
+            <h5 className="text-white font-bold" >Car Brands</h5>
             <ul className="grid grid-cols-2 gap-2">
               {carBrands.map((brand, index) => (
                 <li key={index}>
@@ -70,7 +70,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <H_Five className="text-white font-bold" text="Contact Us" />
+            <h5 className="text-white font-bold" >Contact Us</h5>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <TbPhoneRinging className="text-[#ffd700] mt-1" />
@@ -102,6 +102,15 @@ const Footer = () => {
         {/* Payment Methods */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* <ContactLinks/> */}
+          {/* whenever I am adding any thing in this section it is throwing me the following error:
+
+1 of 2 errors
+Next.js (15.1.7) out of date (learn more) (Turbopack)
+
+Console Error
+
+[ Server ] React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports. */}
+         
           <div className="flex flex-wrap justify-center gap-4 mx-auto">
             {paymentMethods.map((method, index) => (
               <div key={index} className="w-10 h-10 relative">

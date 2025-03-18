@@ -1,65 +1,66 @@
-"use client"; 
-import { usePathname } from "next/navigation";
+"use client";
+import { useNavbarStore } from "@/Store/navbarStore";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCarStore } from "@/Store/store";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const { isOpen, isVisible, toggleMenu, setVisibility } = useNavbarStore();
+  const setSelectedFilter = useCarStore((state) => state.setSelectedFilter);
+  const router = useRouter();
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false); // State for mobile dropdown
   const pathname = usePathname();
 
-  // Handle scroll and hover behavior
+  const handleSelect = (value: string, type: string) => {
+    setSelectedFilter({ value, type }); // Update the global state
+    router.push("/luxurious"); // Redirect to the luxurious page
+  };
+
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Show navbar when scrolling up or hovering near top
       if (currentScrollY < lastScrollY || currentScrollY < 50) {
-        setIsVisible(true);
+        setVisibility(true);
       } else {
-        // Hide navbar when scrolling down (only on desktop)
-        if (window.innerWidth >= 908) { // ml breakpoint
-          setIsVisible(false);
+        if (window.innerWidth >= 908) {
+          setVisibility(false);
         }
       }
-      
       setLastScrollY(currentScrollY);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (window.innerWidth >= 908) { // ml breakpoint
-        if (e.clientY < 100) { // Show when mouse is near top
-          setIsVisible(true);
-          // Clear any existing timeout
+      if (window.innerWidth >= 908) {
+        if (e.clientY < 100) {
+          setVisibility(true);
           if (timeoutId) clearTimeout(timeoutId);
         } else {
-          // Set timeout to hide navbar
           timeoutId = setTimeout(() => {
             if (window.scrollY > 50) {
-              setIsVisible(false);
+              setVisibility(false);
             }
           }, 1000);
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
       if (timeoutId) clearTimeout(timeoutId);
     };
   }, [lastScrollY]);
-
-  const handleOpen = () => setIsOpen(!isOpen);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -67,27 +68,32 @@ const Navbar = () => {
     { name: "FAQs", path: "/FAQs" },
     { name: "Contact Us", path: "/contact-us" },
     { name: "Privacy", path: "/privacy" },
-    { name: "Rent Car By", path: "/luxurious-cars" },
+  ];
+
+  const rentCarDropdown = [
+    { name: "Car Types", path: "", type: "" },
+    { name: "Luxury Cars", path: "/luxurious-cars", type: "type" },
+    { name: "SUVs", path: "/suvs", type: "type" },
+    { name: "Economy Cars", path: "/luxurious-cars", type: "type" },
+    { name: "Electric Cars", path: "/luxurious-cars", type: "type" },
+    { name: "Car Brands", path: "", type: "" },
   ];
 
   return (
-    <motion.div 
+    <motion.div
       className="absolute top-0 left-0 right-0 z-50 bg-transparent pt-4"
       initial={{ opacity: 0 }}
-      animate={{ 
-        opacity: 1,
-        y: isVisible ? 0 : -100 
-      }}
+      animate={{ opacity: 1, y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3 }}
     >
       <div className="px-4 sm:px-8 md:px-16 xl:px-32 max-w-7xl w-full mx-auto">
         <div className="flex justify-between items-center h-20 md:h-24">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             className="relative w-36 md:w-48 lg:w-56 h-auto"
             whileHover={{ scale: 1.02 }}
           >
-            <Image 
+            <Image
               src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
               alt="ASMR"
               width={300}
@@ -99,20 +105,20 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden ml:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <motion.div
-                key={link.path}
+                key={index}
                 className="relative"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Link 
+                <Link
                   href={link.path}
-                  className={`text-sm font-medium tracking-wide transition-all duration-300
-                    ${pathname === link.path 
-                      ? 'text-text-secondary' 
-                      : 'text-text-primary hover:text-text-secondary'
-                    }`}
+                  className={`text-sm font-medium tracking-wide transition-all duration-300 ${
+                    pathname === link.path
+                      ? "text-text-secondary"
+                      : "text-text-primary hover:text-text-secondary"
+                  }`}
                 >
                   {link.name}
                 </Link>
@@ -127,13 +133,61 @@ const Navbar = () => {
                 )}
               </motion.div>
             ))}
+            {/* Rent Car By Dropdown */}
+            <div
+              className="relative"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              <button
+                className={`text-sm font-medium tracking-wide transition-all duration-300 ${
+                  pathname.startsWith("/luxurious-cars")
+                    ? "text-text-secondary"
+                    : "text-text-primary hover:text-text-secondary"
+                }`}
+              >
+                Rent Car By
+              </button>
+              {pathname.startsWith("/luxurious-cars") && (
+                <motion.div
+                  className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary"
+                  layoutId="underline"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+              {dropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute left-0 mt-2 w-36 bg-gradient-to-br from-black/90 to-slate-900/80 shadow-lg rounded-lg py-2 text-text-primary"
+                >
+                  {rentCarDropdown.map((item, index) =>
+                    item.name === "Car Types" || item.name === "Car Brands" ? (
+                      <p className="px-4 py-1 text-sm bg-gradient-to-b from-gold-300/80 to-gold-600/80  text-black font-semibold rounded-sm">
+                        {item.name}
+                      </p>
+                    ) : (
+                      <Link
+                        key={index}
+                        href={item.path}
+                        onClick={() => handleSelect(item.name, item.type)}
+                        className="block px-4 py-1 text-sm hover:bg-primary/30 border-b border-b-gray-500/30 rounded-sm"
+                      >
+                        {item.name}
+                      </Link>
+                    )
+                  )}
+                </motion.div>
+              )}
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
           <motion.button
-            onClick={handleOpen}
-            className="ml:hidden text-text-primary hover:text-text-secondary p-2 rounded-full
-              border border-primary/20 hover:border-primary/50 transition-all duration-300"
+            onClick={toggleMenu}
+            className="ml:hidden text-text-primary hover:text-text-secondary p-2 rounded-full border border-primary/20 hover:border-primary/50 transition-all duration-300"
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
@@ -159,13 +213,10 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="ml:hidden"
             >
-              <motion.nav 
-                className="bg-background/95 backdrop-blur-lg border-t border-primary/10
-                  px-4 py-6 space-y-4 shadow-lg rounded-b-xl"
-              >
+              <motion.nav className="bg-background/95 backdrop-blur-lg border-t border-primary/10 px-4 py-6 space-y-4 shadow-lg rounded-b-xl">
                 {navLinks.map((link, index) => (
                   <motion.div
-                    key={link.path}
+                    key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -173,12 +224,12 @@ const Navbar = () => {
                   >
                     <Link
                       href={link.path}
-                      onClick={handleOpen}
-                      className={`block py-2 text-center text-base transition-all duration-300
-                        ${pathname === link.path 
-                          ? 'text-text-secondary font-semibold' 
-                          : 'text-text-primary hover:text-text-secondary'
-                        }`}
+                      onClick={toggleMenu}
+                      className={`block py-2 text-center text-base transition-all duration-300 ${
+                        pathname === link.path
+                          ? "text-text-secondary font-semibold"
+                          : "text-text-primary hover:text-text-secondary"
+                      }`}
                     >
                       {link.name}
                     </Link>
@@ -190,6 +241,59 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
+                {/* Rent Car By Dropdown for Mobile */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.1 }}
+                  className="block"
+                >
+                  <button
+                    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                    className={`block py-2 text-center text-base transition-all duration-300 ${
+                      pathname.startsWith("/luxurious-cars")
+                        ? "text-text-secondary font-semibold"
+                        : "text-text-primary hover:text-text-secondary"
+                    }`}
+                  >
+                    Rent Car By
+                  </button>
+                  {pathname.startsWith("/luxurious-cars") && (
+                    <motion.div
+                      className="h-0.5 bg-primary/50 mx-auto w-12"
+                      layoutId="mobileUnderline"
+                    />
+                  )}
+                  {mobileDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mt-2 space-y-2"
+                    >
+                      {rentCarDropdown.map((item, index) =>
+                        item.name === "Car Types" ||
+                        item.name === "Car Brands" ? (
+                          <p className="px-4 py-1 text-sm bg-gradient-to-b from-gold-300/80 to-gold-600/80 rounded-sm text-black font-semibold  text-center">
+                            {item.name}
+                          </p>
+                        ) : (
+                          <Link
+                            key={index}
+                            href={item.path}
+                            onClick={() => {
+                              handleSelect(item.name, item.type);
+                              toggleMenu();
+                            }}
+                            className="block px-4 py-1 text-sm text-text-primary hover:bg-primary/30 border-b border-b-gray-500/30 text-center rounded-sm"
+                          >
+                            {item.name}
+                          </Link>
+                        )
+                      )}
+                    </motion.div>
+                  )}
+                </motion.div>
               </motion.nav>
             </motion.div>
           )}

@@ -18,7 +18,7 @@ const FleetCard = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="border-b-4 border-b-gold-500 w-[400px] bg-gradient-to-br from-slate-900 to-black h-[450px] text-sm md:text-base p-4 rounded-md hover:shadow-xl hover:shadow-blue-400/20 mx-auto transition-all duration-300 text-white flex flex-col justify-between "
+      className="border-b-4 border-b-gold-500 min-w-[300px] sm:min-w-[380px] max-w-[480px] bg-gradient-to-br from-slate-900 to-black h-[450px] text-sm md:text-base p-4 rounded-md hover:shadow-xl hover:shadow-blue-400/20 mx-auto transition-all duration-300 text-white flex flex-col justify-between "
     >
       {/* Image Section */}
       <motion.div

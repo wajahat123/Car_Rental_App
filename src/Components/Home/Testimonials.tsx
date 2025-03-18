@@ -10,9 +10,10 @@ const Testimonials = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   return (
+    <div className="bg-gradient-to-b to-black from-gray-900">
     <div 
       ref={sectionRef}
-      className="flex flex-col md:flex-row gap-4 px-4 sm:px-8 md:px-16 lg:px-20 max-w-7xl w-full mx-auto py-10 md:py-20 bg-gradient-to-b to-black from-gray-900"
+      className="flex flex-col md:flex-row gap-4 px-4 sm:px-8 md:px-16 lg:px-20 max-w-7xl w-full mx-auto py-10 md:py-20"
     >
       {testimonials.map((data, index) => (
         <motion.div
@@ -35,7 +36,7 @@ const Testimonials = () => {
           />
         </motion.div>
       ))}
-    </div>
+    </div></div>
   );
 };
 
