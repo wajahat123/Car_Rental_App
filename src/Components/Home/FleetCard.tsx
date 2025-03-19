@@ -1,17 +1,10 @@
+"use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaWhatsapp, FaTicketAlt } from "react-icons/fa";
-
-const FleetCard = () => {
-  const car = {
-    _id: "67d3f6c8a96714c875d64450",
-    name: "Car 1",
-    price: 100,
-    category: "SUV123",
-    brand: "Land Rover",
-    image: "/assets/images/car6.webp",
-    shortDescription: "I am car 1",
-  };
+import {Car} from "@/Utils/types"
+const FleetCard = ({car}:{car:Car}) => {
+ console.log(car,"car")
 
   return (
     <motion.div
@@ -27,7 +20,8 @@ const FleetCard = () => {
         transition={{ duration: 0.3 }}
       >
         <Image
-          src={car.image}
+          // src={car.image}
+          src="/assets/images/car1.webp"
           alt="car"
           width={500}
           height={450}
@@ -49,7 +43,9 @@ const FleetCard = () => {
               {car.name} 
           </h4>
           <h6 className="text-gray-400 ">{car.brand} - {car.category}</h6>
-          <p className="text-gray-300 ">{car.shortDescription}</p>
+          <p className="text-gray-300 ">
+            {car.shortDescription}
+            </p>
         </div>
 
         {/* Price Display */}
@@ -87,6 +83,7 @@ const FleetCard = () => {
 </div>
       </motion.div>
     </motion.div>
+
   );
 };
 

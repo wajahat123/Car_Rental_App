@@ -1,10 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import FleetCard from './FleetCard';
-import { FaCar, FaChevronRight } from 'react-icons/fa';
-import { RiSteeringFill } from 'react-icons/ri';
+"use client"
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import FleetCard from "./FleetCard";
+import { FaCar, FaChevronRight } from "react-icons/fa";
+import { RiSteeringFill } from "react-icons/ri";
+import { fetchCars } from "@/Utils/fetchCars";
+import { Car } from "@/Utils/types";
 
 export const OurFleet = () => {
+  const [cars, setCars] = useState<Car[]>([]);
+  useEffect(() => {
+    fetchCars().then((res) => setCars(res)); // Fetch once, reuse everywhere
+    console.log(cars)
+  }, []);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -12,14 +20,14 @@ export const OurFleet = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: { y: 0, opacity: 1 },
   };
 
   const titleVariants = {
@@ -29,9 +37,9 @@ export const OurFleet = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const underlineVariants = {
@@ -41,186 +49,183 @@ export const OurFleet = () => {
       transition: {
         duration: 1,
         delay: 0.5,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   return (
     <section className="md:py-20 py-10 px-4 sm:px-8 md:px-16 lg:px-32 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
-    {/* Enhanced Background Elements */}
-    <motion.div
-      className="absolute top-0 left-0 w-full h-full opacity-5"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.05 }}
-      transition={{ duration: 1.5 }}
-    >
-      <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-blue-400 blur-[100px]" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-blue-600 blur-[100px]" />
+      {/* Enhanced Background Elements */}
+      <motion.div
+        className="absolute top-0 left-0 w-full h-full opacity-5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ duration: 1.5 }}
+      >
+        <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-blue-400 blur-[100px]" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-blue-600 blur-[100px]" />
 
-      {/* Add decorative car shapes */}
-      <motion.div
-        className="absolute top-40 right-20 text-blue-500/10 text-6xl"
-        animate={{
-          y: [0, -15, 0],
-          rotate: [0, 5, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
-      >
-        <RiSteeringFill />
-      </motion.div>
-      <motion.div
-        className="absolute bottom-40 left-20 text-blue-500/10 text-6xl"
-        animate={{
-          y: [0, 15, 0],
-          rotate: [0, -5, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
-      >
-        <FaCar />
-      </motion.div>
-    </motion.div>
-
-    <div className="max-w-7xl w-full mx-auto relative">
-      {/* Enhanced Header Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="text-center mb-10 md:mb-20"
-      >
-        {/* Elegant Decorative Elements */}
+        {/* Add decorative car shapes */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="mb-4 flex justify-center"
+          className="absolute top-40 right-20 text-blue-500/10 text-6xl"
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         >
-          <div className="w-16 h-1 bg-blue-500/60 rounded-full" />
+          <RiSteeringFill />
         </motion.div>
+        <motion.div
+          className="absolute bottom-40 left-20 text-blue-500/10 text-6xl"
+          animate={{
+            y: [0, 15, 0],
+            rotate: [0, -5, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        >
+          <FaCar />
+        </motion.div>
+      </motion.div>
 
-        <motion.div variants={titleVariants} className="inline-block relative">
-          {/* Top accent line */}
+      <div className="max-w-7xl w-full mx-auto relative">
+        {/* Enhanced Header Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center mb-10 md:mb-20"
+        >
+          {/* Elegant Decorative Elements */}
           <motion.div
-            className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-0.5"
-            initial={{ width: 0 }}
-            whileInView={{ width: '40%' }}
-            transition={{ delay: 0.2, duration: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="mb-4 flex justify-center"
           >
-            <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+            <div className="w-16 h-1 bg-blue-500/60 rounded-full" />
           </motion.div>
 
-          <div className="flex items-center justify-center gap-x-4">
-            {/* Left decorative element */}
+          <motion.div
+            variants={titleVariants}
+            className="inline-block relative"
+          >
+            {/* Top accent line */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="hidden md:flex items-center"
+              className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-0.5"
+              initial={{ width: 0 }}
+              whileInView={{ width: "40%" }}
+              transition={{ delay: 0.2, duration: 1 }}
             >
-              <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-blue-400"></div>
-              <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+              <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
             </motion.div>
 
-            {/* Main title with animation */}
-            <div className="relative flex flex-col items-center">
+            <div className="flex items-center justify-center gap-x-4">
+              {/* Left decorative element */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="absolute -top-6 md:-top-4 text-xs font-semibold tracking-widest text-gray-400 uppercase"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="hidden md:flex items-center"
               >
-                Premium Selection
+                <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-blue-400"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-400"></div>
               </motion.div>
 
-              <h2 className=" font-bold text-white relative z-10 flex items-center mt-6 md:mt-0">
-                Our Fleet
-              </h2>
+              {/* Main title with animation */}
+              <div className="relative flex flex-col items-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="absolute -top-6 md:-top-4 text-xs font-semibold tracking-widest text-gray-400 uppercase"
+                >
+                  Premium Selection
+                </motion.div>
 
+                <h2 className=" font-bold text-white relative z-10 flex items-center mt-6 md:mt-0">
+                  Our Fleet
+                </h2>
+
+                <motion.div
+                  className="h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 mt-3 rounded-full"
+                  variants={underlineVariants}
+                />
+              </div>
+
+              {/* Right decorative element */}
               <motion.div
-                className="h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 mt-3 rounded-full"
-                variants={underlineVariants}
-              />
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="hidden md:flex items-center"
+              >
+                <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-blue-400"></div>
+              </motion.div>
             </div>
 
-            {/* Right decorative element */}
+            {/* Bottom accent line */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="hidden md:flex items-center"
+              className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-24 h-0.5"
+              initial={{ width: 0 }}
+              whileInView={{ width: "30%" }}
+              transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-              <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-blue-400"></div>
+              <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
             </motion.div>
-          </div>
+          </motion.div>
 
-          {/* Bottom accent line */}
-          <motion.div
-            className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-24 h-0.5"
-            initial={{ width: 0 }}
-            whileInView={{ width: '30%' }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="text-gray-300 mt-6 md:mt-10 max-w-2xl mx-auto leading-relaxed text-sm md:text-base"
           >
-            <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+            Experience unparalleled luxury and performance with our premium
+            fleet of vehicles. Each car is meticulously maintained to ensure
+            your journey is nothing short of extraordinary.
+          </motion.p>
+
+          {/* Animated indicator */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+            className="flex items-center justify-center mt-6 text-sm text-text-secondary"
+          >
+            <span>Explore</span>
+            <motion.div
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <FaChevronRight className="ml-1" />
+            </motion.div>
           </motion.div>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-gray-300 mt-6 md:mt-10 max-w-2xl mx-auto leading-relaxed text-sm md:text-base"
-        >
-          Experience unparalleled luxury and performance with our premium fleet of vehicles. Each car is meticulously
-          maintained to ensure your journey is nothing short of extraordinary.
-        </motion.p>
-
-        {/* Animated indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="flex items-center justify-center mt-6 text-sm text-text-secondary"
-        >
-          <span>Explore</span>
-          <motion.div
-            animate={{ x: [0, 5, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <FaChevronRight className="ml-1" />
-          </motion.div>
-        </motion.div>
-      </motion.div>
-
 
         {/* Fleet Cards Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-14 justify-items-center items-center"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-14 justify-items-center items-center"
         >
-     
-          <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>  <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>
+          {cars.map((CarItem: Car) => (
+            <motion.div variants={itemVariants}>
+              <FleetCard car={CarItem} />
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Enhanced View All Button */}
@@ -233,9 +238,9 @@ export const OurFleet = () => {
         >
           <motion.button
             className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-4 px-10 rounded-full shadow-lg"
-            whileHover={{ 
-              scale: 1.05, 
-              boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)" 
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)",
             }}
             whileTap={{ scale: 0.98 }}
           >
@@ -245,7 +250,7 @@ export const OurFleet = () => {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
             />
-            <motion.div 
+            <motion.div
               className="relative z-10 flex items-center gap-2"
               whileHover={{ x: 3 }}
               transition={{ duration: 0.3 }}

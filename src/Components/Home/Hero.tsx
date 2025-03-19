@@ -4,7 +4,7 @@ import Image from "next/image";
 import SearchBar from "@/Components/Generals/SearchBar";
 import { ContactLinks } from "../Generals/ContactLinks";
 import rawProducts from "@/Utils/CarsData.json";
-import { Car } from "@/Utils/utils";
+import { Car } from "@/Utils/types";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight, FaCrown } from "react-icons/fa";
 import { GiSteeringWheel } from "react-icons/gi";
