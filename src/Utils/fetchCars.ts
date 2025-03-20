@@ -1,6 +1,7 @@
 import axiosInstance from "./axiosInstance";
 import { API_ENDPOINTS } from "./apiEndpoints";
 import { Car } from "./types";
+import { cache } from "react";
 
 
 let cachedCars :Car[] =[];
@@ -10,11 +11,11 @@ export const fetchCars = async () : Promise<Car[]> => {
     try {
         const response = await axiosInstance.get(API_ENDPOINTS.user.carList);
         cachedCars = response.data ; 
-console.log("response: " , cachedCars)
+        console.log("response: " , cachedCars)
         // Store fetched data
         return cachedCars;
     } catch(err) {
-console.log("Error fetching cars: " + err)
+        console.log("Error fetching cars: " + err)
         return [];
     }
 }
