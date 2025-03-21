@@ -1,10 +1,22 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import FleetCard from './FleetCard';
 import { FaCar, FaChevronRight } from 'react-icons/fa';
 import { RiSteeringFill } from 'react-icons/ri';
+import { fetchCars } from '@/Utils/fetchCars';
+import { Car } from '@/Utils/types';
 
 export const OurFleet = () => {
+   const [cars, setCars] = useState<Car[] >([]);
+   const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+      setTimeout(() => {
+        fetchCars().then((res)=>setCars(res)); // Fetch once, reuse everywhere
+        setIsMounted(true);
+      }, 2000);
+  
+    }, []);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -209,18 +221,13 @@ export const OurFleet = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-14 justify-items-center items-center"
         >
-     
-          <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>  <motion.div variants={itemVariants}>
-            <FleetCard />
-          </motion.div>
+     {(!isMounted ||!cars )?
+     <p>"Loading"</p>:
+     cars.map(car =>    <motion.div variants={itemVariants}>
+            <FleetCard car={car} />
+          </motion.div>)}
+       
+       
         </motion.div>
 
         {/* Enhanced View All Button */}

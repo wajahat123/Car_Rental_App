@@ -1,17 +1,20 @@
+"use client"
+import { API_ENDPOINTS } from "@/Utils/apiEndpoints";
+import { Car } from "@/Utils/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaWhatsapp, FaTicketAlt } from "react-icons/fa";
 
-const FleetCard = () => {
-  const car = {
-    _id: "67d3f6c8a96714c875d64450",
-    name: "Car 1",
-    price: 100,
-    category: "SUV123",
-    brand: "Land Rover",
-    image: "/assets/images/car6.webp",
-    shortDescription: "I am car 1",
-  };
+const FleetCard = ({car}:{car:Car}) => {
+  // const car = {
+  //   _id: "67d3f6c8a96714c875d64450",
+  //   name: "Car 1",
+  //   price: 100,
+  //   category: "SUV123",
+  //   brand: "Land Rover",
+  //   image: "/assets/images/car6.webp",
+  //   shortDescription: "I am car 1",
+  // };
 
   return (
     <motion.div
@@ -27,7 +30,9 @@ const FleetCard = () => {
         transition={{ duration: 0.3 }}
       >
         <Image
-          src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${car.image}`}
+
+          // src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${API_ENDPOINTS.user.carList}/${car.image}`}
+src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${car.image}`}
           alt="car"
           width={500}
           height={450}
