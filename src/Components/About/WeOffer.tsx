@@ -35,17 +35,7 @@ const WeOffer = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
-  return (<>
-    <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="flex justify-center items-center gap-2  mb-32 mt-12"
-        >
-          <PiDiamondsFour className="text-blue-700 text-sm" />
-          <h1 className="   text-white font-bold">About Us</h1>
-          <PiDiamondsFour className="text-blue-700 text-sm" />
-        </motion.div>
+  return (
  
     <div ref={sectionRef} className="relative  pb-14 overflow-hidden ">
       {/* Main Content Container */}
@@ -73,8 +63,8 @@ const WeOffer = () => {
             transition={{ duration: 1.2, delay: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
             <h2 className="text-white text-3xl md:text-4xl font-bold mb-2.5">We offer customers a wide range</h2>
-            <h2 className="text-white text-3xl md:text-4xl font-bold mb-2.5">of <span className="text-gold-400">commercial cars</span> and <span className="text-gold-400"> luxury </span></h2>
-            <h2 className="text-white text-3xl md:text-4xl font-bold mb-2.5"><span className="text-gold-400">cars </span>for any occasion.</h2>
+            <h2 className="text-white text-3xl md:text-4xl font-bold mb-2.5">of <span className="text-gold-500">commercial cars</span> and <span className="text-gold-500"> luxury </span></h2>
+            <h2 className="text-white text-3xl md:text-4xl font-bold mb-2.5"><span className="text-gold-500">cars </span>for any occasion.</h2>
           </motion.div>
           
           {/* Right Column - Description */}
@@ -233,7 +223,7 @@ const WeOffer = () => {
                   <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
                 </motion.div>
       </div>
-    </div> </>
+    </div> 
   );
 };
 

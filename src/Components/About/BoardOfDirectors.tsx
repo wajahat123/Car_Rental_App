@@ -218,11 +218,12 @@ const BoardOfDirectors = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {directors.map((dir, index) => (
-            <>
+            <div className="flex flex-col z-50">
+              {/* Container */}
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg text-center flex flex-col items-center hover:bg-gradient-to-br hover:from-yellow-500/10 hover:to-yellow-500/5 transition-all duration-500 relative overflow-hidden h-64"
+              className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg text-center flex flex-col items-center hover:bg-gradient-to-br hover:from-yellow-500/10 hover:to-yellow-500/5 transition-all duration-500 relative overflow-hidden h-64 "
             >
               {/*Image */}
               <motion.div
@@ -238,7 +239,7 @@ const BoardOfDirectors = () => {
                   height={200}
                 />
               </motion.div>
-
+{/* Links within Container */}
               <div className="flex absolute justify-center items-center  bottom-4 gap-2">
                 {/* Social Icons */}
                 <motion.div
@@ -280,20 +281,20 @@ const BoardOfDirectors = () => {
                 </Link>
                 </motion.div>
               </div>
-            </motion.div>
+            </motion.div>{/*Container closed*/}
             <motion.div
-              className="flex justify-center items-center flex-col gap-y-4"
+              className="flex justify-center items-center flex-col  mt-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               >
                 <h3 className="text-xl font-bold text-white">
                   {dir.name}
                 </h3>
-                <p className="text-gray-500 text-sm">
+                <p className="text-white/80 text-sm">
                   {dir.title}
                 </p>
               </motion.div>
-            </>
+            </div>
           ))}
         </motion.div>
       </div>

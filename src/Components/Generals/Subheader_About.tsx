@@ -8,7 +8,7 @@ const SubHeader = () => {
       style={{ backgroundImage: "url('/assets/images/car1.webp')" }}
     >
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tl from-background/95 to-background/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-black to-black/60"></div>
 
       {/* Content Container */}
       <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl mx-auto flex justify-end">

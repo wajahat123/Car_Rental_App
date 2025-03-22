@@ -10,7 +10,7 @@ import Image from 'next/image';
 const LuxuriousCars = () => {
   const [cars, setCars] = useState<Car[] >([]);
   useEffect(() => {
-    fetchCars().then((res)=>setCars(res)); // Fetch once, reuse everywhere
+    fetchCars().then((res)=>setCars(res)); 
 
   }, []);
     return (

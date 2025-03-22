@@ -7,6 +7,7 @@ export const API_ENDPOINTS = {
       ordersList: "/order/get-orders-list",
       deleteOrder: "/order",
     },
+    contact:"/contact",
     user: {
       carList: "/cars",
       bookCar: "/bookings",

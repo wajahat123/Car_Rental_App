@@ -1,24 +1,29 @@
 "use client";
 import { H_Two } from "@/Utils/Typography";
-import { useState, useRef } from "react";
-import { PhoneInput } from "react-international-phone";
+import { useRef } from "react";
 import "@/Styles/CustomPhoneStyles.css";
-import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { motion, useInView } from "framer-motion";
 import { PiDiamondsFour } from "react-icons/pi";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
+import { useState } from "react";
+import { PhoneInput } from "react-international-phone";
+import axiosInstance from "@/Utils/axiosInstance";
+import { API_ENDPOINTS } from "@/Utils/apiEndpoints";
 
 const Contact = () => {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-  const [phone, setPhone] = useState<string>("");
   const [, setValid] = useState<boolean>(true);
-
+  const sectionRef = useRef(null);
+  const [phone, setPhone] = useState<string>("");
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+const [successMessage,setSuccessMessage] = useState<string>("")
+const [errorMessage,setErrorMessage] = useState<string>("")
+  const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
-    name: "",
+  username: "",
     email: "",
     subject: "",
     message: "",
-    phone: phone,
+    // phone: phone,
   });
 
   const handleChange = (
@@ -27,30 +32,43 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setLoading(true);
+    setSuccessMessage("");
+  
     const phoneNumber = parsePhoneNumberFromString(phone);
     const isValid = phoneNumber?.isValid() || false;
     setValid(isValid);
-
+  
     if (!isValid) {
-      alert("Please enter a valid phone number.");
+      setErrorMessage("Please enter a valid phone number.");
+      setTimeout(() => setErrorMessage(""), 2000); // Hide message after 2 sec
+
+      setLoading(false);
       return;
     }
-
-    console.log("Form submitted:", formData, phone);
-
+  
+    try {
+      await axiosInstance.post(API_ENDPOINTS.contact, formData);
+      setSuccessMessage("Message Sent Successfully!");
+      setTimeout(() => setSuccessMessage(""), 2000); // Hide message after 2 sec
+    } catch (err) {
+      console.error("Error sending contact form:", err);
+    } finally {
+      setLoading(false);
+    }
+  
     setFormData({
-      name: "",
+    username: "",
       email: "",
       subject: "",
       message: "",
-      phone: phone,
+      // phone: ",
     });
     setPhone("");
   };
-
+  
   return (
     <div
       ref={sectionRef}
@@ -98,131 +116,178 @@ const Contact = () => {
             <PiDiamondsFour className="text-blue-400 text-2xl" />
           </div>
         </motion.div>
-
-        <motion.form 
-          onSubmit={handleSubmit} 
-          className="space-y-6 relative"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+{/* //form component */}
+{successMessage && (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "black",
+          color: "gold",
+          padding: "10px 20px",
+          borderRadius: "5px",
+          fontWeight: "bold",
+          zIndex: 1000,
+          opacity: successMessage ? 1 : 0, // Control visibility
+          transition: "opacity 0.5s ease-in-out", // Smooth fade effect
+      
+        }}
+      >
+        {successMessage}
+      </div>
+    )}
+    {/* Error Message */}
+    {errorMessage && (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "black",
+          color: "red",
+          padding: "10px 20px",
+          borderRadius: "5px",
+          fontWeight: "bold",
+          zIndex: 1000,
+          opacity: errorMessage ? 1 : 0, // Control visibility
+          transition: "opacity 0.5s ease-in-out", // Smooth fade effect
+      
+        }}
+      >
+        {errorMessage}
+      </div>
+    )}
+ <motion.form
+      onSubmit={handleSubmit}
+      className="space-y-6 relative "
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+    >
+      <div className="flex w-full flex-col md:flex-row gap-4">
+        {/* Left Side (Inputs) */}
+        <motion.div
+          className="space-y-5 w-full relative"
+          initial={{ opacity: 0, x: -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <div className="flex w-full flex-col md:flex-row gap-4">
-            {/* Left Side (Inputs) */}
-            <motion.div 
-              className="space-y-5 w-full relative"
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <input
-                required
-                type="text"
-                name="name"
-                id="name"
-                minLength={2}
-                maxLength={30}
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+          <input
+            required
+            type="text"
+          name="username"
+            id="name"
+            minLength={2}
+            maxLength={30}
+            placeholder="Name"
+            value={formData.username}
+            onChange={handleChange}
+            className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
                           focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
-                aria-label="Name"
-              />
+            aria-label="Name"
+          />
 
-              <input
-                required
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+          <input
+            required
+            type="email"
+          name="email"
+            id="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
                           focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
-                aria-label="Email Address"
+            aria-label="Email Address"
+          />
+
+          {/* Phone Input with Proper Styling */}
+          <div className="w-full flex flex-col relative z-10">
+            <div className="flex items-center p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 focus-within:border-blue-500/40 transition-all duration-300 shadow-lg">
+              <PhoneInput
+                defaultCountry="us"
+                value={phone}
+                onChange={setPhone}
+                className="w-full"
               />
-
-              {/* Phone Input with Proper Styling */}
-              <div className="w-full flex flex-col relative z-10">
-                <div className="flex items-center p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 focus-within:border-blue-500/40 transition-all duration-300 shadow-lg">
-                  <PhoneInput
-                    defaultCountry="us"
-                    value={phone}
-                    onChange={setPhone}
-                    className="w-full"
-                  />
-                </div>
-              </div>
-
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                placeholder="Subject"
-                maxLength={300}
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
-                          focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
-                aria-label="Subject"
-              />
-            </motion.div>
-
-            {/* Right Side (Message) */}
-            <motion.div 
-              className="w-full"
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-            >
-              <textarea
-                required
-                name="message"
-                id="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 md:h-[265px] h-[1] rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
-                          focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg"
-                aria-label="Message"
-              ></textarea>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Submit Button */}
-          <motion.button
-            type="submit"
-            className="w-full bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 
+          <input
+            type="text"
+          name="subject"
+            id="subject"
+            placeholder="Subject"
+            maxLength={300}
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+                          focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
+            aria-label="Subject"
+          />
+        </motion.div>
+
+        {/* Right Side (Message) */}
+        <motion.div
+          className="w-full"
+          initial={{ opacity: 0, x: 20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <textarea
+            required
+          name="message"
+            id="message"
+            placeholder="Message"
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full p-3 md:h-[265px] h-[50px] rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+                          focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg"
+            aria-label="Message"
+          ></textarea>
+        </motion.div>
+      </div>
+
+      {/* Submit Button */}
+      <motion.button
+        type="submit"
+        className="w-full bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 
                      hover:from-blue-500 hover:via-blue-600 hover:to-blue-700
                      transition-all duration-500 text-white rounded-lg px-4 py-4 uppercase font-bold 
                      flex justify-center items-center gap-2 relative overflow-hidden group
                      shadow-lg hover:shadow-blue-500/30"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 1.0 }}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)",
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {/* Shine Effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
-            {/* Glossy Overlay */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <span className="relative z-10 font-semibold tracking-wider">Submit</span>
-          </motion.button>
-        </motion.form>
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.5, delay: 1.0 }}
+        whileHover={{
+          scale: 1.02,
+          boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)",
+          
+        }}
+        disabled={loading}
+        whileTap={{ scale: 0.98 }}
+      >
+        {/* Shine Effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          initial={{ x: "-100%" }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        />
+        {/* Glossy Overlay */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+        <span className="relative z-10 font-semibold tracking-wider">
+        {loading ? "Sending..." : "Submit"}
+        </span>
+      </motion.button>
+    </motion.form>
       </div>
 
       {/* Decorative Accent Line Bottom */}

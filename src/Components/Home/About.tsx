@@ -16,7 +16,7 @@ interface CounterProps {
 const Counter = ({ from = 0, to, duration = 2, delay = 0, className = "", isInView = false }: CounterProps) => {
   const count = useMotionValue(from);
   const rounded = useTransform(count, (latest) => Math.round(latest));
-  
+
   useEffect(() => {
     if (isInView) {
       const controls = animate(count, to, { 
@@ -27,7 +27,7 @@ const Counter = ({ from = 0, to, duration = 2, delay = 0, className = "", isInVi
       return controls.stop;
     }
   }, [count, to, duration, delay, isInView]);
-  
+
   return <motion.span className={className}>{rounded}</motion.span>;
 };
 
@@ -38,7 +38,7 @@ const About = () => {
   return (
     <div
       ref={sectionRef}
-      className="relative bg-cover bg-center pt-32 pb-14 overflow-hidden"
+      className="relative bg-cover bg-center pt-20 pb-10 overflow-hidden"
       style={{ backgroundImage: "url('/assets/images/background/1.jpg')" }}
     >
       {/* Subtle Background Animation */}
@@ -61,7 +61,7 @@ const About = () => {
           initial={{ width: 0 }}
           animate={isInView ? { width: "40%" } : { width: 0 }}
           transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1.0] }}
-          className="h-[1px] mx-auto mb-12"
+          className="h-[1px] mx-auto mb-8 sm:mb-12"
         >
           <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
         </motion.div>
@@ -71,15 +71,15 @@ const About = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="flex justify-center items-center gap-2 mb-12"
+          className="flex justify-center items-center gap-2 mb-8 sm:mb-12"
         >
           <PiDiamondsFour className="text-blue-400/80 text-sm" />
-          <span className="text-sm uppercase tracking-widest text-white font-medium">About Our Premium Service</span>
+          <span className="text-sm uppercase tracking-widest text-center text-white font-medium">About Our Premium Service</span>
           <PiDiamondsFour className="text-blue-400/80 text-sm" />
         </motion.div>
 
         {/* Content Two Column Layout */}
-        <div className="flex flex-col md:flex-row px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto gap-10 md:gap-16 relative">
+        <div className="flex flex-col md:flex-row px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto gap-6 md:gap-16 relative">
           {/* Left Column - Title */}
           <motion.div 
             className="md:w-1/2 text-left relative"
@@ -109,7 +109,7 @@ const About = () => {
             
             <div>
               <motion.h2 
-                className="text-white text-3xl md:text-4xl font-bold mb-2.5"
+                className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2.5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
@@ -117,7 +117,7 @@ const About = () => {
                 We offer customers a wide range
               </motion.h2>
               <motion.h2 
-                className="text-white text-3xl md:text-4xl font-bold mb-2.5"
+                className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2.5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
@@ -125,7 +125,7 @@ const About = () => {
                 of commercial cars and luxury
               </motion.h2>
               <motion.h2 
-                className="text-white text-3xl md:text-4xl font-bold mb-2.5"
+                className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2.5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
@@ -148,7 +148,7 @@ const About = () => {
                 animate={isInView ? { width: 32 } : { width: 0 }}
                 transition={{ delay: 1.6, duration: 0.8 }}
               />
-        </div>
+            </div>
           </motion.div>
           
           {/* Right Column - Description */}
@@ -167,12 +167,12 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
-                className="text-white leading-relaxed"
+                className="text-white leading-relaxed text-sm sm:text-base"
               >
-            At our car rental agency, we believe that everyone deserves to
-            experience the pleasure of driving a reliable and comfortable
-            vehicle, regardless of their budget. We have curated a diverse fleet
-            of well-maintained cars, ranging from sleek sedans to spacious SUVs,
+                At our car rental agency, we believe that everyone deserves to
+                experience the pleasure of driving a reliable and comfortable
+                vehicle, regardless of their budget. We have curated a diverse fleet
+                of well-maintained cars, ranging from sleek sedans to spacious SUVs,
                 all at competitive prices.
               </motion.p>
               
@@ -180,28 +180,28 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
-                className="text-white mt-6 leading-relaxed"
+                className="text-white mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base"
               >
                 With our streamlined rental process, you
-            can quickly and conveniently reserve your desired vehicle. Whether
-            you need transportation for a business trip, family vacation, or
-            simply want to enjoy a weekend getaway, we have flexible rental
-            options to accommodate your schedule.
+                can quickly and conveniently reserve your desired vehicle. Whether
+                you need transportation for a business trip, family vacation, or
+                simply want to enjoy a weekend getaway, we have flexible rental
+                options to accommodate your schedule.
               </motion.p>
-        </div>
+            </div>
           </motion.div>
         </div>
         
-        {/* Stats Container - with nowrap to ensure stats stay in one line */}
+        {/* Stats Container - Responsive Grid */}
         <motion.div 
-          className=" grid grid-cols-1 sm:grid-cols-2 ml:grid-cols-4 gap-4 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto my-24 py-6 overflow-x-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto my-12 sm:my-24 py-6 overflow-x-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 1, delay: 2.0 }}
         >
           {/* Stat Box 1 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.2 }}
@@ -224,14 +224,14 @@ const About = () => {
             }}>
               <Counter from={0} to={15425} duration={2.5} delay={2.3} isInView={isInView} />
             </h2>
-            <h5 className="text-white font-medium text-lg">
+            <h5 className="text-white font-medium text-sm sm:text-lg">
               Completed Orders
             </h5>
           </motion.div>
           
           {/* Stat Box 2 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.3 }}
@@ -254,14 +254,14 @@ const About = () => {
             }}>
               <Counter from={0} to={8745} duration={2.5} delay={2.4} isInView={isInView} />
             </h2>
-            <h5 className="text-white font-medium text-lg">
+            <h5 className="text-white font-medium text-sm sm:text-lg">
               Happy Customers
             </h5>
           </motion.div>
           
           {/* Stat Box 3 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.4 }}
@@ -284,14 +284,14 @@ const About = () => {
             }}>
               <Counter from={0} to={235} duration={2.5} delay={2.5} isInView={isInView} />
             </h2>
-            <h5 className="text-white font-medium text-lg">
+            <h5 className="text-white font-medium text-sm sm:text-lg">
               Vehicles Fleet
             </h5>
           </motion.div>
           
           {/* Stat Box 4 */}
           <motion.div 
-            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] ml:w-[22%] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
+            className="bg-black/40 backdrop-blur-sm border border-blue-500/30 min-w-[180px] h-36 text-center flex flex-col items-center justify-center gap-3 rounded-lg overflow-visible relative mx-3 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.5 }}
@@ -314,7 +314,7 @@ const About = () => {
             }}>
               <Counter from={0} to={15} duration={2.5} delay={2.6} isInView={isInView} />
             </h2>
-            <h5 className="text-white font-medium text-lg">
+            <h5 className="text-white font-medium text-sm sm:text-lg">
               Years of Experience
             </h5>
           </motion.div>
@@ -325,7 +325,7 @@ const About = () => {
           initial={{ width: 0 }}
           animate={isInView ? { width: "30%" } : { width: 0 }}
           transition={{ duration: 1.5, delay: 2.8, ease: [0.25, 0.1, 0.25, 1.0] }}
-          className="h-[1px] mx-auto mt-12"
+          className="h-[1px] mx-auto mt-8 sm:mt-12"
         >
           <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
         </motion.div>
