@@ -218,10 +218,11 @@ const BoardOfDirectors = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {directors.map((dir, index) => (
-            <div className="flex flex-col z-50">
+            <div className="flex flex-col z-50" 
+            key={index}
+            >
               {/* Container */}
             <motion.div
-              key={index}
               variants={itemVariants}
               className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg text-center flex flex-col items-center hover:bg-gradient-to-br hover:from-yellow-500/10 hover:to-yellow-500/5 transition-all duration-500 relative overflow-hidden h-64 "
             >

@@ -7,21 +7,26 @@ import Image from "next/image";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCarStore } from "@/Store/store";
+import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
 const Navbar = () => {
+  // State management using custom stores
   const { isOpen, isVisible, toggleMenu, setVisibility } = useNavbarStore();
   const setSelectedFilter = useCarStore((state) => state.setSelectedFilter);
   const router = useRouter();
+  
+  // Local component states
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false); // State for mobile dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const pathname = usePathname();
 
-  const handleSelect = (value: string, type: string) => {
-    setSelectedFilter({ value, type }); // Update the global state
-    router.push("/luxurious"); // Redirect to the luxurious page
-  };
+  // Handlers for dropdown interactions
+  const handleMouseEnter = (menu: string) => setActiveSubmenu(menu);
+  const handleMouseLeave = () => setActiveSubmenu(null);
 
+  // Effect for handling scroll behavior and navbar visibility
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
 
@@ -62,6 +67,7 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
+  // Navigation links data
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -70,14 +76,47 @@ const Navbar = () => {
     { name: "Privacy", path: "/privacy" },
   ];
 
-  const rentCarDropdown = [
-    { name: "Car Types", path: "", type: "" },
-    { name: "Luxury Cars", path: "/luxurious-cars", type: "type" },
-    { name: "SUVs", path: "/suvs", type: "type" },
-    { name: "Economy Cars", path: "/luxurious-cars", type: "type" },
-    { name: "Electric Cars", path: "/luxurious-cars", type: "type" },
-    { name: "Car Brands", path: "", type: "" },
+  // Dropdown data for car types and brands
+  const dropdownData = [
+    {
+      category: "Car Types",
+      items: [
+        { name: "Luxury Cars", path: "/luxurious-cars", type: "type" },
+        { name: "SUVs", path: "/luxurious-cars", type: "type" },
+        { name: "Economy Cars", path: "/luxurious-cars", type: "type" },
+        { name: "Electric Cars", path: "/luxurious-cars", type: "type" },
+        { name: "Sports Cars", path: "/luxurious-cars", type: "type" },
+        { name: "Convertible Cars", path: "/luxurious-cars", type: "type" },
+        { name: "Sedans", path: "/luxurious-cars", type: "type" },
+        { name: "Coupes", path: "/luxurious-cars", type: "type" },
+        { name: "Limousines", path: "/luxurious-cars", type: "type" },
+        { name: "Classic Cars", path: "/luxurious-cars", type: "type" },
+        { name: "Exotic Cars", path: "/luxurious-cars", type: "type" },
+        { name: "Hypercars", path: "/luxurious-cars", type: "type" },
+      ],
+    },
+    {
+      category: "Car Brands",
+      items: [
+        { name: "Mercedes-Benz", path: "luxurious-cars", type: "brand" },
+        { name: "BMW", path: "luxurious-cars", type: "brand" },
+        { name: "Audi", path: "luxurious-cars", type: "brand" },
+        { name: "Lexus", path: "luxurious-cars", type: "brand" },
+        { name: "Porsche", path: "luxurious-cars", type: "brand" },
+        { name: "Rolls-Royce", path: "luxurious-cars", type: "brand" },
+        { name: "Bentley", path: "luxurious-cars", type: "brand" },
+        { name: "Ferrari", path: "luxurious-cars", type: "brand" },
+        { name: "Lamborghini", path: "luxurious-cars", type: "brand" },
+        { name: "Maserati", path: "luxurious-cars", type: "brand" },
+        { name: "Aston Martin", path: "luxurious-cars", type: "brand" },
+        { name: "Bugatti", path: "luxurious-cars", type: "brand" },
+        { name: "McLaren", path: "luxurious-cars", type: "brand" }
+      ],
+    }
   ];
+
+  // Check if current route is a luxurious cars route
+  const isLuxuriousRoute = pathname.startsWith("/luxurious-cars");
 
   return (
     <motion.div
@@ -88,11 +127,11 @@ const Navbar = () => {
     >
       <div className="px-4 sm:px-8 md:px-16 xl:px-32 max-w-7xl w-full mx-auto">
         <div className="flex justify-between items-center h-20 md:h-24">
-          {/* Logo */}
+          {/* Logo Section */}
           <motion.div
             className="relative w-36 md:w-48 lg:w-56 h-auto"
             whileHover={{ scale: 1.02 }}
-          >
+          ><Link href="/">
             <Image
               src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
               alt="ASMR"
@@ -100,7 +139,7 @@ const Navbar = () => {
               height={211}
               className="w-full h-auto object-contain"
               priority
-            />
+            /></Link>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -133,21 +172,31 @@ const Navbar = () => {
                 )}
               </motion.div>
             ))}
-            {/* Rent Car By Dropdown */}
-            <div
-              className="relative"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
+            
+            {/* Rent Car By Dropdown - Desktop */}
+            <div 
+              className="relative" 
+              onMouseEnter={() => setIsDropdownOpen(true)} 
+              onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <button
-                className={`text-sm font-medium tracking-wide transition-all duration-300 ${
-                  pathname.startsWith("/luxurious-cars")
-                    ? "text-text-secondary"
-                    : "text-text-primary hover:text-text-secondary"
-                }`}
-              >
-                Rent Car By
-              </button>
-              {pathname.startsWith("/luxurious-cars") && (
+              <div className={`flex items-center gap-1        ${isLuxuriousRoute
+                      ? "text-text-secondary"
+                      : "text-text-primary hover:text-text-secondary"
+                  }`}>
+                <button
+                  className="text-sm font-medium tracking-wide transition-all duration-300 "
+             
+                >
+                  Rent Car By
+                </button>
+                {isDropdownOpen ? (
+                  <FaChevronDown className="text-xs" />
+                ) : (
+                  <FaChevronRight className="text-xs" />
+                )}
+              </div>
+              
+              {isLuxuriousRoute && (
                 <motion.div
                   className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary"
                   layoutId="underline"
@@ -156,31 +205,52 @@ const Navbar = () => {
                   transition={{ duration: 0.3 }}
                 />
               )}
-              {dropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute left-0 mt-2 w-36 bg-gradient-to-br from-black/90 to-slate-900/80 shadow-lg rounded-lg py-2 text-text-primary"
-                >
-                  {rentCarDropdown.map((item, index) =>
-                    item.name === "Car Types" || item.name === "Car Brands" ? (
-                      <p className="px-4 py-1 text-sm bg-gradient-to-b from-gold-300/80 to-gold-600/80  text-black font-semibold rounded-sm">
-                        {item.name}
-                      </p>
-                    ) : (
-                      <Link
-                        key={index}
-                        href={item.path}
-                        onClick={() => handleSelect(item.name, item.type)}
-                        className="block px-4 py-1 text-sm hover:bg-primary/30 border-b border-b-gray-500/30 rounded-sm"
+
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute -left-14 right-10 mt-2 w-48 scrollbar-hide bg-black border border-gold-500/20 text-white shadow-lg rounded-lg p-1"
+                  >
+                    {dropdownData.map((group, index) => (
+                      <div 
+                        key={index} 
+                        onMouseEnter={() => handleMouseEnter(group.category)} 
+                        onMouseLeave={handleMouseLeave} 
+                        className="max-h-[250px] overflow-y-scroll scrollbar-hide"
                       >
-                        {item.name}
-                      </Link>
-                    )
-                  )}
-                </motion.div>
-              )}
+                        <div className="px-4 py-2 font-semibold bg-gradient-to-b from-gold-400 to-gold-700 text-black">
+                          {group.category}
+                        </div>
+
+                        <AnimatePresence>
+                          {activeSubmenu === group.category && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden"
+                            >
+                              {group.items.map((item, i) => (
+                                <Link 
+                                  key={i} 
+                                  href={item.path} 
+                                  className="block px-4 py-2 hover:bg-gold-600/20"
+                                  onClick={() => setSelectedFilter({ value: item.name, type: item.type })}
+                                >
+                                  {item.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </nav>
 
@@ -241,58 +311,66 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
-                {/* Rent Car By Dropdown for Mobile */}
+                
+                {/* Rent Car By Dropdown - Mobile */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
-                  className="block"
+                  transition={{ delay: 0.1 }}
+                  className="block md:hidden"
                 >
-                  <button
-                    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-                    className={`block py-2 text-center text-base transition-all duration-300 ${
-                      pathname.startsWith("/luxurious-cars")
-                        ? "text-text-secondary font-semibold"
-                        : "text-text-primary hover:text-text-secondary"
-                    }`}
-                  >
-                    Rent Car By
-                  </button>
-                  {pathname.startsWith("/luxurious-cars") && (
-                    <motion.div
-                      className="h-0.5 bg-primary/50 mx-auto w-12"
-                      layoutId="mobileUnderline"
-                    />
-                  )}
-                  {mobileDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="mt-2 space-y-2"
+                  <div className="flex justify-center items-center gap-1">
+                    <button
+                      onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                      className={`block py-2 text-center text-base transition-all duration-300 ${
+                        isLuxuriousRoute ? "text-text-secondary font-semibold" : "text-text-primary hover:text-text-secondary"
+                      }`}
                     >
-                      {rentCarDropdown.map((item, index) =>
-                        item.name === "Car Types" ||
-                        item.name === "Car Brands" ? (
-                          <p className="px-4 py-1 text-sm bg-gradient-to-b from-gold-300/80 to-gold-600/80 rounded-sm text-black font-semibold  text-center">
-                            {item.name}
-                          </p>
-                        ) : (
-                          <Link
-                            key={index}
-                            href={item.path}
-                            onClick={() => {
-                              handleSelect(item.name, item.type);
-                              toggleMenu();
-                            }}
-                            className="block px-4 py-1 text-sm text-text-primary hover:bg-primary/30 border-b border-b-gray-500/30 text-center rounded-sm"
-                          >
-                            {item.name}
-                          </Link>
-                        )
-                      )}
-                    </motion.div>
+                      Rent Car By
+                    </button>
+                    {mobileDropdownOpen ? (
+                      <FaChevronDown className="text-xs" />
+                    ) : (
+                      <FaChevronRight className="text-xs" />
+                    )}
+                  </div>
+
+                  {isLuxuriousRoute && (
+                    <motion.div className="h-0.5 bg-primary/50 mx-auto w-12" layoutId="mobileUnderline" />
                   )}
+
+                  <AnimatePresence>
+                    {mobileDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="mt-2 space-y-2"
+                      >
+                        {dropdownData.map((group, index) => (
+                          <div key={index}>
+                            <p className="px-4 py-1 text-sm bg-gradient-to-b from-gold-300/80 to-gold-600/80 rounded-sm text-black font-semibold text-center">
+                              {group.category}
+                            </p>
+
+                            {group.items.map((item, i) => (
+                              <Link 
+                                key={i} 
+                                href={item.path} 
+                                className="block px-4 py-1 text-sm text-text-primary hover:bg-primary/30 border-b border-b-gray-500/30 text-center rounded-sm"
+                                onClick={() => {
+                                  setSelectedFilter({ value: item.name, type: item.type });
+                                  toggleMenu();
+                                }}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               </motion.nav>
             </motion.div>

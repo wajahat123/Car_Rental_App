@@ -26,3 +26,16 @@ export  interface ButtonI{
       className?: string;
       href:string
     }//need to create button component as well with dynamic styles
+
+
+    export interface exampleCarInterface {
+  id :number;
+  brand:string;
+  type:string;
+  model :string;
+  seat:number;
+  name:string;
+  price:number;
+  year:number;
+  description:string
+}
