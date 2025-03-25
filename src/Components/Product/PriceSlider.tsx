@@ -39,9 +39,9 @@ const PriceSlider = () => {
 <>     
 
       <div className=" w-full mx-auto px-4">
-        <div className="bg-accent h-[2px] relative rounded-full">
+        <div className="bg-gray-500  h-[2px] relative rounded-full">
           <div
-            className="bg-primary h-[2px] absolute flex gap-5 justify-between mx-auto"
+            className="bg-gradient-to-r from-gold-700 to-gold-100 h-[2px] absolute flex gap-5 justify-between mx-auto"
             style={FilledBackground}
           ></div>
 

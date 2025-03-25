@@ -15,7 +15,7 @@ const SubHeader = () => {
         
         {/* Left Text Section */}
         <div className="text-center md:text-right md:w-2/3 space-y-4 px-8">
-          <H_Two text="Where Elegance Meets Performance on the Road" className="text-primary" />
+          <H_Two text="Where Elegance Meets Performance on the Road" className="text-white " />
           <p className="text-text text-justify md:text-left">
             At <span className="text-primary font-bold">ASMAR</span>, we turn your supercar dreams into reality. Cruise Dubai in a Ferrari, feel the power of a Lamborghini, or enjoy the luxury of a Range Rover—all at unbeatable prices. With flexible rentals and top-tier service, driving luxury has never been easier.
           </p>

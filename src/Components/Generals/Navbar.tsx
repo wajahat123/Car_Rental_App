@@ -1,19 +1,18 @@
 "use client";
 import { useNavbarStore } from "@/Store/navbarStore";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
-import { useCarStore } from "@/Store/store";
+import { useFilterStore } from "@/Store/carStore";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
 const Navbar = () => {
   // State management using custom stores
   const { isOpen, isVisible, toggleMenu, setVisibility } = useNavbarStore();
-  const setSelectedFilter = useCarStore((state) => state.setSelectedFilter);
-  const router = useRouter();
+  const { setBrands, setTypes ,brands,types} = useFilterStore();
   
   // Local component states
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -118,6 +117,22 @@ const Navbar = () => {
   // Check if current route is a luxurious cars route
   const isLuxuriousRoute = pathname.startsWith("/luxurious-cars");
 
+  // Filter selection handlers
+  const handleFilterSelect = (item: { name: string; type: string }) => {
+    if (item.type === 'brand') {
+      setBrands([item.name]);
+      setTypes([]);
+    } else if (item.type === 'type') {
+      setTypes([item.name]);
+      setBrands([]);
+    }
+  };
+
+  const handleMobileFilterSelect = (item: { name: string; type: string }) => {
+    handleFilterSelect(item);
+    toggleMenu();
+  };
+
   return (
     <motion.div
       className="absolute top-0 left-0 right-0 z-50 bg-transparent pt-4"
@@ -127,22 +142,24 @@ const Navbar = () => {
     >
       <div className="px-4 sm:px-8 md:px-16 xl:px-32 max-w-7xl w-full mx-auto">
         <div className="flex justify-between items-center h-20 md:h-24">
-          {/* Logo Section */}
+          {/* Logo Section - Keep intact */}
           <motion.div
             className="relative w-36 md:w-48 lg:w-56 h-auto"
             whileHover={{ scale: 1.02 }}
-          ><Link href="/">
-            <Image
-              src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
-              alt="ASMR"
-              width={300}
-              height={211}
-              className="w-full h-auto object-contain"
-              priority
-            /></Link>
+          >
+            <Link href="/">
+              <Image
+                src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
+                alt="ASMR"
+                width={300}
+                height={211}
+                className="w-full h-auto object-contain"
+                priority
+              />
+            </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Keep structure intact */}
           <nav className="hidden ml:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <motion.div
@@ -179,14 +196,11 @@ const Navbar = () => {
               onMouseEnter={() => setIsDropdownOpen(true)} 
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <div className={`flex items-center gap-1        ${isLuxuriousRoute
+              <div className={`flex items-center gap-1 ${isLuxuriousRoute
                       ? "text-text-secondary"
                       : "text-text-primary hover:text-text-secondary"
                   }`}>
-                <button
-                  className="text-sm font-medium tracking-wide transition-all duration-300 "
-             
-                >
+                <button className="text-sm font-medium tracking-wide transition-all duration-300">
                   Rent Car By
                 </button>
                 {isDropdownOpen ? (
@@ -238,7 +252,7 @@ const Navbar = () => {
                                   key={i} 
                                   href={item.path} 
                                   className="block px-4 py-2 hover:bg-gold-600/20"
-                                  onClick={() => setSelectedFilter({ value: item.name, type: item.type })}
+                                  onClick={() => handleFilterSelect(item)}
                                 >
                                   {item.name}
                                 </Link>
@@ -254,7 +268,7 @@ const Navbar = () => {
             </div>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Keep intact */}
           <motion.button
             onClick={toggleMenu}
             className="ml:hidden text-text-primary hover:text-text-secondary p-2 rounded-full border border-primary/20 hover:border-primary/50 transition-all duration-300"
@@ -273,7 +287,7 @@ const Navbar = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Keep structure intact */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -283,14 +297,14 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="ml:hidden"
             >
-              <motion.nav className="bg-background/95 backdrop-blur-lg border-t border-primary/10 px-4 py-6 space-y-4 shadow-lg rounded-b-xl">
+              <motion.nav className="bg-background/55 backdrop-blur-lg  rounded-md border-t border-primary/10 px-4 py-6 space-y-4 shadow-lg rounded-b-xl">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="block"
+                    className="block "
                   >
                     <Link
                       href={link.path}
@@ -319,12 +333,12 @@ const Navbar = () => {
                   transition={{ delay: 0.1 }}
                   className="block md:hidden"
                 >
-                  <div className="flex justify-center items-center gap-1">
+                  <div className={`flex justify-center items-center gap-1 ${
+                        isLuxuriousRoute ? "text-text-secondary font-semibold" : "text-text-primary hover:text-text-secondary"
+                      }`}>
                     <button
                       onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-                      className={`block py-2 text-center text-base transition-all duration-300 ${
-                        isLuxuriousRoute ? "text-text-secondary font-semibold" : "text-text-primary hover:text-text-secondary"
-                      }`}
+                      className="block py-2 text-center text-base transition-all duration-300 "
                     >
                       Rent Car By
                     </button>
@@ -358,10 +372,7 @@ const Navbar = () => {
                                 key={i} 
                                 href={item.path} 
                                 className="block px-4 py-1 text-sm text-text-primary hover:bg-primary/30 border-b border-b-gray-500/30 text-center rounded-sm"
-                                onClick={() => {
-                                  setSelectedFilter({ value: item.name, type: item.type });
-                                  toggleMenu();
-                                }}
+                                onClick={() => handleMobileFilterSelect(item)}
                               >
                                 {item.name}
                               </Link>
