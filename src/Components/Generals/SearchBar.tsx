@@ -1,15 +1,17 @@
 'use client'
 import { useState } from "react";
 import { H_Six } from "../../Utils/Typography";
-import { Car } from "@/Utils/types";
+import { Car, exampleCarInterface } from "@/Utils/types";
 
 interface SearchBarProps {
-  products: Car[];
+  products: exampleCarInterface[];
+  // products: Car[];
 }
 
 const SearchBar = ({ products }: SearchBarProps) => {
   const [query, setQuery] = useState("");
-  const [filteredResults, setFilteredResults] = useState<Car[]>([]);
+  // const [filteredResults, setFilteredResults] = useState<Car[]>([]);
+  const [filteredResults, setFilteredResults] = useState<exampleCarInterface[]>([]);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = event.target.value.toLowerCase();
@@ -43,7 +45,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
 
       {/* Search Results Dropdown */}
       {query && (
-            <ul className="absolute left-0 right-0 top-full mt-2 bg-background  border border-[#ffbf004b] rounded-lg shadow-xl max-h-60 overflow-auto z-50 ">
+            <ul className="absolute left-0 right-0 top-full mt-2 bg-background  border border-[#ffbf004b] rounded-lg shadow-xl max-h-60 overflow-auto z-[1000] ">
           {filteredResults.length > 0 ? (
             filteredResults.map((product,index) => (
               <li
@@ -52,7 +54,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
               >
                 {/* Product Details */}
                 <div className="text-left ">
-                  <H_Six text={product.name} className="text-blue-600 font-semibold text-lg" />
+                  <H_Six text={product.name} className="text-white font-semibold text-lg" />
                   <p className="text-secondary text-sm">{product.type}</p>
                 </div>
               </li>

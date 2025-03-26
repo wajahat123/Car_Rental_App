@@ -8,12 +8,14 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFilterStore } from "@/Store/carStore";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-
+import { fetchCars } from "@/Utils/fetchCars";
+import CarsData from "@/Utils/CarsData.json";
 const Navbar = () => {
   // State management using custom stores
   const { isOpen, isVisible, toggleMenu, setVisibility } = useNavbarStore();
-  const { setBrands, setTypes ,brands,types} = useFilterStore();
-  
+  const { setBrands, setTypes, brands, types } = useFilterStore();
+  const [loading, setLoading] = useState(false); // For API fetching scenario
+  const [cars, setCars] = useState(CarsData);
   // Local component states
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -66,63 +68,72 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
+  //  useEffect(() => {
+  //     const fetchData = async () => {
+  //       setLoading(true);
+  //       try {
+  //         const data = await fetchCars(); // Your API call
+
+  //         setCars(data)
+  //       } catch (error) {
+  //         console.error("Error fetching cars:", error);
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     };
+
+  //     fetchData();
+  //   }, []);
+
   // Navigation links data
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "FAQs", path: "/FAQs" },
+    { name: "FAQs", path: "/faqs" },
     { name: "Contact Us", path: "/contact-us" },
     { name: "Privacy", path: "/privacy" },
   ];
 
   // Dropdown data for car types and brands
-  const dropdownData = [
-    {
-      category: "Car Types",
-      items: [
-        { name: "Luxury Cars", path: "/luxurious-cars", type: "type" },
-        { name: "SUVs", path: "/luxurious-cars", type: "type" },
-        { name: "Economy Cars", path: "/luxurious-cars", type: "type" },
-        { name: "Electric Cars", path: "/luxurious-cars", type: "type" },
-        { name: "Sports Cars", path: "/luxurious-cars", type: "type" },
-        { name: "Convertible Cars", path: "/luxurious-cars", type: "type" },
-        { name: "Sedans", path: "/luxurious-cars", type: "type" },
-        { name: "Coupes", path: "/luxurious-cars", type: "type" },
-        { name: "Limousines", path: "/luxurious-cars", type: "type" },
-        { name: "Classic Cars", path: "/luxurious-cars", type: "type" },
-        { name: "Exotic Cars", path: "/luxurious-cars", type: "type" },
-        { name: "Hypercars", path: "/luxurious-cars", type: "type" },
-      ],
-    },
-    {
-      category: "Car Brands",
-      items: [
-        { name: "Mercedes-Benz", path: "luxurious-cars", type: "brand" },
-        { name: "BMW", path: "luxurious-cars", type: "brand" },
-        { name: "Audi", path: "luxurious-cars", type: "brand" },
-        { name: "Lexus", path: "luxurious-cars", type: "brand" },
-        { name: "Porsche", path: "luxurious-cars", type: "brand" },
-        { name: "Rolls-Royce", path: "luxurious-cars", type: "brand" },
-        { name: "Bentley", path: "luxurious-cars", type: "brand" },
-        { name: "Ferrari", path: "luxurious-cars", type: "brand" },
-        { name: "Lamborghini", path: "luxurious-cars", type: "brand" },
-        { name: "Maserati", path: "luxurious-cars", type: "brand" },
-        { name: "Aston Martin", path: "luxurious-cars", type: "brand" },
-        { name: "Bugatti", path: "luxurious-cars", type: "brand" },
-        { name: "McLaren", path: "luxurious-cars", type: "brand" }
-      ],
-    }
+  const getUniqueValues = (key: string) => [
+    ...new Set(cars.map((car: any) => car[key])),
   ];
+  const generateDropdownData = () => {
+    // Get unique car types and brands from your Cars data
+    const types = getUniqueValues("type").map((type) => ({
+      name: type,
+      path: `/luxurious-cars`,
+      type: "type",
+    }));
 
+    const brands = getUniqueValues("brand").map((brand) => ({
+      name: brand,
+      path: `/luxurious-cars`,
+      type: "brand",
+    }));
+
+    return [
+      {
+        category: "Car Types",
+        items: types,
+      },
+      {
+        category: "Car Brands",
+        items: brands,
+      },
+    ];
+  };
+
+  const dropdownData = generateDropdownData();
   // Check if current route is a luxurious cars route
   const isLuxuriousRoute = pathname.startsWith("/luxurious-cars");
 
   // Filter selection handlers
   const handleFilterSelect = (item: { name: string; type: string }) => {
-    if (item.type === 'brand') {
+    if (item.type === "brand") {
       setBrands([item.name]);
       setTypes([]);
-    } else if (item.type === 'type') {
+    } else if (item.type === "type") {
       setTypes([item.name]);
       setBrands([]);
     }
@@ -189,17 +200,20 @@ const Navbar = () => {
                 )}
               </motion.div>
             ))}
-            
+
             {/* Rent Car By Dropdown - Desktop */}
-            <div 
-              className="relative" 
-              onMouseEnter={() => setIsDropdownOpen(true)} 
+            <div
+              className="relative"
+              onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <div className={`flex items-center gap-1 ${isLuxuriousRoute
-                      ? "text-text-secondary"
-                      : "text-text-primary hover:text-text-secondary"
-                  }`}>
+              <div
+                className={`flex items-center gap-1 ${
+                  isLuxuriousRoute
+                    ? "text-text-secondary"
+                    : "text-text-primary hover:text-text-secondary"
+                }`}
+              >
                 <button className="text-sm font-medium tracking-wide transition-all duration-300">
                   Rent Car By
                 </button>
@@ -209,7 +223,7 @@ const Navbar = () => {
                   <FaChevronRight className="text-xs" />
                 )}
               </div>
-              
+
               {isLuxuriousRoute && (
                 <motion.div
                   className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary"
@@ -229,10 +243,10 @@ const Navbar = () => {
                     className="absolute -left-14 right-10 mt-2 w-48 scrollbar-hide bg-black border border-gold-500/20 text-white shadow-lg rounded-lg p-1"
                   >
                     {dropdownData.map((group, index) => (
-                      <div 
-                        key={index} 
-                        onMouseEnter={() => handleMouseEnter(group.category)} 
-                        onMouseLeave={handleMouseLeave} 
+                      <div
+                        key={index}
+                        onMouseEnter={() => handleMouseEnter(group.category)}
+                        onMouseLeave={handleMouseLeave}
                         className="max-h-[250px] overflow-y-scroll scrollbar-hide"
                       >
                         <div className="px-4 py-2 font-semibold bg-gradient-to-b from-gold-400 to-gold-700 text-black">
@@ -248,9 +262,9 @@ const Navbar = () => {
                               className="overflow-hidden"
                             >
                               {group.items.map((item, i) => (
-                                <Link 
-                                  key={i} 
-                                  href={item.path} 
+                                <Link
+                                  key={i}
+                                  href={item.path}
                                   className="block px-4 py-2 hover:bg-gold-600/20"
                                   onClick={() => handleFilterSelect(item)}
                                 >
@@ -325,7 +339,7 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
-                
+
                 {/* Rent Car By Dropdown - Mobile */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -333,9 +347,13 @@ const Navbar = () => {
                   transition={{ delay: 0.1 }}
                   className="block md:hidden"
                 >
-                  <div className={`flex justify-center items-center gap-1 ${
-                        isLuxuriousRoute ? "text-text-secondary font-semibold" : "text-text-primary hover:text-text-secondary"
-                      }`}>
+                  <div
+                    className={`flex justify-center items-center gap-1 ${
+                      isLuxuriousRoute
+                        ? "text-text-secondary font-semibold"
+                        : "text-text-primary hover:text-text-secondary"
+                    }`}
+                  >
                     <button
                       onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
                       className="block py-2 text-center text-base transition-all duration-300 "
@@ -350,7 +368,10 @@ const Navbar = () => {
                   </div>
 
                   {isLuxuriousRoute && (
-                    <motion.div className="h-0.5 bg-primary/50 mx-auto w-12" layoutId="mobileUnderline" />
+                    <motion.div
+                      className="h-0.5 bg-primary/50 mx-auto w-12"
+                      layoutId="mobileUnderline"
+                    />
                   )}
 
                   <AnimatePresence>
@@ -368,9 +389,9 @@ const Navbar = () => {
                             </p>
 
                             {group.items.map((item, i) => (
-                              <Link 
-                                key={i} 
-                                href={item.path} 
+                              <Link
+                                key={i}
+                                href={item.path}
                                 className="block px-4 py-1 text-sm text-text-primary hover:bg-primary/30 border-b border-b-gray-500/30 text-center rounded-sm"
                                 onClick={() => handleMobileFilterSelect(item)}
                               >

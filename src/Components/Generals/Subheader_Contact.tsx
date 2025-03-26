@@ -24,7 +24,7 @@ import { ImCheckmark } from 'react-icons/im'
 const SubHeader = () => {
   return (
     <div
-      className="relative bg-cover bg-center min-h-[400px] md:h-80 pt-32 pb-14"
+      className="relative bg-cover bg-center min-h-[500px] md:h-80 flex flex-col justify-center items-center"
       style={{ backgroundImage: "url('/assets/images/dashboard2.webp')" }}
     >
       <div className="absolute inset-0 bg-background bg-opacity-60"></div>
@@ -32,8 +32,8 @@ const SubHeader = () => {
       <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto overflow-visible flex flex-col md:flex-row items-start md:justify-between gap-6">
         {/* Left Text Section */}
         <div className="w-full md:w-[60%] space-y-4 text-center md:text-left">
-          <H_Two text="Get in Touch for Premium Service" className="text-primary" />
-          <p className="text-xs sm:text-sm font-bold text-background bg-text bg-opacity-80 px-4 rounded-full w-fit mx-auto md:mx-0">
+          <H_Two text="Get in Touch for Premium Service" className="text-white" />
+          <p className="text-xs sm:text-sm font-bold text-gold-600 bg-gradient-to-r from-blue-600 to-blue-400/40 bg-opacity-80 px-4 rounded-full w-fit mx-auto md:mx-0">
             Luxury Rides, Exceptional Service - Anytime, Anywhere!
           </p>
           <p className="text-text text-sm">

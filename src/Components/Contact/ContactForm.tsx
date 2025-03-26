@@ -70,27 +70,23 @@ const [errorMessage,setErrorMessage] = useState<string>("")
   };
   
   return (
-    <div
+    <motion.div
       ref={sectionRef}
-      className="relative bg-cover bg-center py-16 md:py-24 overflow-hidden"
-      style={{ backgroundImage: "url('/assets/images/car6.webp')" }}
+      className=" py-16 md:py-24 overflow-hidden absolute inset-0 bg-gradient-to-b from-black  to-slate-900 shadow-gold-700 border border-gold-700/60 rounded-lg "
+    initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.8 }}
     >
       {/* Animated Background Overlay */}
-      <motion.div 
-        className="absolute inset-0 bg-black/70"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8 }}
-      >
+     
         <motion.div 
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
           animate={isInView ? { scale: 1 } : { scale: 1.1 }}
           transition={{ duration: 8, ease: "easeInOut" }}
         >
-          <div className="w-full h-full" style={{ backgroundImage: "url('/assets/images/car6.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="w-full h-full"  />
         </motion.div>
-      </motion.div>
 
       {/* Decorative Accent Line Top */}
       <motion.div 
@@ -103,7 +99,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
       </motion.div>
 
       {/* Content */}
-      <div className="relative text-center px-4 sm:px-8 md:px-16 lg:px-32 max-w-7xl w-full mx-auto">
+      <div className="relative text-center px-4 sm:px-8  w-full mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -185,7 +181,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
             placeholder="Name"
             value={formData.username}
             onChange={handleChange}
-            className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+            className="w-full p-3 rounded-lg bg-black/40 shadow-gold-500/10  backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
                           focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
             aria-label="Name"
           />
@@ -198,14 +194,14 @@ const [errorMessage,setErrorMessage] = useState<string>("")
             placeholder="Email Address"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+            className="w-full p-3 rounded-lg bg-black/40 shadow-gold-500/10  backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
                           focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
             aria-label="Email Address"
           />
 
           {/* Phone Input with Proper Styling */}
           <div className="w-full flex flex-col relative z-10">
-            <div className="flex items-center p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 focus-within:border-blue-500/40 transition-all duration-300 shadow-lg">
+            <div className="flex items-center p-3 rounded-lg bg-black/40 backdrop-blur-sm shadow-gold-500/10 border border-blue-500/20 focus-within:border-blue-500/40 transition-all duration-300 shadow-lg">
               <PhoneInput
                 defaultCountry="us"
                 value={phone}
@@ -223,7 +219,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
             maxLength={300}
             value={formData.subject}
             onChange={handleChange}
-            className="w-full p-3 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+            className="w-full p-3 rounded-lg bg-black/40 shadow-gold-500/10  backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
                           focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg relative z-0"
             aria-label="Subject"
           />
@@ -243,7 +239,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
             placeholder="Message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-3 md:h-[265px] h-[50px] rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400 
+            className="w-full p-3 md:h-[265px] h-[50px] rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/20 placeholder-gray-400  shadow-gold-500/20
                           focus:outline-none focus:border-blue-500/40 transition-all duration-300 shadow-lg"
             aria-label="Message"
           ></textarea>
@@ -253,11 +249,10 @@ const [errorMessage,setErrorMessage] = useState<string>("")
       {/* Submit Button */}
       <motion.button
         type="submit"
-        className="w-full bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 
-                     hover:from-blue-500 hover:via-blue-600 hover:to-blue-700
-                     transition-all duration-500 text-white rounded-lg px-4 py-4 uppercase font-bold 
+        className="w-full 
+                     transition-all duration-500  px-4 py-4 uppercase 
                      flex justify-center items-center gap-2 relative overflow-hidden group
-                     shadow-lg hover:shadow-blue-500/30"
+                     hover:shadow-blue-500/30 bg-gradient-to-b from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium  rounded-full shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: 1.0 }}
@@ -299,7 +294,8 @@ const [errorMessage,setErrorMessage] = useState<string>("")
       >
         <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400/80 to-transparent"></div>
       </motion.div>
-    </div>
+      </motion.div>
+  
   );
 };
 

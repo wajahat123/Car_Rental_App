@@ -49,19 +49,6 @@ const SideBar = () => {
     setter(state.includes(value) ? state.filter((item) => item !== value) : [...state, value]);
   };
 
-  // Handle search button click
-  const handleSearch = () => {
-    console.log("Filters applied:", {
-      brands,
-      types,
-      seats,
-      model,
-      year,
-      priceRange,
-    });
-    // Implement search logic here (e.g., filtering car data)
-  };
-
   return (
     <div className="max-h-[500px] overflow-y-scroll w-[270px] bg-gradient-to-br from-black to-blue-400/30 text-white ring-1 ring-primary rounded-lg p-5 shadow-lg px-4">
       <form className="space-y-5">
@@ -95,8 +82,7 @@ const SideBar = () => {
                     <input
                       type="checkbox"
                       id={`${key}-${item}`}
-                      checked={state.includes(item as never)}
-                      onChange={() => handleCheckboxChange(item, state, setter)}
+                      checked={state.includes(item as string & number)}                      onChange={() => handleCheckboxChange(item, state, setter)}
                       className="form-checkbox h-4 w-4 text-primary bg-gray-900 border-gray-700 rounded-md focus:ring-primary"
                     />
                     <span className="text-sm">{item}</span>
@@ -108,16 +94,7 @@ const SideBar = () => {
         ))}
 
         {/* Buttons */}
-        <div className="flex gap-3">
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 215, 0, 0.5)" }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full text-sm md:text-base bg-gradient-to-b from-gold-300 to-gold-600 text-black font-semibold py-2 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg border border-gold-500"
-            type="button"
-            onClick={handleSearch}
-          >
-            Search
-          </motion.button>
+       
 
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 0, 0, 0.5)" }}
@@ -128,7 +105,6 @@ const SideBar = () => {
           >
             Reset
           </motion.button>
-        </div>
       </form>
     </div>
   );

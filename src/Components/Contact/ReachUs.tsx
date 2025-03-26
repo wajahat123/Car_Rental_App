@@ -3,7 +3,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 
 const ReachUs = () => {
   return (
-    <section className="w-full mt-20 bg-surface shadow-xl rounded-xl my-10 ring-1 ring-primary/30">
+    <section className="w-full mt-20 bg-gradient-to-b from-slate-950 to-slate-800 shadow-xl rounded-xl my-10 ring-1 ring-primary/30">
       <div className="w-full flex flex-col items-center  p-4">
         {/* Google Map */}
         <div className="rounded-lg overflow-hidden w-full shadow-lg">
@@ -18,23 +18,23 @@ const ReachUs = () => {
 
         {/* Contact Information */}
 
-        <div className="grid ml:grid-cols-4 ml:gap-4 gap-2 grid-cols-2 pb-2 pt-8 w-full text-gray-700 ">
-          <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
+        <div className="grid ml:grid-cols-4 ml:gap-4 gap-2 grid-cols-2 pb-2 pt-8 w-full text-gray-800 ">
+          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
             <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
               Call Us Now
             </p>
             <ul>
-              <li className="hover:text-blue-500 cursor-pointer">1234567890</li>
-              <li className="hover:text-blue-500 cursor-pointer">1234567890</li>
-              <li className="hover:text-blue-500 cursor-pointer">1234567890</li>
+              <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
+              <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
+              <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
             </ul>
           </div>
-          <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
+          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
             <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
               Social Media
             </p>
             <ul className=" space-y-1">
-              <li className="hover:text-blue-500 cursor-pointer">
+              <li className="hover:text-blue-700 cursor-pointer">
                 {" "}
                 <Link
                   href="#"
@@ -44,7 +44,7 @@ const ReachUs = () => {
                 </Link>
               </li>
 
-              <li className="hover:text-blue-500 cursor-pointer">
+              <li className="hover:text-blue-700 cursor-pointer">
                 {" "}
                 <Link
                   href="#"
@@ -55,7 +55,7 @@ const ReachUs = () => {
                 </Link>
               </li>
 
-              <li className="hover:text-blue-500 cursor-pointer">
+              <li className="hover:text-blue-700 cursor-pointer">
                 {" "}
                 <Link
                   href="#"
@@ -66,7 +66,7 @@ const ReachUs = () => {
                 </Link>
               </li>
 
-              <li className="hover:text-blue-500 cursor-pointer">
+              <li className="hover:text-blue-700 cursor-pointer">
                 {" "}
                 <Link
                   href="#"
@@ -77,7 +77,7 @@ const ReachUs = () => {
               </li>
             </ul>
           </div>
-          <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
+          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-white/70 ">
             <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
               Mail Us
             </p>
@@ -86,7 +86,7 @@ const ReachUs = () => {
                 {" "}
                 <Link
                   href="mailto:romankhan.26@outlook.com"
-                  className="hover:text-blue-500"
+                  className="hover:text-blue-700"
                 >
                   abc@example.com
                 </Link>
@@ -95,14 +95,14 @@ const ReachUs = () => {
                 {" "}
                 <Link
                   href="mailto:romankhan.26@outlook.com"
-                  className="hover:text-blue-500"
+                  className="hover:text-blue-700"
                 >
                   abc@example.com
                 </Link>
               </li>
             </ul>
           </div>{" "}
-          <div className="group bg-primary shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-text ">
+          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
             <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
               Address
             </p>

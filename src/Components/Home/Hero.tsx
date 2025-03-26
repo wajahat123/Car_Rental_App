@@ -4,13 +4,14 @@ import Image from "next/image";
 import SearchBar from "@/Components/Generals/SearchBar";
 import { ContactLinks } from "../Generals/ContactLinks";
 import rawProducts from "@/Utils/CarsData.json";
-import { Car } from "@/Utils/types";
+import { Car, exampleCarInterface } from "@/Utils/types";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight, FaCrown } from "react-icons/fa";
 import { GiSteeringWheel } from "react-icons/gi";
 import { IoSpeedometer } from "react-icons/io5";
 
-const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
+// const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
+const products: exampleCarInterface[] = JSON.parse(JSON.stringify(rawProducts));
 
 const Hero = () => {
   return (
@@ -339,7 +340,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute md:bottom-4 bottom-2 left-1/2 -translate-x-1/2 z-20"
+        className="absolute md:bottom-4 bottom-2 left-1/2 -translate-x-1/2 z-0"
       >
         <motion.div
           className="flex flex-col items-center gap-1 cursor-pointer"

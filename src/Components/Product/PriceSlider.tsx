@@ -1,15 +1,17 @@
 "use client";
+import { useFilterStore } from "@/Store/carStore";
 import "@/Styles/Slider.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PriceSlider = () => {
+  const {setPriceRange}= useFilterStore((state)=>state)
   // Set price range
-  const [minPrice, setMinPrice] = useState(500);
-  const [maxPrice, setMaxPrice] = useState(100000);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(800);
 
-  const priceGap = 5000; // Minimum gap between min and max price
-  const minLimit = 500;
-  const maxLimit = 100000;
+  const priceGap = 50; // Minimum gap between min and max price
+  const minLimit = 0;
+  const maxLimit = 5000;
   const rangeDistance = maxLimit - minLimit;
 
   // Calculate slider positions correctly
@@ -34,6 +36,9 @@ const PriceSlider = () => {
       setMaxPrice(value);
     }
   };
+  useEffect(() => {
+    setPriceRange([minPrice, maxPrice]);
+  }, [minPrice, maxPrice, setPriceRange]);
 
   return (
 <>     
@@ -50,7 +55,7 @@ const PriceSlider = () => {
             type="range"
             min={minLimit}
             max={maxLimit}
-            step={500}
+            step={10}
             value={minPrice}
             onChange={handleMinPrice}
             className="w-full z-10"
@@ -61,7 +66,7 @@ const PriceSlider = () => {
             type="range"
             min={minLimit}
             max={maxLimit}
-            step={500}
+            step={10}
             value={maxPrice}
             onChange={handleMaxPrice}
             className="w-full z-0"
@@ -70,12 +75,12 @@ const PriceSlider = () => {
 
         {/* Display Selected Price Range */}
         <div className="flex items-center justify-center gap-2 mt-2">
-          <div className="border-[#edc58957] text-primary bg-background w-[45%] text-xs md:text-sm px-4 py-2 text-center border-[1px] font-bold rounded-xl">
-            ${minPrice}
+          <div className="border-[#edc58957] text-primary bg-background w-[50%] text-xs md:text-sm px-4 py-2 text-center border-[1px] font-bold rounded-xl">
+            {minPrice} AED
           </div>
           <div className="w-4 bg-[#edc58957] h-[1px]" />
-          <div className="border-[#edc58957] text-primary bg-background w-[45%] text-xs md:text-sm px-4 py-2 text-center border-[1px] font-bold rounded-xl">
-          ${maxPrice}
+          <div className="border-[#edc58957] text-primary bg-background w-[50%] text-xs md:text-sm px-4 py-2 text-center border-[1px] font-bold rounded-xl">
+        {maxPrice} AED
           </div>
         </div>
       </div>

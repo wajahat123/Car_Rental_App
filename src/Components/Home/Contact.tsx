@@ -253,11 +253,10 @@ const [errorMessage,setErrorMessage] = useState<string>("")
       {/* Submit Button */}
       <motion.button
         type="submit"
-        className="w-full bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 
-                     hover:from-blue-500 hover:via-blue-600 hover:to-blue-700
-                     transition-all duration-500 text-white rounded-lg px-4 py-4 uppercase font-bold 
+        className="w-full 
+                     transition-all duration-500  px-4 py-4 uppercase 
                      flex justify-center items-center gap-2 relative overflow-hidden group
-                     shadow-lg hover:shadow-blue-500/30"
+                     hover:shadow-blue-500/30 bg-gradient-to-b from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium  rounded-full shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: 1.0 }}

@@ -1,43 +1,269 @@
-"use client"
-import { H_Two } from '@/Utils/Typography';
+"use client";
+import { H_Two } from "@/Utils/Typography";
 import { Car } from "@/Utils/types";
-
-import SubHeader from '@/Components/Generals/Subheader_About';
-import SideBar from '@/Components/Product/SideBar';
-// import { useEffect, useState } from 'react';
-// import { fetchCars } from '@/Utils/fetchCars';
-// import Image from 'next/image';
-import FleetCard from '@/Components/Home/FleetCard';
+import SubHeader from "@/Components/Generals/Subheader_About";
+import SideBar from "@/Components/Product/SideBar";
+import FleetCard from "@/Components/Home/FleetCard";
+import { useFilterStore } from "@/Store/carStore";
+import CarsData from "@/Utils/CarsData.json";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
+import Image from "next/image";
 
 const LuxuriousCars = () => {
-  // const [cars, setCars] = useState<Car[] >([]);
-  // useEffect(() => {
-  //   fetchCars().then((res)=>setCars(res)); 
+  // Get filter values from store
+  const {
+    year,
+    types,
+    brands,
+    model,
+    priceRange,
+    seats,
+    setBrands,
+    setTypes,
+    resetFilters,
+  } = useFilterStore();
 
-  // }, []);
+  // const [filteredCars, setFilteredCars] = useState<Car[]>(CarsData);
+  const [filteredCars, setFilteredCars] = useState(CarsData);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [loading, setLoading] = useState(false); // For API fetching scenario
+
+  // Apply filters whenever they change
+  useEffect(() => {
+    const applyFilters = () => {
+      let result = [...CarsData];
+
+      // Brand filter
+      if (brands.length > 0) {
+        result = result.filter((car) => brands.includes(car.brand));
+      }
+
+      // Type filter
+      if (types.length > 0) {
+        result = result.filter((car) => types.includes(car.type));
+      }
+
+      // Model filter
+      if (model.length > 0) {
+        result = result.filter((car) => model.includes(car.model));
+      }
+
+      // Year filter
+      if (year.length > 0) {
+        result = result.filter((car) => year.includes(car.year));
+      }
+
+      // Seats filter
+      if (seats.length > 0) {
+        result = result.filter((car) => seats.includes(car.seat));
+      }
+
+      // Price range filter
+      if (priceRange) {
+        result = result.filter(
+          (car) => car.price >= priceRange[0] && car.price <= priceRange[1]
+        );
+      }
+
+      setFilteredCars(result);
+    };
+
+    applyFilters();
+  }, [brands, types, model, year, seats, priceRange]);
+
+  // For API fetching scenario (uncomment if needed)
+  /*
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchCars(); // Your API call
+        setFilteredCars(data);
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
+  }, []);
+  */
+
+  const FilterSummary = () => {
+    const allFilters = [...brands, ...types];
+
+    if (allFilters.length === 0) return null;
+
     return (
+      <div className="flex flex-wrap items-center gap-3 mb-6">
+        <span className="text-gray-400 text-sm">Active filters:</span>
+        {brands.map((brand) => (
+          <motion.span
+            key={brand}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-1"
+          >
+            {brand}
+            <button
+              onClick={() => setBrands(brands.filter((b) => b !== brand))}
+              className="text-primary/70 hover:text-primary"
+            >
+              ×
+            </button>
+          </motion.span>
+        ))}
+        {types.map((type) => (
+          <motion.span
+            key={type}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-blue-700/20 text-blue-700 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+          >
+            {type}
+            <button
+              onClick={() => setTypes(types.filter((t) => t !== type))}
+              className="text-blue-700/70 hover:text-blue-700"
+            >
+              ×
+            </button>
+          </motion.span>
+        ))}
+        <button
+          onClick={resetFilters}
+          className="text-gray-400 text-sm hover:text-white ml-2"
+        >
+          Clear all
+        </button>
+      </div>
+    );
+  };
+
+  return (
     <>
       <SubHeader />
-      <div className="px-4 sm:px-8 md:px-16  max-w-7xl w-full mx-auto pb-8 md:pb-16 min-h-screen ">
-        
-        <H_Two className="text-center text-white mb-6 uppercase my-16" text="Browse Our Luxurious Cars" />
-        
-        <div className="flex items-start justify-between  gap-10">
-          
-          {/* Product List */}<>
-          <div className="grid grid-cols-2  gap-x-4 text-white  gap-y-6 ">
-            {/* {cars.map((car: Car, index) => (
-              // <ProductCardTwo data={car} key={index} />
-             <FleetCard car={car} key={index}/>
-            ))} */}
-          </div>
-            </>
+      <div className="px-4 sm:px-8 md:px-16 max-w-7xl w-full mx-auto pb-8 md:pb-16 min-h-screen">
+        <H_Two
+          className="text-center text-white mb-6 uppercase my-16"
+          text="Browse Our Luxurious Cars"
+        />
 
-          {/* Sticky Sidebar */}
-          <div className="hidden md:block  flex-shrink-0 h-screen sticky top-0 right-0  py-10 rounded-lg shadow-md">
+        {/* Mobile Filter Toggle */}
+        <div className="md:hidden mb-4">
+          <button
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+            className="bg-primary text-white px-4 py-2 rounded-lg flex items-center gap-2"
+          >
+            {showMobileFilters ? (
+              <>
+                <span>Hide Filters</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </>
+            ) : (
+              <>
+                <span>Show Filters</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Filters */}
+        {showMobileFilters && (
+          <div className="md:hidden mb-6">
             <SideBar />
           </div>
+        )}
 
+        {/* Active Filters */}
+        <FilterSummary />
+
+        <div className="flex flex-col md:flex-row items-start justify-between gap-10">
+          {/* Product List */}
+          <div className="w-full">
+            {loading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="bg-gray-800/50 rounded-lg h-80 animate-pulse"
+                  />
+                ))}
+              </div>
+            ) : filteredCars.length > 0 ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+                {/* {filteredCars.map((car: Car, index) => ( */}
+                {filteredCars.map((car, index) => (
+                  // <FleetCard car={car} key={index}
+                  <div key={index} className="relative">
+                    <div className="w-full h-full -rotate-2 rounded-md bg-gold-700/50 absolute -z-20 "></div>
+                  <div className="bg-black border  border-gold-700/50 p-4 flex flex-col rounded-md items-center justify-center gap-3" key={index}>
+                    <Image src="/assets/images/car8.png" alt={car.name} width={300} height={300}/>
+                 <div className="w-full text-left">   <p>Name: {car.name}</p>
+                    <p>Type: {car.type}</p>
+                    <p>Price: {car.price}</p>
+                    <p>Model: {car.model}</p>
+                    <p>Brand: {car.brand}</p>
+                    <p>ID: {car.id}</p>
+                    <p>Year: {car.year}</p>
+               </div>
+                  </div></div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-16"
+              >
+                <p className="text-white text-xl">No cars match your filters</p>
+                <p className="text-gray-400 mt-2">
+                  Try adjusting your filters to see more results
+                </p>
+                <button
+                  onClick={resetFilters}
+                  className="mt-4 bg-primary/10 text-primary px-4 py-2 rounded-lg hover:bg-primary/20 transition-colors"
+                >
+                  Reset All Filters
+                </button>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Desktop Sidebar */}
+          <div className="hidden md:block flex-shrink-0 sticky top-0 h-[calc(100vh-100px)]">
+            <SideBar />
+          </div>
         </div>
       </div>
     </>
