@@ -23,7 +23,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
     email: "",
     subject: "",
     message: "",
-    // phone: phone,
+    phone: phone,
   });
 
   const handleChange = (
@@ -64,7 +64,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
       email: "",
       subject: "",
       message: "",
-      // phone: ",
+      phone: "",
     });
     setPhone("");
   };

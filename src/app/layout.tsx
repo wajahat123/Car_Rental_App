@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Generals/Navbar";
 import Footer from "@/Components/Generals/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +33,9 @@ export default function RootLayout({
       >
         <Navbar />
         <main className="flex-grow">
+        <Suspense fallback={<Loading />}>
           {children}
+        </Suspense>
         </main>
         <footer className="bg-transparent pt-6">
           <Footer/>

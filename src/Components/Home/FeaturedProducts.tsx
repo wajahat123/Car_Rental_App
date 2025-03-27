@@ -104,7 +104,15 @@ const FeaturedProducts = () => {
                   <div className={`w-full transition-all duration-300 ${
                     position === 1 ? "shadow-2xl" : "shadow-lg"
                   }`}>
-                    <FleetCard />
+                    <FleetCard car={{
+  _id: "67d3f6c8a96714c875d64450",
+  name: "Car 1",
+  price: 100,
+  category: "SUV123",
+  brand: "Land Rover",
+  image: "uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg",
+  shortDescription: "I am car 1",
+}}/>
                   </div>
                 </motion.div>
               ))}

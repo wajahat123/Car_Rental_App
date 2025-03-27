@@ -5,6 +5,7 @@ import FAQs from "@/Utils/FAQs.json"
 import FAQuestions from "@/Components/Generals/FAQ"
 import { motion, useInView } from 'framer-motion';
 import { PiDiamondsFour } from "react-icons/pi";
+import CallUs from '@/Components/Home/CallUs'
 
 const FAQsPage = () => {
     const sectionRef = useRef(null);
@@ -84,7 +85,7 @@ const FAQsPage = () => {
       </motion.div>
     </div>
  
-  
+  <CallUs/>
 
 </>)
 }
