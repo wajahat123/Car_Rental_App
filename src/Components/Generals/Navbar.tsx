@@ -8,14 +8,15 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFilterStore } from "@/Store/carStore";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-import { fetchCars } from "@/Utils/fetchCars";
+// import { fetchCars } from "@/Utils/fetchCars";
 import CarsData from "@/Utils/CarsData.json";
+import { exampleCarInterface } from "@/Utils/types";
 const Navbar = () => {
   // State management using custom stores
   const { isOpen, isVisible, toggleMenu, setVisibility } = useNavbarStore();
-  const { setBrands, setTypes, brands, types } = useFilterStore();
-  const [loading, setLoading] = useState(false); // For API fetching scenario
-  const [cars, setCars] = useState(CarsData);
+  const { setBrands, setTypes, } = useFilterStore();
+  // const [loading, setLoading] = useState(false); // For API fetching scenario
+  const [cars, /*setCars*/] = useState(CarsData);
   // Local component states
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -95,9 +96,9 @@ const Navbar = () => {
   ];
 
   // Dropdown data for car types and brands
-  const getUniqueValues = (key: string) => [
-    ...new Set(cars.map((car: any) => car[key])),
-  ];
+  const getUniqueValues = <T extends keyof exampleCarInterface>(key: T) => {
+    return [...new Set(cars.map((car: exampleCarInterface) => car[key]))];
+  };
   const generateDropdownData = () => {
     // Get unique car types and brands from your Cars data
     const types = getUniqueValues("type").map((type) => ({

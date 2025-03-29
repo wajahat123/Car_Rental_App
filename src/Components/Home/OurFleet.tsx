@@ -1,20 +1,21 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { motion } from 'framer-motion';
 import FleetCard from './FleetCard';
 import { FaCar, FaChevronRight } from 'react-icons/fa';
 import { RiSteeringFill } from 'react-icons/ri';
-import { fetchCars } from '@/Utils/fetchCars';
-import { Car } from '@/Utils/types';
+// import { fetchCars } from '@/Utils/fetchCars';
+import CarsData from "@/Utils/CarsData.json"
+import { exampleCarInterface } from '@/Utils/types';
 
 export const OurFleet = () => {
-   const [cars, setCars] = useState<Car[] >([]);
-  //  const [isMounted, setIsMounted] = useState(false);
-    useEffect(() => {
-        fetchCars().then((res)=>setCars(res)); // Fetch once, reuse everywhere
-        // setIsMounted(true);
+  //  const [cars, setCars] = useState<Car[] >([]);
+   const [cars, ] = useState<exampleCarInterface[] >(CarsData);
+    // useEffect(() => {
+    //     fetchCars().then((res)=>setCars(res)); // Fetch once, reuse everywhere
+    //     // setIsMounted(true);
   
-    }, []);
+    // }, []);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

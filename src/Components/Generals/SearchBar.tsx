@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { H_Six } from "../../Utils/Typography";
-import { Car, exampleCarInterface } from "@/Utils/types";
+import {  exampleCarInterface } from "@/Utils/types";
 
 interface SearchBarProps {
   products: exampleCarInterface[];

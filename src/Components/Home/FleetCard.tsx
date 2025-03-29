@@ -1,27 +1,35 @@
 "use client"
-import { API_ENDPOINTS } from "@/Utils/apiEndpoints";
-import { Car } from "@/Utils/types";
+// import { API_ENDPOINTS } from "@/Utils/apiEndpoints";
+import {  exampleCarInterface } from "@/Utils/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FaWhatsapp, FaTicketAlt } from "react-icons/fa";
 
 const FleetCard = ({car={
-  _id: "67d3f6c8a96714c875d64450",
+  // id: "67d3f6c8a96714c875d64450",
+  _id:1,
   name: "Car 1",
   price: 100,
-  category: "SUV123",
+  type:"SUV",
   brand: "Land Rover",
-  image: "uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg",
-  shortDescription: "I am car 1",
-}}:{car:Car}) => {
+  model:"123",
+  seats:4,
+  year:2024,
+  description:"This is the default data being displayed if thedata is not rendered due to any reason."
+// category: "SUV123",
+  // image: "uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg",
+  // shortDescription: "I am car 1",
+}}:{car:/*Car*/exampleCarInterface}) => {
 
-
+const router = useRouter()
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="border-b-4 border-b-gold-500 min-w-[300px] sm:min-w-[380px] max-w-[480px] bg-gradient-to-br from-slate-900 to-black h-[450px] text-sm md:text-base p-4 rounded-md hover:shadow-xl hover:shadow-blue-400/20 mx-auto transition-all duration-300 text-white flex flex-col justify-between "
+      onClick={()=>router.push(`/luxurious-cars/${car._id}`)}
+      className="border-b-4 border-b-gold-500 min-w-[300px] sm:min-w-[380px] max-w-[480px] bg-gradient-to-br from-slate-900 to-black h-[450px] text-sm md:text-base p-4 rounded-md hover:shadow-xl hover:shadow-blue-400/20 mx-auto transition-all duration-300 text-white flex flex-col justify-between cursor-pointer"
     >
       {/* Image Section */}
       <motion.div
@@ -31,8 +39,8 @@ const FleetCard = ({car={
       >
         <Image
 
-          // src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${API_ENDPOINTS.user.carList}/${car.image}`}
-src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${car.image}`}
+// src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${car.image}`}
+src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg`}
           alt="car"
           width={500}
           height={450}
@@ -53,19 +61,21 @@ src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${car.image}`}
           <h4 className="font-bold  tracking-wide flex items-center gap-2">
               {car.name} 
           </h4>
-          <h6 className="text-gray-400 ">{car.brand} - {car.category}</h6>
-          <p className="text-gray-300 ">{car.shortDescription}</p>
-        </div>
+          <h6 className="text-gray-400 ">{car.brand} - {car.type}</h6>
+          <p className="text-gray-300 overflow-hidden text-ellipsis 
+               line-clamp-2">
+  {car.description}
+</p> </div>
 
         {/* Price Display */}
         <motion.div
-          className="flex items-center justify-center  font-bold mt-2 text-primary text-2xl  w-1/3 text-left"
+          className="flex items-center justify-center  font-bold mt-2 text-primary text-2xl  w-[40%] text-left"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.4 }}
         >
         
-            {car.price} AED / Day
+            {car.price} AED/ Day
         </motion.div>
         </div>
         {/* Buttons */}

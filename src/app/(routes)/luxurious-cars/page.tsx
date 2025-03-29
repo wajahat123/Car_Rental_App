@@ -1,6 +1,6 @@
 "use client";
 import { H_Two } from "@/Utils/Typography";
-import { Car } from "@/Utils/types";
+// import { Car } from "@/Utils/types";
 import SubHeader from "@/Components/Generals/Subheader_About";
 import SideBar from "@/Components/Product/SideBar";
 import FleetCard from "@/Components/Home/FleetCard";
@@ -8,8 +8,6 @@ import { useFilterStore } from "@/Store/carStore";
 import CarsData from "@/Utils/CarsData.json";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
-import Image from "next/image";
 
 const LuxuriousCars = () => {
   // Get filter values from store
@@ -28,7 +26,7 @@ const LuxuriousCars = () => {
   // const [filteredCars, setFilteredCars] = useState<Car[]>(CarsData);
   const [filteredCars, setFilteredCars] = useState(CarsData);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const [loading, setLoading] = useState(false); // For API fetching scenario
+  const [loading, /*setLoading*/] = useState(false); // For API fetching scenario
 
   // Apply filters whenever they change
   useEffect(() => {
@@ -57,7 +55,7 @@ const LuxuriousCars = () => {
 
       // Seats filter
       if (seats.length > 0) {
-        result = result.filter((car) => seats.includes(car.seat));
+        result = result.filter((car) => seats.includes(car.seats));
       }
 
       // Price range filter
@@ -220,24 +218,24 @@ const LuxuriousCars = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2  gap-6"
               >
                 {/* {filteredCars.map((car: Car, index) => ( */}
                 {filteredCars.map((car, index) => (
-                  // <FleetCard car={car} key={index}
-                  <div key={index} className="relative">
-                    <div className="w-full h-full -rotate-2 rounded-md bg-gold-700/50 absolute -z-20 "></div>
-                  <div className="bg-black border  border-gold-700/50 p-4 flex flex-col rounded-md items-center justify-center gap-3" key={index}>
-                    <Image src="/assets/images/car8.png" alt={car.name} width={300} height={300}/>
-                 <div className="w-full text-left">   <p>Name: {car.name}</p>
-                    <p>Type: {car.type}</p>
-                    <p>Price: {car.price}</p>
-                    <p>Model: {car.model}</p>
-                    <p>Brand: {car.brand}</p>
-                    <p>ID: {car.id}</p>
-                    <p>Year: {car.year}</p>
-               </div>
-                  </div></div>
+                  <FleetCard car={car} key={index}/>
+              //     <div key={index} className="relative">
+              //       <div className="w-full h-full -rotate-2 rounded-md bg-gold-700/50 absolute -z-20 "></div>
+              //     <div className="bg-black border  border-gold-700/50 p-4 flex flex-col rounded-md items-center justify-center gap-3" key={index}>
+              //       <Image src="/assets/images/car8.png" alt={car.name} width={300} height={300}/>
+              //    <div className="w-full text-left">   <p>Name: {car.name}</p>
+              //       <p>Type: {car.type}</p>
+              //       <p>Price: {car.price}</p>
+              //       <p>Model: {car.model}</p>
+              //       <p>Brand: {car.brand}</p>
+              //       <p>ID: {car.id}</p>
+              //       <p>Year: {car.year}</p>
+              //  </div>
+              //     </div></div>
                 ))}
               </motion.div>
             ) : (
@@ -261,7 +259,7 @@ const LuxuriousCars = () => {
           </div>
 
           {/* Desktop Sidebar */}
-          <div className="hidden md:block flex-shrink-0 sticky top-0 h-[calc(100vh-100px)]">
+          <div className="hidden md:block flex-shrink-0 sticky top-10 h-[calc(100vh-100px)]">
             <SideBar />
           </div>
         </div>

@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
 import {
-  FaShieldAlt,
-  FaThumbsUp,
-  FaClock,
-  FaHeadset,
   FaFacebookF,
   FaLinkedinIn,
   FaTwitter,

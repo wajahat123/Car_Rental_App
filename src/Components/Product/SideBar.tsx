@@ -4,6 +4,7 @@ import PriceSlider from "./PriceSlider";
 import Cars from "@/Utils/CarsData.json";
 import { motion } from "framer-motion";
 import { useFilterStore } from "@/Store/carStore"; // Import Zustand store
+import { exampleCarInterface } from "@/Utils/types";
 
 const SideBar = () => {
   const {
@@ -12,19 +13,18 @@ const SideBar = () => {
     seats,
     model,
     year,
-    priceRange,
     setBrands,
     setTypes,
     setSeats,
     setModel,
     setYear,
-    setPriceRange,
     resetFilters, // Add reset function
   } = useFilterStore();
 
   // Function to get unique values from Cars data
-  const getUniqueValues = (key: string) => [...new Set(Cars.map((car: any) => car[key]))];
-
+  const getUniqueValues = <T extends keyof exampleCarInterface>(key: string) => {
+    return [...new Set(Cars.map((car: exampleCarInterface) => car[key as T]))];
+  };
   // Filter categories
   const filterOptions = [
     { key: "brand", label: "Brands", state: brands, setter: setBrands },
@@ -45,7 +45,8 @@ const SideBar = () => {
   };
 
   // Handle checkbox changes
-  const handleCheckboxChange = (value: string | number, state: any[], setter: Function) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+  const handleCheckboxChange = (value: string | number, state: (string | number)[], setter: Function) => {
     setter(state.includes(value) ? state.filter((item) => item !== value) : [...state, value]);
   };
 

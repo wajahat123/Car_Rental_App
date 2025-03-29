@@ -1,6 +1,5 @@
 "use client";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
-import { PiDiamondsFour } from "react-icons/pi";
 import { useEffect, useRef } from "react";
 
 // Counter animation component for numbers

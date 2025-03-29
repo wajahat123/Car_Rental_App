@@ -4,7 +4,6 @@ import { IoLocationSharp } from "react-icons/io5";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { TbPhoneRinging } from "react-icons/tb";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 const Footer = () => {
   const usefulLinks = [

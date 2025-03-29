@@ -29,11 +29,11 @@ export  interface ButtonI{
 
 
     export interface exampleCarInterface {
-  id :number;
+  _id :number|string;
   brand:string;
   type:string;
   model :string;
-  seat:number;
+  seats:number;
   name:string;
   price:number;
   year:number;

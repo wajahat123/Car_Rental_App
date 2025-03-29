@@ -108,10 +108,13 @@ const FeaturedProducts = () => {
   _id: "67d3f6c8a96714c875d64450",
   name: "Car 1",
   price: 100,
-  category: "SUV123",
+  year:2025,
+  seats:4,
+  model:"E-class",
+  type: "SUV123",
   brand: "Land Rover",
-  image: "uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg",
-  shortDescription: "I am car 1",
+  // image: "uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg",
+  description: "I am car 1",
 }}/>
                   </div>
                 </motion.div>
