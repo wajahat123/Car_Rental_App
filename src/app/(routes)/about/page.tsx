@@ -12,11 +12,11 @@ const About = () => {
       <SubHeader />
       
       <div className='flex flex-col md:flex-row justify-center my-20   bg-lue-700 items-center gap-10 px-4 sm:px-6 md:px-8 lg:px-20 max-w-7xl mx-auto'>
-        <div className="relative md:w-1/3 w-full bg-red-80 h-[600px] flex items-center md:justify-start justify-center">
+        <div className="relative md:w-1/3 w-full bg-red-80 h-[600px]  items-center md:justify-start md:flex hidden">
         {/* circle  overlay*/}
           <div className='md:w-[350px] md:h-[350px] rounded-full bg-gradient-to-br from-gold-400/80  to-transparent absolute -left-10 top-20 '></div>
           {/* Image */}
-          <div className="absolute top-0 left-0 max-h-[550px] max-w-[450px] z-10 md:block hidden">
+          <div className="absolute top-0 left-0 max-h-[550px] max-w-[450px] z-10 ">
             <Image 
               src="/assets/images/car9.png" 
               alt='car' 
