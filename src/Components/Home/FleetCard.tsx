@@ -29,7 +29,7 @@ const router = useRouter()
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       onClick={()=>router.push(`/luxurious-cars/${car._id}`)}
-      className="border-b-4 border-b-gold-500 min-w-[300px] sm:min-w-[380px] max-w-[480px] bg-gradient-to-br from-slate-900 to-black h-[450px] text-sm md:text-base p-4 rounded-md hover:shadow-xl hover:shadow-blue-400/20 mx-auto transition-all duration-300 text-white flex flex-col justify-between cursor-pointer"
+      className="border-b-4 border-b-gold-500 min-w-[250px] w-full sm:min-w-[300px] max-w-[480px] bg-gradient-to-br from-slate-900 to-black h-[450px] text-sm md:text-base p-4 rounded-md hover:shadow-xl hover:shadow-blue-400/20 mx-auto transition-all duration-300 text-white flex flex-col justify-between cursor-pointer"
     >
       {/* Image Section */}
       <motion.div
@@ -40,8 +40,10 @@ const router = useRouter()
         <Image
 
 // src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${car.image}`}
-src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg`}
-          alt="car"
+// src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg`}
+         
+src="/assets/images/car8.png"
+alt="car"
           width={500}
           height={450}
           className="rounded-md h-full object-cover"

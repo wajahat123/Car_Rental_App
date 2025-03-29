@@ -21,7 +21,7 @@ const Privacy = () => {
                initial={{ x: -50, opacity: 0 }}
                animate={{ x: 0, opacity: 1 }}
                transition={{ duration: 0.8, delay: 0.2 }}
-               className="relative md:w-1/3 w-full h-[600px] flex items-center justify-start"
+               className="relative md:w-1/3 w-full h-[600px] items-center justify-start md:flex hidden"
             >
                {/* Decorative Circle Overlay */}
                <div className='md:w-[350px] md:h-[350px] rounded-full bg-gradient-to-br from-yellow-400/80 to-transparent absolute -left-10 top-20'></div>
