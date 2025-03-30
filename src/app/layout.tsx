@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} relative overflow-x-clip antialiased min-h-screen flex flex-col text-sm md:text-base`}
       >
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow min-h-screen">
         <Suspense fallback={<Loading />}>
           {children}
         </Suspense>

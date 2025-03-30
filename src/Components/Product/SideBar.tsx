@@ -83,7 +83,8 @@ const SideBar = () => {
                     <input
                       type="checkbox"
                       id={`${key}-${item}`}
-                      checked={state.includes(item as string & number)}                      onChange={() => handleCheckboxChange(item, state, setter)}
+                      checked={state.includes(item as string & number)}
+                      onChange={() => handleCheckboxChange(item as string | number, state, setter)}
                       className="form-checkbox h-4 w-4 text-primary bg-gray-900 border-gray-700 rounded-md focus:ring-primary"
                     />
                     <span className="text-sm">{item}</span>

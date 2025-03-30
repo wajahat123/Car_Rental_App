@@ -3,24 +3,11 @@
 import {  exampleCarInterface } from "@/Utils/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaWhatsapp, FaTicketAlt } from "react-icons/fa";
 
-const FleetCard = ({car={
-  // id: "67d3f6c8a96714c875d64450",
-  _id:1,
-  name: "Car 1",
-  price: 100,
-  type:"SUV",
-  brand: "Land Rover",
-  model:"123",
-  seats:4,
-  year:2024,
-  description:"This is the default data being displayed if thedata is not rendered due to any reason."
-// category: "SUV123",
-  // image: "uploads\\1741944520225_3d-car-with-simple-background_23-2150797046.jpg",
-  // shortDescription: "I am car 1",
-}}:{car:/*Car*/exampleCarInterface}) => {
+const FleetCard = ({car}:{car:/*Car*/exampleCarInterface}) => {
 
 const router = useRouter()
   return (
@@ -64,11 +51,11 @@ alt="car"
               {car.name} 
           </h4>
           <h6 className="text-gray-400 ">{car.brand} - {car.type}</h6>
-          <p className="text-gray-300 overflow-hidden text-ellipsis 
+          {/* <p className="text-gray-300 overflow-hidden text-ellipsis 
                line-clamp-2">
   {car.description}
-</p> </div>
-
+</p> */}
+</div> 
         {/* Price Display */}
         <motion.div
           className="flex items-center justify-center  font-bold mt-2 text-primary text-2xl  w-[40%] text-left"
@@ -82,7 +69,9 @@ alt="car"
         </div>
         {/* Buttons */}
         <div className="flex gap-4 mt-3">
-  {/* Book Now Button - Glossy Gold */}
+  {/* Book Now Button*/}
+  <Link href="https://api.whatsapp.com/send/?phone=971568674344&text=Welcome+to+Seven+Lines+Car+Rentals+in+Dubai%2C+UAE%21&type=phone_number&app_absent=0"  target="_blank"
+  rel="noopener noreferrer" className="w-full ">
   <motion.button
     whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 215, 0, 0.5)" }}
     whileTap={{ scale: 0.98 }}
@@ -90,9 +79,11 @@ alt="car"
   >
     <FaTicketAlt className="text-black" />
     Book Now
-  </motion.button>
+  </motion.button></Link>
 
-  {/* WhatsApp Button - Glossy Black with Gold */}
+  {/* WhatsApp Button*/}
+  <Link href="https://api.whatsapp.com/send/?phone=971568674344&text=Welcome+to+Seven+Lines+Car+Rentals+in+Dubai%2C+UAE%21&type=phone_number&app_absent=0"  target="_blank"
+  rel="noopener noreferrer"  className="w-full ">
   <motion.button
     whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 215, 0, 0.5)" }}
     whileTap={{ scale: 0.98 }}
@@ -100,7 +91,7 @@ alt="car"
   >
     <FaWhatsapp className="text-green-500 text-lg" />
     WhatsApp
-  </motion.button>
+  </motion.button></Link>
 </div>
       </motion.div>
     </motion.div>

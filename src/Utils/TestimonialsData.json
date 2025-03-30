@@ -1,6 +1,6 @@
 [
   {
-    "id":0,
+    "id": 0,
     "name": "James Carter",
     "role": "Business Traveler",
     "image": "/assets/images/testimonial/2.jpg",
@@ -8,7 +8,7 @@
     "rating": 5
   },
   {
-    "id":1,
+    "id": 1,
     "name": "Sophia Martinez",
     "role": "Tourist",
     "image": "/assets/images/testimonial/1.jpg",
@@ -16,82 +16,35 @@
     "rating": 5
   },
   {
-    "id":2,
+    "id": 2,
     "name": "David Johnson",
     "role": "Frequent Renter",
     "image": "/assets/images/testimonial/3.jpg",
     "quote": "Great pricing and excellent customer service! I rented a car for a week, and everything went perfectly. The pickup and drop-off process was seamless!",
     "rating": 4
-  }, {
-    "id":0,
-    "name": "James Carter",
-    "role": "Business Traveler",
-    "image": "/assets/images/testimonial/2.jpg",
-    "quote": "The best car rental experience I've had! The process was smooth, and the car was in excellent condition. Will definitely rent again!",
+  },
+  {
+    "id": 3,
+    "name": "Emma Wilson",
+    "role": "Vacationer",
+    "image": "/assets/images/testimonial/e1.jpg",
+    "quote": "Superb experience! The car was reliable, and the team provided excellent customer support. I will use their service again for my next trip!",
     "rating": 5
   },
   {
-    "id":1,
-    "name": "Sophia Martinez",
-    "role": "Tourist",
-    "image": "/assets/images/testimonial/1.jpg",
-    "quote": "Amazing service! The car was clean and well-maintained. The rental process was hassle-free, and the staff was very friendly. Highly recommended!",
-    "rating": 5
-  },
-  {
-    "id":2,
-    "name": "David Johnson",
-    "role": "Frequent Renter",
-    "image": "/assets/images/testimonial/3.jpg",
-    "quote": "Great pricing and excellent customer service! I rented a car for a week, and everything went perfectly. The pickup and drop-off process was seamless!",
+    "id": 4,
+    "name": "Michael Brown",
+    "role": "Road Trip Enthusiast",
+    "image": "/assets/images/testimonial/e2.jpg",
+    "quote": "Loved the variety of cars available! Booking was quick and easy, and the vehicle was in top condition. Highly recommended!",
     "rating": 4
-  }, {
-    "id":0,
-    "name": "James Carter",
-    "role": "Business Traveler",
-    "image": "/assets/images/testimonial/2.jpg",
-    "quote": "The best car rental experience I've had! The process was smooth, and the car was in excellent condition. Will definitely rent again!",
-    "rating": 5
   },
   {
-    "id":1,
-    "name": "Sophia Martinez",
-    "role": "Tourist",
-    "image": "/assets/images/testimonial/1.jpg",
-    "quote": "Amazing service! The car was clean and well-maintained. The rental process was hassle-free, and the staff was very friendly. Highly recommended!",
+    "id": 5,
+    "name": "Olivia Taylor",
+    "role": "Frequent Traveler",
+    "image": "/assets/images/testimonial/e3.jpg",
+    "quote": "I was impressed with the efficiency of the rental process. No long wait times, and the car was exactly as described. Great service!",
     "rating": 5
-  },
-  {
-    "id":2,
-    "name": "David Johnson",
-    "role": "Frequent Renter",
-    "image": "/assets/images/testimonial/3.jpg",
-    "quote": "Great pricing and excellent customer service! I rented a car for a week, and everything went perfectly. The pickup and drop-off process was seamless!",
-    "rating": 4
-  }, {
-    "id":0,
-    "name": "James Carter",
-    "role": "Business Traveler",
-    "image": "/assets/images/testimonial/2.jpg",
-    "quote": "The best car rental experience I've had! The process was smooth, and the car was in excellent condition. Will definitely rent again!",
-    "rating": 5
-  },
-  {
-    "id":1,
-    "name": "Sophia Martinez",
-    "role": "Tourist",
-    "image": "/assets/images/testimonial/1.jpg",
-    "quote": "Amazing service! The car was clean and well-maintained. The rental process was hassle-free, and the staff was very friendly. Highly recommended!",
-    "rating": 5
-  },
-  {
-    "id":2,
-    "name": "David Johnson",
-    "role": "Frequent Renter",
-    "image": "/assets/images/testimonial/3.jpg",
-    "quote": "Great pricing and excellent customer service! I rented a car for a week, and everything went perfectly. The pickup and drop-off process was seamless!",
-    "rating": 4
   }
-
-  
 ]

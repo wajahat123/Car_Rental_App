@@ -1,11 +1,10 @@
 "use client";
 import { H_Two } from "@/Utils/Typography";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "@/Styles/CustomPhoneStyles.css";
 import { motion, useInView } from "framer-motion";
 import { PiDiamondsFour } from "react-icons/pi";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import axiosInstance from "@/Utils/axiosInstance";
 import { API_ENDPOINTS } from "@/Utils/apiEndpoints";
@@ -15,16 +14,24 @@ const Contact = () => {
   const sectionRef = useRef(null);
   const [phone, setPhone] = useState<string>("");
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-const [successMessage,setSuccessMessage] = useState<string>("")
-const [errorMessage,setErrorMessage] = useState<string>("")
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
-  username: "",
+    username: "",
     email: "",
     subject: "",
     message: "",
-    phone: phone,
+    phoneNumber: "",
   });
+
+  // Update formData when phone changes
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      phoneNumber: phone
+    }));
+  }, [phone]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,6 +43,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
     e.preventDefault();
     setLoading(true);
     setSuccessMessage("");
+    setErrorMessage("");
   
     const phoneNumber = parsePhoneNumberFromString(phone);
     const isValid = phoneNumber?.isValid() || false;
@@ -44,29 +52,36 @@ const [errorMessage,setErrorMessage] = useState<string>("")
     if (!isValid) {
       setErrorMessage("Please enter a valid phone number.");
       setTimeout(() => setErrorMessage(""), 2000); // Hide message after 2 sec
-
       setLoading(false);
       return;
     }
   
     try {
-      await axiosInstance.post(API_ENDPOINTS.contact, formData);
+      // Log the data being sent for debugging
+      console.log("Sending form data:", formData);
+      
+      const response = await axiosInstance.post(API_ENDPOINTS.contact, formData);
+      console.log("Response:", response);
+      
       setSuccessMessage("Message Sent Successfully!");
       setTimeout(() => setSuccessMessage(""), 2000); // Hide message after 2 sec
+      
+      // Reset form after successful submission
+      setFormData({
+        username: "",
+        email: "",
+        subject: "",
+        message: "",
+        phoneNumber: "",
+      });
+      setPhone("");
     } catch (err) {
       console.error("Error sending contact form:", err);
+      setErrorMessage("Failed to send message. Please try again.");
+      setTimeout(() => setErrorMessage(""), 2000);
     } finally {
       setLoading(false);
     }
-  
-    setFormData({
-    username: "",
-      email: "",
-      subject: "",
-      message: "",
-      phone: "",
-    });
-    setPhone("");
   };
   
   return (

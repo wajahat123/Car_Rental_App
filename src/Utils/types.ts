@@ -28,14 +28,37 @@ export  interface ButtonI{
     }//need to create button component as well with dynamic styles
 
 
-    export interface exampleCarInterface {
-  _id :number|string;
-  brand:string;
-  type:string;
-  model :string;
-  seats:number;
-  name:string;
-  price:number;
-  year:number;
-  description:string
+//     export interface exampleCarInterface {
+//   _id :number|string;
+//   brand:string;
+//   type:string;
+//   model :string;
+//   seats:number;
+//   name:string;
+//   price:number;
+//   year:number;
+//   description:string
+// }
+
+export interface exampleCarInterface {
+  _id: string ;
+  brand: string;
+  type: string;
+  model: string;
+  seats: number;
+  name: string;
+  price: number;
+  year: number;
+  doors: number;
+  luggage: number;
+  // description is storing feul type so that we can prevent the error for now, will update it later on
+  fuelType: string;
+  engine: number;
+  mileage: number;
+  transmission: string;
+  drive: string;
+  fuelEconomy: number;
+  exteriorColor: string;
+  interiorColor: string;
+  features: string[];
 }

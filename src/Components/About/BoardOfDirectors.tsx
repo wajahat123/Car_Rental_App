@@ -85,10 +85,10 @@ const BoardOfDirectors = () => {
 
   return (
     <div
-      className="bg-black py-12 sm:py-16 md:py-20 relative bg-opacity-70 bg-cover bg-center overflow-hidden"
+      className="bg-black py-12 sm:py-16 md:py-20 relative bg-opacity-70 bg-cover mb-5 md:mb-10 bg-center overflow-hidden"
       style={{ backgroundImage: "url('/assets/images/car7.webp')" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-black via-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-black/90" />
 
       <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl w-full mx-auto">
         <motion.div
@@ -241,7 +241,7 @@ const BoardOfDirectors = () => {
                 {/* Social Icons */}
                 <motion.div
                   className="bg-blue-500/20 p-2  rounded-full 
-                 bottom-2 group-hover:bg-yellow-500/10 text-blue-700 hover:text-gold-600 transition-all duration-500"
+                 bottom-2 group-hover:bg-yellow-500/10 text-gold-600 transition-all duration-500"
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >
@@ -251,7 +251,7 @@ const BoardOfDirectors = () => {
                 </motion.div>{" "}
                 <motion.div
                   className="bg-blue-500/20 p-2  rounded-full 
-                 bottom-2 group-hover:bg-yellow-500/10 text-blue-700 hover:text-gold-600 transition-all duration-500"
+                 bottom-2 group-hover:bg-yellow-500/10 text-gold-600 transition-all duration-500"
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 ><Link href="#">
@@ -259,7 +259,7 @@ const BoardOfDirectors = () => {
                 </motion.div>{" "}
                 <motion.div
                   className="bg-blue-500/20 p-2  rounded-full 
-                 bottom-2 group-hover:bg-yellow-500/10 text-blue-700 hover:text-gold-600 transition-all duration-500"
+                 bottom-2 group-hover:bg-yellow-500/10 text-gold-600 transition-all duration-500"
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >
@@ -269,7 +269,7 @@ const BoardOfDirectors = () => {
                 </motion.div>{" "}
                 <motion.div
                   className="bg-blue-500/20 p-2  rounded-full 
-                 bottom-2 group-hover:bg-yellow-500/10 text-blue-700 hover:text-gold-600 transition-all duration-500"
+                 bottom-2 group-hover:bg-yellow-500/10 text-gold-600 transition-all duration-500"
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 ><Link href="#">

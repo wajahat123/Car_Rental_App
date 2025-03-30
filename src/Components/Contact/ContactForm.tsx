@@ -1,11 +1,10 @@
 "use client";
 import { H_Two } from "@/Utils/Typography";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "@/Styles/CustomPhoneStyles.css";
 import { motion, useInView } from "framer-motion";
 import { PiDiamondsFour } from "react-icons/pi";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import axiosInstance from "@/Utils/axiosInstance";
 import { API_ENDPOINTS } from "@/Utils/apiEndpoints";
@@ -15,16 +14,24 @@ const Contact = () => {
   const sectionRef = useRef(null);
   const [phone, setPhone] = useState<string>("");
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-const [successMessage,setSuccessMessage] = useState<string>("")
-const [errorMessage,setErrorMessage] = useState<string>("")
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
-  username: "",
+    username: "",
     email: "",
     subject: "",
     message: "",
-    phone: phone,
+    phoneNumber: "",
   });
+
+  // Update formData when phone changes
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      phoneNumber: phone
+    }));
+  }, [phone]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,6 +43,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
     e.preventDefault();
     setLoading(true);
     setSuccessMessage("");
+    setErrorMessage("");
   
     const phoneNumber = parsePhoneNumberFromString(phone);
     const isValid = phoneNumber?.isValid() || false;
@@ -43,39 +51,47 @@ const [errorMessage,setErrorMessage] = useState<string>("")
   
     if (!isValid) {
       setErrorMessage("Please enter a valid phone number.");
-      setTimeout(() => setErrorMessage(""), 2000); // Hide message after 2 sec
-
+      setTimeout(() => setErrorMessage(""), 2000);
       setLoading(false);
       return;
     }
   
     try {
-      await axiosInstance.post(API_ENDPOINTS.contact, formData);
+      // Log the data being sent for debugging
+      console.log("Sending form data:", formData);
+      
+      const response = await axiosInstance.post(API_ENDPOINTS.contact, formData);
+      console.log("Response:", response);
+      
       setSuccessMessage("Message Sent Successfully!");
-      setTimeout(() => setSuccessMessage(""), 2000); // Hide message after 2 sec
+      setTimeout(() => setSuccessMessage(""), 2000);
+      
+      // Reset form after successful submission
+      setFormData({
+        username: "",
+        email: "",
+        subject: "",
+        message: "",
+        phoneNumber: "",
+      });
+      setPhone("");
     } catch (err) {
       console.error("Error sending contact form:", err);
+      setErrorMessage("Failed to send message. Please try again.");
+      setTimeout(() => setErrorMessage(""), 2000);
     } finally {
       setLoading(false);
     }
-  
-    setFormData({
-    username: "",
-      email: "",
-      subject: "",
-      message: "",
-      phone: "",
-    });
-    setPhone("");
   };
   
   return (
+    <div  className="relative h-[700px] w-auto my-5 md:my-10" >
+    <div className="bg-gradient-to-tl from-gold-700/60 to-gold-500/80 rounded-md w-full h-full absolute  -rotate-2"></div>
+  
     <motion.div
       ref={sectionRef}
       className=" py-16 md:py-24 overflow-hidden absolute inset-0 bg-gradient-to-b from-black  to-slate-900 shadow-gold-700 border border-gold-700/60 rounded-lg "
-    initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.8 }}
+
     >
       {/* Animated Background Overlay */}
      
@@ -295,7 +311,7 @@ const [errorMessage,setErrorMessage] = useState<string>("")
         <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-400/80 to-transparent"></div>
       </motion.div>
       </motion.div>
-  
+  </div>
   );
 };
 

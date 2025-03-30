@@ -18,9 +18,11 @@ const ReachUs = () => {
 
         {/* Contact Information */}
 
-        <div className="grid ml:grid-cols-4 ml:gap-4 gap-2 grid-cols-2 pb-2 pt-8 w-full text-gray-800 ">
-          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
-            <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
+        <div className="grid ml:grid-cols-4 ml:gap-4 gap-2 grid-cols-2 pb-2 pt-8 w-full ">
+          
+
+          <div className="group bg-black shadow-xl border-gold-700/30 hover:border transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
+            <p className="font-extrabold flex items-center justify-normal text-primary">
               Call Us Now
             </p>
             <ul>
@@ -29,8 +31,8 @@ const ReachUs = () => {
               <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
             </ul>
           </div>
-          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
-            <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
+          <div className="group bg-black shadow-xl border-gold-700/30 hover:border transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
+            <p className="font-extrabold flex items-center justify-normal text-primary">
               Social Media
             </p>
             <ul className=" space-y-1">
@@ -77,8 +79,8 @@ const ReachUs = () => {
               </li>
             </ul>
           </div>
-          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-white/70 ">
-            <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
+          <div className="group bg-black shadow-xl border-gold-700/30 hover:border transition-colors duration-500 md:p-6 p-4 rounded-lg  hover:text-white/70 ">
+            <p className="font-extrabold flex items-center justify-normal text-primary">
               Mail Us
             </p>
             <ul className="break-words ">
@@ -102,8 +104,8 @@ const ReachUs = () => {
               </li>
             </ul>
           </div>{" "}
-          <div className="group bg-gold-600 shadow-xl  hover:bg-background transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
-            <p className="font-extrabold flex items-center justify-normal text-background group-hover:text-primary">
+          <div className="group bg-black shadow-xl border-gold-700/30 hover:border transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
+            <p className="font-extrabold flex items-center justify-normal text-primary">
               Address
             </p>
             <p className="text-left">ABC 123 Street, XYZ State, 248800</p>

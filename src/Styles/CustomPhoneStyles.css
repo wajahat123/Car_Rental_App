@@ -14,6 +14,7 @@
     appearance: button;
     -webkit-appearance: button;
     background-color: transparent;
+    border: none; /* Add this line to remove borders */
     cursor: pointer;
     text-transform: none;
     user-select: none;
@@ -90,7 +91,7 @@
     margin: 0;
     background-color: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    /* border: 1px solid rgba(59, 130, 246, 0.2); */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     color: #fcf6de;
     list-style: none;

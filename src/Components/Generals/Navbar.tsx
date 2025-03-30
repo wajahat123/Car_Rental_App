@@ -67,7 +67,7 @@ const Navbar = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY,setVisibility]);
 
   //  useEffect(() => {
   //     const fetchData = async () => {
