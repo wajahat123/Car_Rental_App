@@ -1,22 +1,35 @@
 "use client"
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import FleetCard from './FleetCard';
 import { FaCar, FaChevronRight } from 'react-icons/fa';
 import { RiSteeringFill } from 'react-icons/ri';
-// import { fetchCars } from '@/Utils/fetchCars';
-import CarsData from "@/Utils/CarsData.json"
-import { exampleCarInterface } from '@/Utils/types';
+import { fetchCars } from '@/Utils/fetchCars';
+// import CarsData from "@/Utils/CarsData.json"
+import { Car } from '@/Utils/types';
+import Link from 'next/link';
 
 export const OurFleet = () => {
-  //  const [cars, setCars] = useState<Car[] >([]);
-   const [cars, ] = useState<exampleCarInterface[] >(CarsData);
-    // useEffect(() => {
-    //     fetchCars().then((res)=>setCars(res)); // Fetch once, reuse everywhere
-    //     // setIsMounted(true);
+   const [cars, setCars] = useState<Car[] >([]);
+    const [, setLoading] = useState(false); // For API fetching scenario
   
-    // }, []);
-  // Animation variants
+    // For API fetching scenario (uncomment if needed)
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const data = await fetchCars(); // Your API call
+          setCars(data);
+        } catch (error) {
+          console.error("Error fetching cars:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -251,6 +264,7 @@ export const OurFleet = () => {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
             />
+            <Link href="/luxurious-cars">
             <motion.div 
               className="relative z-10 flex items-center gap-2"
               whileHover={{ x: 3 }}
@@ -264,6 +278,7 @@ export const OurFleet = () => {
                 <FaChevronRight />
               </motion.span>
             </motion.div>
+            </Link>
           </motion.button>
         </motion.div>
       </div>

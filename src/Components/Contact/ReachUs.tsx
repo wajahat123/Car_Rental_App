@@ -26,9 +26,9 @@ const ReachUs = () => {
               Call Us Now
             </p>
             <ul>
-              <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
-              <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
-              <li className="hover:text-blue-700 cursor-pointer">1234567890</li>
+              <li className="hover:text-blue-700 cursor-pointer">0097156772727</li>
+              {/* <li className="hover:text-blue-700 cursor-pointer">0097156772727</li>
+              <li className="hover:text-blue-700 cursor-pointer">0097156772727</li> */}
             </ul>
           </div>
           <div className="group bg-black shadow-xl border-gold-700/30 hover:border transition-colors duration-500 md:p-6 p-4 rounded-lg hover:text-white/70 ">
@@ -108,7 +108,7 @@ const ReachUs = () => {
             <p className="font-extrabold flex items-center justify-normal text-primary">
               Address
             </p>
-            <p className="text-left">ABC 123 Street, XYZ State, 248800</p>
+            <p className="text-left">Star Building - 11  - Al Garhoud - Dubai - United Arab Emirates</p>
           </div>
         </div>
       </div>

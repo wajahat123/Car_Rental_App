@@ -9,17 +9,17 @@
 //     original_price?:string;
 //     price_per_day: string;
 //     tags: string[];
-//   }
-export interface Car {
-  _id: string;               // MongoDB ID (string format)
-  name: string;              // Car name
-  price: number;             // Price per unit (number type)
-  category: string;          // Category (e.g., Convertible, SUV, etc.)
-  brand: string;             // Brand of the car
-  image: string;             // Image path or URL
-  shortDescription: string;  // Short description of the car
-  __v?: number;              // Optional version key from MongoDB
-}
+// //   }
+// export interface Car {
+//   _id: string;               // MongoDB ID (string format)
+//   name: string;              // Car name
+//   price: number;             // Price per unit (number type)
+//   category: string;          // Category (e.g., Convertible, SUV, etc.)
+//   brand: string;             // Brand of the car
+//   image: string;             // Image path or URL
+//   shortDescription: string;  // Short description of the car
+//   __v?: number;              // Optional version key from MongoDB
+// }
 
 export  interface ButtonI{
     text?: string;
@@ -39,8 +39,7 @@ export  interface ButtonI{
 //   year:number;
 //   description:string
 // }
-
-export interface exampleCarInterface {
+export interface Car {
   _id: string ;
   brand: string;
   type: string;
@@ -51,10 +50,10 @@ export interface exampleCarInterface {
   year: number;
   doors: number;
   luggage: number;
-  // description is storing feul type so that we can prevent the error for now, will update it later on
   fuelType: string;
   engine: number;
   mileage: number;
+  image: string;
   transmission: string;
   drive: string;
   fuelEconomy: number;

@@ -1,17 +1,18 @@
 'use client'
 import { useState } from "react";
 import { H_Six } from "../../Utils/Typography";
-import {  exampleCarInterface } from "@/Utils/types";
+import {  Car } from "@/Utils/types";
+import Link from "next/link";
 
 interface SearchBarProps {
-  products: exampleCarInterface[];
+  products: Car[];
   // products: Car[];
 }
 
 const SearchBar = ({ products }: SearchBarProps) => {
   const [query, setQuery] = useState("");
   // const [filteredResults, setFilteredResults] = useState<Car[]>([]);
-  const [filteredResults, setFilteredResults] = useState<exampleCarInterface[]>([]);
+  const [filteredResults, setFilteredResults] = useState<Car[]>([]);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = event.target.value.toLowerCase();
@@ -48,8 +49,10 @@ const SearchBar = ({ products }: SearchBarProps) => {
             <ul className="absolute left-0 right-0 top-full mt-2 bg-background  border border-[#ffbf004b] rounded-lg shadow-xl max-h-60 overflow-auto z-[1000] ">
           {filteredResults.length > 0 ? (
             filteredResults.map((product,index) => (
+              <Link href={`/luxurious-cars/${product._id}`}
+              key={index}
+              >
               <li
-                key={index}
                 className="p-4 flex items-center gap-4 border-b-[1px] border-b-gray-600/40 hover:bg-muted hover:bg-opacity-20 cursor-pointer transition-all duration-300 rounded-md"
               >
                 {/* Product Details */}
@@ -57,7 +60,7 @@ const SearchBar = ({ products }: SearchBarProps) => {
                   <H_Six text={product.name} className="text-white font-semibold text-lg" />
                   <p className="text-secondary text-sm">{product.type}</p>
                 </div>
-              </li>
+              </li></Link>
             ))
           ) : (
             <li className="p-4 text-center text-muted">No results found</li>

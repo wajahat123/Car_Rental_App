@@ -55,7 +55,7 @@ const PriceSlider = () => {
             type="range"
             min={minLimit}
             max={maxLimit}
-            step={10}
+            step={2}
             value={minPrice}
             onChange={handleMinPrice}
             className="w-full z-10"
@@ -66,7 +66,7 @@ const PriceSlider = () => {
             type="range"
             min={minLimit}
             max={maxLimit}
-            step={10}
+            step={2}
             value={maxPrice}
             onChange={handleMaxPrice}
             className="w-full z-0"

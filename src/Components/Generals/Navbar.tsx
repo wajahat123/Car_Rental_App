@@ -8,15 +8,14 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFilterStore } from "@/Store/carStore";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-// import { fetchCars } from "@/Utils/fetchCars";
-import CarsData from "@/Utils/CarsData.json";
-import { exampleCarInterface } from "@/Utils/types";
+import { fetchCars } from "@/Utils/fetchCars";
+import { Car } from "@/Utils/types";
 const Navbar = () => {
   // State management using custom stores
   const { isOpen, isVisible, toggleMenu, setVisibility } = useNavbarStore();
   const { setBrands, setTypes, } = useFilterStore();
-  // const [loading, setLoading] = useState(false); // For API fetching scenario
-  const [cars, /*setCars*/] = useState(CarsData);
+  const [, setLoading] = useState(false); // For API fetching scenario
+  const [cars, setCars] = useState<Car[]>();
   // Local component states
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -69,22 +68,22 @@ const Navbar = () => {
     };
   }, [lastScrollY,setVisibility]);
 
-  //  useEffect(() => {
-  //     const fetchData = async () => {
-  //       setLoading(true);
-  //       try {
-  //         const data = await fetchCars(); // Your API call
+   useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const data = await fetchCars(); // Your API call
 
-  //         setCars(data)
-  //       } catch (error) {
-  //         console.error("Error fetching cars:", error);
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
+          setCars(data)
+        } catch (error) {
+          console.error("Error fetching cars:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-  //     fetchData();
-  //   }, []);
+      fetchData();
+    }, []);
 
   // Navigation links data
   const navLinks = [
@@ -96,8 +95,8 @@ const Navbar = () => {
   ];
 
   // Dropdown data for car types and brands
-  const getUniqueValues = <T extends keyof exampleCarInterface>(key: T) => {
-    return [...new Set(cars.map((car: exampleCarInterface) => car[key]))];
+  const getUniqueValues = <T extends keyof Car>(key: T) => {
+    return [...new Set(cars?.map((car: Car) => car[key]))];
   };
   const generateDropdownData = () => {
     // Get unique car types and brands from your Cars data
@@ -161,7 +160,7 @@ const Navbar = () => {
           >
             <Link href="/">
               <Image
-                src="/assets/images/ASMAR_-_LOGO_3_VECTOR-removebg-preview.png"
+                src="/assets/images/ASAM_-_LOGO_3_VECTOR-removebg-preview.png"
                 alt="ASMR"
                 width={300}
                 height={211}

@@ -1,7 +1,4 @@
-
-// import { fetchCars, fetchSingleCar } from "@/Utils/fetchCars";
-// import { Car } from "@/Utils/types";
-import CarsData from "@/Utils/CarsData.json";
+import { fetchCars, fetchSingleCar } from "@/Utils/fetchCars";
 import Image from "next/image";
 import { ImCheckmark } from "react-icons/im";
 import Link from "next/link";
@@ -15,9 +12,47 @@ export default async function CarPage({
 }) {
   // Await the params
   const { id } = await params;
-  // const carId = parseInt(params.id, 10);
-  const car = CarsData.find((car) => car._id == id);
-  const FeaturedProducts = CarsData.filter(
+
+const car = await fetchSingleCar(id)
+const featuredCars = await fetchCars(); 
+
+// const [car, setCar] = useState<Car|null>()
+// const [featuredCars, setFeaturedCars] = useState<Car[]>()
+//   const fetchDataFromChild = (carData:Car|null , featuredCars:Car[]) => {
+//      data = {
+//       car : carData,
+//       featuredCars: featuredCars
+//     }
+    
+//    return data
+   
+// }
+
+//   useEffect(() => {
+//     //fetching single car for details
+//     async function fetchCar (){
+//       const car:Car| null =await fetchSingleCar(id)  
+//       setCar(car)
+//     }
+//    fetchCar()
+
+
+//    //fetching data for featured cars
+//    const fetchData = async () => {
+//     try {
+//       const data = await fetchCars(); // Your API call
+//       setFeaturedCars(data);
+//     } catch (error) {
+//       console.error("Error fetching cars:", error);
+//     } finally {
+//     }
+//   };
+
+//   fetchData();
+//  }, [])
+
+  // the cars for feaatured cars section 
+  const FeaturedProducts = featuredCars?.filter(
     (thisCar) => thisCar.brand == car?.brand && thisCar.name != car.name
   ).slice(0, 3);
 
@@ -40,7 +75,7 @@ export default async function CarPage({
           <div className="w-full lg:w-2/3 space-y-8">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/assets/images/car8.png"
+                        src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${car.image}`}
                 alt={car?.model || "Car"}
                 width={800}
                 height={450}
@@ -97,21 +132,21 @@ export default async function CarPage({
               </div>
             </div>
             <div className="flex flex-col gap-4 mt-3">
-              <Link href="https://api.whatsapp.com/send/?phone=971568674344" target="_blank">
+              <Link href="https://api.whatsapp.com/send/?phone=0097156772727" target="_blank">
                 <button className="w-full text-sm md:text-base bg-gradient-to-b from-gold-300 to-gold-600 text-black font-semibold py-2 rounded-full shadow-lg border border-gold-500 flex items-center justify-center gap-2">
                   <FaTicketAlt className="text-black" /> Book Now
                 </button>
               </Link>
-              <Link href="https://api.whatsapp.com/send/?phone=971568674344" target="_blank">
+              <Link href="https://api.whatsapp.com/send/?phone=0097156772727" target="_blank">
                 <button className="w-full text-sm md:text-base bg-gradient-to-b from-gray-800 to-black font-semibold py-2 rounded-full shadow-lg border border-gray-700 flex items-center justify-center gap-2">
                   <FaWhatsapp className="text-green-500 text-lg" /> WhatsApp
                 </button>
               </Link>
             </div>
-            {FeaturedProducts.length > 0 && (
+            {FeaturedProducts && FeaturedProducts?.length > 0 && (
               <>
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">Featured Products</h2>
-                <div className="flex flex-col overflow-y-scroll scrollbar-hide h-[450px] gap-4">
+                <div className="flex flex-col overflow-x-scroll scrollbar-hide h-[450px] gap-4">
                   {FeaturedProducts.map((car) => (
                     <FleetCard car={car} key={car._id} />
                   ))}

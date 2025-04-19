@@ -18,11 +18,11 @@ const Contact = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
+    username: "",
+    phoneNumber: "",
     subject: "",
     message: "",
-    phoneNumber: "",
   });
 
   // Update formData when phone changes
@@ -57,7 +57,7 @@ const Contact = () => {
     }
   
     try {
-      // Log the data being sent for debugging
+      // Log the data being sent for debuggingra
       console.log("Sending form data:", formData);
       
       const response = await axiosInstance.post(API_ENDPOINTS.contact, formData);
@@ -68,11 +68,11 @@ const Contact = () => {
       
       // Reset form after successful submission
       setFormData({
-        username: "",
         email: "",
+        username: "",
+        phoneNumber: "",
         subject: "",
         message: "",
-        phoneNumber: "",
       });
       setPhone("");
     } catch (err) {
@@ -190,7 +190,7 @@ const Contact = () => {
           <input
             required
             type="text"
-          name="username"
+            name="username"
             id="name"
             minLength={2}
             maxLength={30}
@@ -222,6 +222,7 @@ const Contact = () => {
                 defaultCountry="us"
                 value={phone}
                 onChange={setPhone}
+                name="phoneNumber"
                 className="w-full"
               />
             </div>
@@ -229,7 +230,7 @@ const Contact = () => {
 
           <input
             type="text"
-          name="subject"
+            name="subject"
             id="subject"
             placeholder="Subject"
             maxLength={300}
@@ -250,7 +251,7 @@ const Contact = () => {
         >
           <textarea
             required
-          name="message"
+            name="message"
             id="message"
             placeholder="Message"
             value={formData.message}
@@ -302,6 +303,7 @@ const Contact = () => {
       </div>
 
       {/* Decorative Accent Line Bottom */}
+
       <motion.div 
         initial={{ width: 0 }}
         animate={isInView ? { width: "30%" } : { width: 0 }}

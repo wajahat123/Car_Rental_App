@@ -49,7 +49,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm leading-relaxed">
               All our cars are in perfect condition, giving you the ultimate luxury experience. 
               We carefully maintain and check our cars to make sure they look great and work perfectly. 
-              We care a lot about your happiness and safety. Choosing MK Rent A Car means you&apos;re getting 
+              We care a lot about your happiness and safety. Choosing ASAM Car rental means you&apos;re getting 
               the best in car quality.
             </p>
           </div>
@@ -89,15 +89,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <TbPhoneRinging className="text-[#ffd700] mt-1" />
-                <a href="tel:+123456789" className="hover:text-blue-700">+123 456 789</a>
+                <a href="tel:+123456789" className="hover:text-blue-700">0097156772727</a>
               </li>
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <TbPhoneRinging className="text-[#FFD700] mt-1" />
-                <a href="tel:+123456789" className="hover:text-blue-700">+123 456 789</a>
+                <a href="tel:+123456789" className="hover:text-blue-700">0097156772727</a>
               </li>
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <TbPhoneRinging className="text-[#FFD700] mt-1" />
-                <a href="tel:+123456789" className="hover:text-blue-700">+123 456 789</a>
+                <a href="tel:+123456789" className="hover:text-blue-700">0097156772727</a>
               </li>
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <MdOutlineAttachEmail className="text-[#FFD700] mt-1" />
@@ -105,7 +105,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <IoLocationSharp className="text-[#FFD700] mt-1" />
-                <span>1234 Elm Street Springfield, IL 62704 United States</span>
+                <span>Star Building - 11  - Al Garhoud - Dubai - United Arab Emirates</span>
               </li>
             </ul>
           </div>
@@ -140,7 +140,7 @@ const Footer = () => {
       <div className="w-full bg-black border-t border-[#FFD700]/10">
         <div className="container mx-auto px-4 py-4">
           <p className="text-center text-gray-400 text-sm">
-            © {new Date().getFullYear()} MK Rent A Car. All Rights Reserved.
+            © {new Date().getFullYear()} ASAM Car Rental. All Rights Reserved.
           </p>
         </div>
       </div>

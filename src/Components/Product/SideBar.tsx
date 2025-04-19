@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PriceSlider from "./PriceSlider";
-import Cars from "@/Utils/CarsData.json";
+// import Cars from "@/Utils/CarsData.json";
 import { motion } from "framer-motion";
 import { useFilterStore } from "@/Store/carStore"; // Import Zustand store
-import { exampleCarInterface } from "@/Utils/types";
+import { Car } from "@/Utils/types";
+import { fetchCars } from "@/Utils/fetchCars";
 
 const SideBar = () => {
   const {
@@ -20,10 +21,29 @@ const SideBar = () => {
     setYear,
     resetFilters, // Add reset function
   } = useFilterStore();
+const [cars, setCars]= useState<Car[]>([])
+const  [, setLoading] = useState(false)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchCars(); // Your API call
+        setCars(data);
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   // Function to get unique values from Cars data
-  const getUniqueValues = <T extends keyof exampleCarInterface>(key: string) => {
-    return [...new Set(Cars.map((car: exampleCarInterface) => car[key as T]))];
+  const getUniqueValues = <T extends keyof Car>(key: string) => {
+    return [...new Set(cars.map((car: Car) => car[key as T]))];
   };
   // Filter categories
   const filterOptions = [

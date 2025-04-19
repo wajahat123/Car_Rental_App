@@ -1,5 +1,6 @@
 "use client"
 import BoardOfDirectors from "@/Components/About/BoardOfDirectors";
+import EconomyCars from "@/Components/About/EconomyCars";
 import WeOffer from "@/Components/About/WeOffer";
 import SubHeader from "@/Components/Generals/Subheader_About";
 import CallUs from "@/Components/Home/CallUs";
@@ -46,6 +47,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ad volup
 
       <BoardOfDirectors />
       <WeOffer />
+      <EconomyCars/>
       <CallUs/>
 
     </>

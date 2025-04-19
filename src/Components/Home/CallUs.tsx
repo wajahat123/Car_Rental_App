@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const CallUs = () => {
+  
   return (
     <div className='bg-gradient-to-b from-black to-gray-900 pb-4  md:h-[400px] flex justify-center items-center my-2' >
 
     <div className='px-4 sm:px-6 md:px-8 lg:px-20 max-w-7xl w-full flex items-center justify-center flex-col mx-auto text-center gap-10'
     > <h2 className='text-2xl md:text-4xl font-bold text-white'>
-      Call us for further information. ASMAR customer care is here to help you anytime.
+      Call us for further information. ASAM customer care is here to help you anytime.
 
     </h2>
 
@@ -17,6 +19,7 @@ const CallUs = () => {
           transition={{ delay: 1, duration: 0.5 }}
           viewport={{ once: true }}
         >
+          <Link href="/contac-us">
           <motion.button
             className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-4 px-24 rounded-md shadow-lg"
             whileHover={{ 
@@ -24,6 +27,7 @@ const CallUs = () => {
               boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)" 
             }}
             whileTap={{ scale: 0.98 }}
+           
           >
             <motion.span
               className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/30 to-transparent"
@@ -39,7 +43,7 @@ const CallUs = () => {
               <span>Contact Us</span>
         
             </motion.div>
-          </motion.button>
+          </motion.button></Link>
         </motion.div>
       </div>
       </div>

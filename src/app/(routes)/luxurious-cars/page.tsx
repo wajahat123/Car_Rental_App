@@ -5,9 +5,10 @@ import SubHeader from "@/Components/Generals/Subheader_About";
 import SideBar from "@/Components/Product/SideBar";
 import FleetCard from "@/Components/Home/FleetCard";
 import { useFilterStore } from "@/Store/carStore";
-import CarsData from "@/Utils/CarsData.json";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { fetchCars } from "@/Utils/fetchCars";
+import { Car } from "@/Utils/types";
 
 const LuxuriousCars = () => {
   // Get filter values from store
@@ -23,44 +24,62 @@ const LuxuriousCars = () => {
     resetFilters,
   } = useFilterStore();
 
-  // const [filteredCars, setFilteredCars] = useState<Car[]>(CarsData);
-  const [filteredCars, setFilteredCars] = useState(CarsData);
+  const [cars, setCars] = useState<Car[]>();
+  const [filteredCars, setFilteredCars] = useState<Car[]>();
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const [loading, /*setLoading*/] = useState(false); // For API fetching scenario
+  const [loading, setLoading] = useState(false); // For API fetching scenario
+
+  // For API fetching scenario (uncomment if needed)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchCars(); // Your API call
+        setCars(data);
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [cars]);
 
   // Apply filters whenever they change
   useEffect(() => {
     const applyFilters = () => {
-      let result = [...CarsData];
+      let result = cars;
 
       // Brand filter
       if (brands.length > 0) {
-        result = result.filter((car) => brands.includes(car.brand));
+        result = result?.filter((car) => brands.includes(car.brand));
       }
 
       // Type filter
       if (types.length > 0) {
-        result = result.filter((car) => types.includes(car.type));
+        result = result?.filter((car) => types.includes(car.type));
       }
 
       // Model filter
       if (model.length > 0) {
-        result = result.filter((car) => model.includes(car.model));
+        result = result?.filter((car) => model.includes(car.model));
       }
 
       // Year filter
       if (year.length > 0) {
-        result = result.filter((car) => year.includes(car.year));
+        result = result?.filter((car) => year.includes(car.year));
       }
 
       // Seats filter
       if (seats.length > 0) {
-        result = result.filter((car) => seats.includes(car.seats));
+        result = result?.filter((car) => seats.includes(car.seats));
       }
 
       // Price range filter
       if (priceRange) {
-        result = result.filter(
+        result = result?.filter(
           (car) => car.price >= priceRange[0] && car.price <= priceRange[1]
         );
       }
@@ -70,25 +89,6 @@ const LuxuriousCars = () => {
 
     applyFilters();
   }, [brands, types, model, year, seats, priceRange]);
-
-  // For API fetching scenario (uncomment if needed)
-  /*
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const data = await fetchCars(); // Your API call
-        setFilteredCars(data);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    
-    fetchData();
-  }, []);
-  */
 
   const FilterSummary = () => {
     const allFilters = [...brands, ...types];
@@ -213,7 +213,7 @@ const LuxuriousCars = () => {
                   />
                 ))}
               </div>
-            ) : filteredCars.length > 0 ? (
+            ) : filteredCars && filteredCars?.length > 0 ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -221,21 +221,8 @@ const LuxuriousCars = () => {
                 className="grid grid-cols-1 sm:grid-cols-2  gap-6"
               >
                 {/* {filteredCars.map((car: Car, index) => ( */}
-                {filteredCars.map((car, index) => (
-                  <FleetCard car={car} key={index}/>
-              //     <div key={index} className="relative">
-              //       <div className="w-full h-full -rotate-2 rounded-md bg-gold-700/50 absolute -z-20 "></div>
-              //     <div className="bg-black border  border-gold-700/50 p-4 flex flex-col rounded-md items-center justify-center gap-3" key={index}>
-              //       <Image src="/assets/images/car8.png" alt={car.name} width={300} height={300}/>
-              //    <div className="w-full text-left">   <p>Name: {car.name}</p>
-              //       <p>Type: {car.type}</p>
-              //       <p>Price: {car.price}</p>
-              //       <p>Model: {car.model}</p>
-              //       <p>Brand: {car.brand}</p>
-              //       <p>ID: {car.id}</p>
-              //       <p>Year: {car.year}</p>
-              //  </div>
-              //     </div></div>
+                {filteredCars?.map((car, index) => (
+                  <FleetCard car={car} key={index + car._id} />
                 ))}
               </motion.div>
             ) : (

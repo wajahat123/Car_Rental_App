@@ -1,19 +1,38 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import SearchBar from "@/Components/Generals/SearchBar";
 import { ContactLinks } from "../Generals/ContactLinks";
-import rawProducts from "@/Utils/CarsData.json";
-import { exampleCarInterface } from "@/Utils/types";
+import { Car } from "@/Utils/types";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight, FaCrown } from "react-icons/fa";
 import { GiSteeringWheel } from "react-icons/gi";
 import { IoSpeedometer } from "react-icons/io5";
+import { fetchCars } from "@/Utils/fetchCars";
+import Link from "next/link";
 
-// const products: Car[] = JSON.parse(JSON.stringify(rawProducts));
-const products: exampleCarInterface[] = JSON.parse(JSON.stringify(rawProducts));
 
 const Hero = () => {
+  const [products, setProducts] = useState<Car[]>([])
+    const [, setLoading] = useState(false); // For API fetching scenario
+  
+   useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const data = await fetchCars(); // Your API call
+          setProducts(data);
+
+        } catch (error) {
+          console.error("Error fetching cars:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, []);
+  
   return (
     <div className="relative flex items-center justify-center overflow-hidden min-h-screen text-text-primary bg-background pt-[80px] md:pt-[90px]">
       {/* Luxury Particles */}
@@ -302,7 +321,7 @@ const Hero = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.5 }}
             viewport={{ once: true }}
-          >
+          ><Link href="/luxurious-cars">
             <motion.button
               className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-1.5 md:py-3 md:px-16 px-8 rounded-full shadow-lg"
               whileHover={{
@@ -330,7 +349,7 @@ const Hero = () => {
                   <FaChevronRight />
                 </motion.span>
               </motion.div>
-            </motion.button>
+            </motion.button></Link>
           </motion.div>
         </motion.div>
       </div>

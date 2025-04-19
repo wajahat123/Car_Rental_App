@@ -4,6 +4,7 @@ import testimonials from "@/Utils/TestimonialsData.json";
 
 import TestimonialCard from "./TestimonialCard";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 
 const Testimonials = () => {
   const sectionRef = useRef(null);
@@ -26,14 +27,14 @@ const Testimonials = () => {
             ease: [0.25, 0.1, 0.25, 1.0]
           }}
         >
-          <TestimonialCard 
+         <Link href="/testimonials"> <TestimonialCard 
             data={data} 
             className={`
               ${index === 0 ? 'md:mt-0' : ''}
               ${index === 1 ? 'md:mt-[60px]' : ''}
               ${index === 2 ? 'md:mt-[120px]' : ''}
             `}
-          />
+          /></Link>
         </motion.div>
       ))}
     </div></div>

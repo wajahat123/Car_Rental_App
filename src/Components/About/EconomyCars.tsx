@@ -1,30 +1,37 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import FleetCard from "./FleetCard";
+import FleetCard from "../Home/FleetCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-// import carsData from "@/Utils/CarsData.json";
 import { Car } from "@/Utils/types";
 import { fetchCars } from "@/Utils/fetchCars";
 
-const FeaturedProducts: React.FC = () => {
+const EconomyCars: React.FC = () => {
   const [cars,setCars] = useState<Car[]>([]);
+  const [, setLoading] = useState(false); // For API fetching scenario
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [direction, setDirection] = useState(1);
 
+  
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const data = await fetchCars();
-        setCars(data.slice(0, 6));
-        console.log("Checking featured car in try block")
+           const filteredCars = data.filter(
+      (car: Car) => car.type.toLowerCase() === "economy"
+    );
+  
+    const finalCars = filteredCars.length > 6 ? filteredCars.slice(0, 6) : filteredCars;
+  
+    setCars(finalCars);
       } catch (error) {
         console.error("Error fetching cars:", error);
-        console.log("Checking featured car in catch block")
       } finally {
-        console.log("Checking featured car in finally block")
+        setLoading(false);
       }
     };
 
@@ -36,7 +43,6 @@ const FeaturedProducts: React.FC = () => {
     setDirection(newDirection);
     setCurrentIndex((prevIndex) => (prevIndex + newDirection + cars.length) % cars.length);
   }, [cars.length]);
-
   // Place all hooks at the top level, before any conditional returns
   useEffect(() => {
     if (!isHovered) {
@@ -60,11 +66,11 @@ const FeaturedProducts: React.FC = () => {
       <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl w-full mx-auto">
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-2xl md:text-4xl font-bold text-white uppercase tracking-wider mb-4">
-            Featured Vehicles
+            Economy Cars
           </h2>
           <div className="h-[2px] w-20 mx-auto bg-blue-500 mb-4" />
           <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-            Experience luxury with our premium selection of vehicles.
+          Enjoy comfort and savings with our reliable selection of economy cars.
           </p>
         </div>
 
@@ -130,8 +136,8 @@ const FeaturedProducts: React.FC = () => {
 
         {/* INDICATORS */}
         <div className="flex justify-center space-x-2 mt-6">
-         {cars.map((_, index) => ( 
-   <button
+          {cars.map((_, index) => (
+            <button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex ? "bg-blue-500 scale-125" : "bg-gray-600"
@@ -149,4 +155,4 @@ const FeaturedProducts: React.FC = () => {
   );
 };
 
-export default FeaturedProducts;
+export default EconomyCars;

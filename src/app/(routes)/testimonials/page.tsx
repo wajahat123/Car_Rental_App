@@ -1,5 +1,5 @@
 "use client"
-import SubHeader from '@/Components/Generals/Subheader_Contact'
+import SubHeader from '@/Components/Generals/Subheader_About'
 import TestimonialCard from '@/Components/Home/TestimonialCard'
 import testimonials from "@/Utils/TestimonialsData.json";
 

@@ -1,5 +1,5 @@
 "use client"
-import SubHeader from '@/Components/Generals/Subheader_Contact'
+import SubHeader from '@/Components/Generals/Subheader_About'
 import  { useRef } from 'react'
 import FAQs from "@/Utils/FAQs.json"
 import FAQuestions from "@/Components/Generals/FAQ"
